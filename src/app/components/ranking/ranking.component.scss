@@ -1,0 +1,248 @@
+.ranking-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.ranking-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: #666;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  background: #fee;
+  border-radius: 8px;
+  color: #c33;
+  
+  .retry-button {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+    &:hover {
+      background: #2980b9;
+    }
+  }
+}
+
+.podium {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  
+  .podium-item {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    &.gold {
+      border: 3px solid #FFD700;
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFFFFF 100%);
+    }
+    
+    &.silver {
+      border: 3px solid #C0C0C0;
+      background: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
+    }
+    
+    &.bronze {
+      border: 3px solid #CD7F32;
+      background: linear-gradient(135deg, #FFF4E6 0%, #FFFFFF 100%);
+    }
+    
+    .medal {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .avatar-large {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid #eee;
+    }
+    
+    h3 {
+      margin: 0.5rem 0;
+      font-size: 1.3rem;
+      color: #333;
+    }
+    
+    .points {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #3498db;
+      margin: 0.5rem 0;
+    }
+    
+    .position {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #3498db;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.ranking-table {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    thead {
+      background: #3498db;
+      color: white;
+      
+      th {
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+        
+        &:first-child {
+          width: 80px;
+        }
+        
+        &:last-child {
+          width: 150px;
+          text-align: right;
+        }
+      }
+    }
+    
+    tbody {
+      tr {
+        border-bottom: 1px solid #eee;
+        transition: background 0.2s ease;
+        
+        &:hover {
+          background: #f8f9fa;
+        }
+        
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+      
+      td {
+        padding: 1rem;
+        
+        &.position-cell {
+          font-weight: bold;
+          color: #666;
+        }
+        
+        &.student-cell {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          
+          .avatar-small {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+          
+          span {
+            font-weight: 500;
+            color: #333;
+          }
+        }
+        
+        &.points-cell {
+          text-align: right;
+          font-weight: bold;
+          color: #3498db;
+        }
+      }
+    }
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .ranking-container {
+    padding: 1rem;
+  }
+  
+  .podium {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ranking-table table {
+    font-size: 0.9rem;
+    
+    td.student-cell {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}

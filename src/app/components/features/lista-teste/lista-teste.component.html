@@ -1,0 +1,26 @@
+<div class="lista-container">
+  <div class="flex-nodes">
+    
+    <div *ngFor="let node of lista; let i = index; let last = last" class="node-wrapper">
+      
+      <div class="node-group">
+        <div class="node-box">
+          <div class="valor">{{ node.valor }}</div>
+          <div class="pointer"></div>
+        </div>
+        
+        <div *ngIf="!last" class="arrow-horizontal"></div>
+      </div>
+
+      <div *ngIf="last" class="ground-terminal">
+        <div class="vertical-line"></div>
+        <div class="ground-bars">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

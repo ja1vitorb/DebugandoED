@@ -1,0 +1,37 @@
+<div class="page-with-footer">
+    <div class="login-outer">
+        <div class="login-card">
+            <h1 class="title">{{ 'LOGIN.TITLE' | translate }}</h1>
+
+            <form (ngSubmit)="submit()" class="login-form">
+                <div class="row">
+                    <label class="field">
+                        <span class="label-text">{{ 'LOGIN.EMAIL' | translate }}</span>
+                        <input name="email" [(ngModel)]="email" required />
+                    </label>
+                </div>
+
+                <div class="row">
+                    <label class="field">
+                        <span class="label-text">{{ 'LOGIN.PASSWORD' | translate }}</span>
+                        <input name="password" type="password" [(ngModel)]="password" required minlength="6" />
+                    </label>
+                </div>
+
+                <div class="actions">
+                    <button type="button" class="btn cancel" (click)="cancel()">{{ 'LOGIN.CANCEL' | translate
+                        }}</button>
+                    <button type="submit" class="btn primary" [disabled]="loading">{{ 'LOGIN.SUBMIT' | translate
+                        }}</button>
+                </div>
+
+                <div class="error" *ngIf="error">{{ error }}</div>
+            </form>
+
+            <div class="register-link">
+                <span>{{ 'LOGIN.NEW_HERE' | translate }} </span>
+                <a routerLink="/register">{{ 'LOGIN.SIGNUP' | translate }}</a>
+            </div>
+        </div>
+    </div>
+</div>

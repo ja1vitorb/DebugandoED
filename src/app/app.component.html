@@ -1,0 +1,10 @@
+<div class="container">
+    <app-menu *ngIf="mostrarMenu"></app-menu>
+    <div class="conteudoPrincipal">
+        <div *ngIf="exibirAviso" class="aviso">
+            📢 Seu dispositivo tem uma largura menor que 800px e pode não suportar corretamente o site.
+    </div>
+        <router-outlet></router-outlet> 
+    </div>
+    <app-footer></app-footer>
+</div> 

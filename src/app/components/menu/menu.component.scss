@@ -1,0 +1,123 @@
+.logo{
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #222;
+  padding: 10px 20px;
+  .menu-left {
+    flex: 1; 
+    color: #fff;
+  }
+
+  .menu-center {
+    overflow-x: auto;
+    display: flex;
+    flex: 5; 
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      margin: 0 15px;
+      
+      a {
+        display: flex;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: bold;
+
+        img {
+          width: 20px;
+          height: 20px;
+          margin-right: 8px;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .menu-right {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+
+    .save-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      transition: all 0.3s;
+
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      &:hover:not(:disabled) {
+        transform: scale(1.1);
+      }
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .user-name {
+      color: white;
+      font-weight: 500;
+    }
+
+    button:not(.save-btn):not(.lang-btn) {
+      background: #d9534f;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+
+      &:hover {
+        background: #c9302c;
+      }
+    }
+
+    .lang-btn {
+      background: #5bc0de;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+
+      &:hover {
+        background: #31b0d5;
+      }
+    }
+  }
+}
+
+.menu-center::-webkit-scrollbar{
+  width: 0;
+}

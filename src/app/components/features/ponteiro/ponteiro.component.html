@@ -1,0 +1,460 @@
+<h1 id="titulo">{{ tituloPag | translate }}</h1>
+
+<div class="modal" id="ajuda-codigo" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'BLOCKS.CODE.TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicaTudo">
+                <h3>{{ 'POINTER.EXPLANATION.CODE_TITLE' | translate }}</h3>
+                <p>{{ 'POINTER.EXPLANATION.CODE_TEXT' | translate }}</p>
+                <img [src]="getImagePath(codigoPonteiro)" alt="Exemplo Código">
+            </div>
+            <div class="btns">
+                <button class="btnModal" style="background-color: blue;" (click)="fecharAjuda('ajuda-codigo')">{{ 'MODAL.CLOSE' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="ajuda-memoria" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'BLOCKS.MEMORY.TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicaTudo">
+                <h3>{{ 'POINTER.EXPLANATION.MEMORY_TITLE' | translate }}</h3>
+                <p>{{ 'POINTER.EXPLANATION.MEMORY_TEXT' | translate }}</p>
+                <img [src]="getImagePath(memoriaPonteiro)" alt="Exemplo Memoria">
+            </div>
+            <div class="btns">
+                <button class="btnModal" style="background-color: blue;" (click)="fecharAjuda('ajuda-memoria')">{{ 'MODAL.CLOSE' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="ajuda-execucao" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'MATRIX.EXECUTION_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicaTudo">
+                <h3>{{ 'POINTER.EXPLANATION.EXEC_TITLE' | translate }}</h3>
+                <p>{{ 'POINTER.EXPLANATION.EXEC_TEXT' | translate }}</p>
+                <img [src]="getImagePath(execucaoPonteiro)" alt="Exemplo Execução">
+            </div>
+            <div class="btns">
+                <button class="btnModal" style="background-color: blue;" (click)="fecharAjuda('ajuda-execucao')">{{ 'MODAL.CLOSE' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="explicacao-modal-ponteiro" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'MODAL.CHOICE_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicacao-texto">
+                <div class="btnModal2" (click)="exibirExplicaPonteiro('reiniciar')">
+                    <p>{{ 'MODAL.RESTART' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="exibirExplicaPonteiro('criar')">
+                    <p>{{ 'POINTER.BUTTON.CREATE' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="exibirExplicaPonteiro('apontar')">
+                    <p>{{ 'POINTER.BUTTON.POINT' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="exibirExplicaPonteiro('mostrar')">
+                    <p>{{ 'POINTER.BUTTON.SHOW_POINTERS' | translate }}</p>
+                </div>
+                <div class="inserir" (click)="exibirExplicaPonteiro('inserir')">
+                    <p>{{ 'POINTER.BUTTON.INSERT' | translate }}</p>
+                </div>
+            </div>
+
+            <div class="explicaTudo">
+                <div class="explicaReinicia" *ngIf="abaExplicacaoAtiva === 'reiniciar'">
+                    <h3>{{ 'POINTER.EXPLANATION.RESTART_TITLE' | translate }}</h3>
+                    <p>{{ 'VECTOR.RESTART_OPTION.TEXT' | translate }}</p>
+                    <img [src]="getImagePath(resetPonteiro)" alt="Reiniciar">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacaoAtiva === 'criar'">
+                    <h3>{{ 'POINTER.EXPLANATION.CREATE_TITLE' | translate }}</h3>
+                    <p>
+                        {{ 'POINTER.EXPLANATION.CREATE_TEXT' | translate }}
+                        <br><br>
+                        <strong>{{ 'POINTER.EXPLANATION.CREATE_OBS' | translate }}</strong><br>
+                        {{ 'POINTER.EXPLANATION.CREATE_OBS_A' | translate }}<br>
+                        {{ 'POINTER.EXPLANATION.CREATE_OBS_B' | translate }}<br>
+                        {{ 'POINTER.EXPLANATION.CREATE_OBS_C' | translate }}
+                    </p>
+                    <img [src]="getImagePath(criaPonteiro)" alt="Criar">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacaoAtiva === 'apontar'">
+                    <h3>{{ 'POINTER.EXPLANATION.POINT_TITLE' | translate }}</h3>
+                    <p>{{ 'POINTER.EXPLANATION.POINT_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(criaApontamento)" alt="Apontar">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacaoAtiva === 'mostrar'">
+                    <h3>{{ 'POINTER.EXPLANATION.SHOW_TITLE' | translate }}</h3>
+                    <p>{{ 'POINTER.EXPLANATION.SHOW_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(mostraPonteiros)"  alt="Mostrar">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacaoAtiva === 'inserir'">
+                    <h3>{{ 'POINTER.EXPLANATION.INSERT_TITLE' | translate }}</h3>
+                    <p>{{ 'POINTER.EXPLANATION.INSERT_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(inserePonteiro)" alt="Inserir">
+                </div>
+            </div>
+
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="fecharModalExplicaPonteiro()">{{ 'MODAL.CLOSE' |
+                    translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalMostraPonteiros">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'POINTER.MODAL.VIEW_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="tabelaPonteiros">
+                <div class="ponteiroTabela">
+                    <h3>{{ 'POINTER.MODAL.POINTER_LABEL' | translate }}</h3>
+                </div>
+                <div class="variavelTabela">
+                    <h3>{{ 'POINTER.MODAL.TYPE_VAR' | translate }}</h3>
+                </div>
+                <div class="conteudoTabela">
+                    <h3>{{ 'POINTER.MODAL.CONTENT' | translate }}</h3>
+                </div>
+            </div>
+            <ng-container *ngFor="let item of ListaPonteirosEVariaveis; let i = index">
+                <div class="tabelaFinal" *ngIf="item.VariavelOuPonteiro === 'ponteiro'">
+                    <div class="ponteiroTabelaFinal">
+                        <p>{{ item.nome }}*</p>
+                    </div>
+                    <div class="variavelTabelaFinal">
+                        <p>{{ getNomeAlvo(item.apontaPara) }}</p>
+                    </div>
+                    <div class="conteudoTabelaFinal">
+                        <p>{{ getConteudoAlvo(item.apontaPara) }}</p>
+                    </div>
+                </div>
+            </ng-container>
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="fechaMostraPonteiros()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="modalAponta">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'POINTER.MODAL.POINT_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <h2>{{ 'POINTER.MODAL.POINT_TITLE' | translate }}</h2>
+            <div class="inputs">
+                <div class="ponteiro">
+                    <p>{{ 'POINTER.TITLE_MAIN' | translate }}</p>
+                    <select name="Ponteiro" id="ponteiro">
+                        <option value="">{{ 'POINTER.MODAL.POINTER_MODAL_TITLE' | translate }}</option>
+                        <ng-container *ngFor="let item of ListaPonteirosEVariaveis">
+                            <option *ngIf="item.VariavelOuPonteiro === 'ponteiro'" [value]="item.nome">
+                                {{ item.nome }}*
+                            </option>
+                        </ng-container>
+                    </select>
+                </div>
+                <div class="apontado">
+                    <p>{{ 'POINTER.MODAL.POINTED' | translate }}</p>
+                    <select name="apontado" id="apontado">
+                        <option value="">{{ 'POINTER.MODAL.POINTER_MODAL_TITLE2' | translate }}</option>
+                        <ng-container *ngFor="let item of ListaPonteirosEVariaveis">
+                            <option *ngIf="item.VariavelOuPonteiro" [value]="item.nome">{{ item.nome }}</option>
+                        </ng-container>
+                    </select>
+                </div>
+            </div>
+
+            <div class="lista-criados" *ngIf="ListaPonteirosEVariaveis.length > 0">
+
+                <div class="tabela-preview">
+                    <div class="header-preview">
+                        <span>{{ 'POINTER.MODAL.TYPE' | translate }}</span>
+                        <span>{{ 'POINTER.MODAL.NAME' | translate }}</span>
+                    </div>
+                    <div class="scroll-preview">
+                        <div class="row-preview" *ngFor="let item of ListaPonteirosEVariaveis; let i = index">
+                            <span [style.color]="item.VariavelOuPonteiro === 'ponteiro' ? 'red' : 'blue'">
+                                {{ item.tipo }}{{ item.VariavelOuPonteiro === 'ponteiro' ? '*' : '' }}
+                            </span>
+                            <span>{{ item.nome }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="criarApontamento()">{{ 'VECTOR.INPUT.CONFIRM' |
+                    translate }}</button>
+                <button class="btnModal" id="btnCancela" (click)="fecharModalAponta()">{{ 'MODAL.CANCEL' | translate
+                    }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'POINTER.MODAL.CREATE_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <h2>{{ 'POINTER.TITLE_MAIN' | translate }}</h2>
+            <div class="inputPonteiro">
+                <div class="parteCima">
+                    <div class="tipo">
+                        <p>{{ 'POINTER.MODAL.DATA_TYPE' | translate }}</p>
+                        <select name="tipoDado" #tipoDado id="tipoDado">
+                            <option value="variavel">{{ 'POINTER.MODAL.TYPE_VAR' | translate }}</option>
+                            <option value="ponteiro">{{ 'POINTER.MODAL.TYPE_POINT' | translate }}</option>
+                        </select>
+                    </div>
+                    <div class="tipagem">
+                        <p>{{ 'POINTER.MODAL.TYPING' | translate }}</p>
+                        <select name="tipagem" #tipagem id="tipagem">
+                            <option value="int">{{ 'POINTER.MODAL.INT' | translate }}</option>
+                            <option value="float">{{ 'POINTER.MODAL.FLOAT' | translate }}</option>
+                            <option value="char">{{ 'POINTER.MODAL.CHAR' | translate }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="parteBaixo">
+                    <div class="nome">
+                        <p>{{ 'POINTER.MODAL.NAME' | translate }}</p>
+                        <input type="text" #nome placeholder="Nome do ponteiro ou variável">
+                    </div>
+                    <div class="btnAdicionaPonteiro">
+                        <p style="color: white;">|</p>
+                        <button (click)="VariavelPonteiroAdiciona(tipoDado.value, tipagem.value, nome)">{{
+                            'POINTER.MODAL.ADD' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lista-criados" *ngIf="ListaPonteirosEVariaveis.length > 0">
+                <div class="tabela-preview">
+                    <div class="header-preview">
+                        <span>Tipo</span>
+                        <span>Nome</span>
+                    </div>
+                    <div class="scroll-preview">
+                        <div class="row-preview" *ngFor="let item of ListaPonteirosEVariaveis; let i = index">
+                            <span [style.color]="item.VariavelOuPonteiro === 'ponteiro' ? 'red' : 'blue'">
+                                {{ item.tipo }}{{ item.VariavelOuPonteiro === 'ponteiro' ? '*' : '' }}
+                            </span>
+                            <span>{{ item.nome }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="iniciaPonteiro()">{{ 'VECTOR.INPUT.CONFIRM' |
+                    translate }}</button>
+                <button class="btnModal" id="btnCancela" (click)="fecharModal()">{{ 'MODAL.CANCEL' | translate
+                    }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container2">
+
+
+    <div class="painel">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.PANEL.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" *ngIf="!ponteiroInicializado" id="explicaModal">
+            <img [src]="getImagePath(icon)" *ngIf="ponteiroInicializado" (click)="abrirModalExplicaPonteiro()"
+                id="explicaModal">
+        </div>
+        <div class="card">
+            <div class="btn">
+                <!-- Botão Criar - só aparece quando ponteiroInicializado é falso -->
+                <div class="btnS" *ngIf="!ponteiroInicializado" (click)="abrirModal()">
+                    <a>
+                        <img [src]="getImagePath(inicia)">
+                        <p>{{ 'POINTER.BUTTON.CREATE' | translate }}</p>
+                    </a>
+                </div>
+
+                <!-- Outros botões - só aparecem quando ponteiroInicializado é verdadeiro -->
+                <div *ngIf="ponteiroInicializado" class="btnReset" (click)="reiniciarTudo()">
+                    <a role="button">
+                        <img [src]="getImagePath(reset)">
+                        <p>{{ 'MATRIX.BUTTON.RESET' | translate }}</p>
+                    </a>
+                </div>
+
+                <div *ngIf="ponteiroInicializado" class="btnMostraTodos" id="btnCria" (click)="abrirModal()">
+                    <a id="btnInit" role="button">
+                        <img [src]="getImagePath(insere)">
+                        <p>{{ 'POINTER.BUTTON.CREATE' | translate }}</p>
+                    </a>
+                </div>
+
+                <div *ngIf="ponteiroInicializado" class="btnMostraTodos" (click)="abrirModalCriaPonteiro()">
+                    <a>
+                        <img [src]="getImagePath(inicia)">
+                        <p>{{ 'POINTER.BUTTON.POINT' | translate }}</p>
+                    </a>
+                </div>
+
+                <div *ngIf="ponteiroInicializado" class="btnMostraTodos" (click)="mostrarPonteiros()">
+                    <a>
+                        <img [src]="getImagePath(mostra)">
+                        <p>{{ 'POINTER.BUTTON.SHOW_POINTERS' | translate }}</p>
+                    </a>
+                </div>
+
+                <div *ngIf="ponteiroInicializado" class="mostraEspecifico">
+                    <div class="mostraInputs">
+                        <select #selectVariavel name="meu-select" id="meu-select" required>
+                            <option value="">Selecione uma variável</option>
+                            <ng-container *ngFor="let item of ListaPonteirosEVariaveis">
+                                <option *ngIf="item.VariavelOuPonteiro === 'variavel'" [value]="item.nome">
+                                    {{ item.nome }}
+                                </option>
+                            </ng-container>
+                        </select>
+                    </div>
+                    <div class="inputVar">
+                        <input type="text" #valorInput id="inputVariavel" style="height: 45px; width: 110px;"
+                            class="inputVar1" placeholder="Valor">
+                    </div>
+
+
+                    <div class="mostra" id="btnInsere"
+                        (click)="inserirValorVariavel(selectVariavel.value, valorInput.value)">
+                        <a role="button">
+                            <p>{{ 'POINTER.BUTTON.INSERT' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="codigo">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.CODE.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" id="explicaModal" (click)="abrirAjuda('ajuda-codigo')">
+        </div>
+
+        <div class="card">
+            <pre>{{ codigo }}</pre>
+        </div>
+    </div>
+
+    <div class="memoria">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.MEMORY.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" id="explicaModal" (click)="abrirAjuda('ajuda-memoria')">
+        </div>
+        <div class="card">
+            <div class="topCard" *ngIf="ponteiroInicializado">
+                <div class="tipo">
+                    <div class="dados">
+                        <p>Tipo</p>
+                    </div>
+                </div>
+                <div class="nome">
+                    <div class="dados">
+                        <p>{{ 'MATRIX.MEMORY.VARIABLE' | translate }}</p>
+                    </div>
+                </div>
+                <div class="mem">
+                    <div class="dados">
+                        <p>{{ 'MATRIX.MEMORY.POSITION' | translate }}</p>
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <div class="dados">
+                        <p>{{ 'MATRIX.MEMORY.CONTENT' | translate }}</p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="ponteiroInicializado">
+                <div class="memoriaDiv cl-row" *ngFor="let item of ListaPonteirosEVariaveis; let i = index">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>{{ item.tipo }}{{ item.VariavelOuPonteiro === 'ponteiro' ? '*' : '' }}</p>
+                        </div>
+                    </div>
+                    <div class="nome">
+                        <div class="dados">
+                            <p>{{ item.nome }}</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>{{ enderecos[i] }}</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p [class]="getCorClasse(i)">{{ caixas[i] }}</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<div class="exec">
+    <div class="parteCima">
+        <span></span>
+        <h1>{{ 'MATRIX.EXECUTION_TITLE' | translate }}</h1>
+        <img [src]="getImagePath(icon)" alt="ícone" id="explicaModal" (click)="abrirAjuda('ajuda-execucao')">
+    </div>
+
+    <div class="corpo"
+        style="position: relative; display: flex; flex-direction: column; align-items: center; padding: 3rem 0;">
+        <svg *ngIf="ponteiroInicializado"
+            style="position: absolute; top: 2.5rem; left: 100px; pointer-events: none; z-index: 5; overflow: visible;"
+            width="600" [attr.height]="getSvgHeight()">
+
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="1" refY="5" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 Z" fill="#ff6b6b" />
+                </marker>
+            </defs>
+
+            <path *ngFor="let seta of getSetas()" [attr.d]="seta.path" [attr.stroke]="seta.stroke" stroke-width="2"
+                fill="none" stroke-linejoin="round" marker-end="url(#arrowhead)" />
+        </svg>
+
+        <div *ngIf="ponteiroInicializado" class="corpo-caixas">
+            <div *ngFor="let caixa of caixas; let i = index" class="linha-endereco-caixa">
+                <div class="endereco-item">
+                    {{ enderecos[i] }}
+                </div>
+                <div class="caixa-vertical">
+                    <div>
+                        <div class="numero">
+                            <span [class]="getCorClasse(i)">{{ caixa }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nome-variavel-item">
+                    {{ ListaPonteirosEVariaveis[i].nome }}<span
+                        *ngIf="ListaPonteirosEVariaveis[i].VariavelOuPonteiro === 'ponteiro'" class="asterisco">*</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="challenges-list">
+  <div class="panel">
+    <div class="panel-header">{{ structureName ? (structureName | uppercase) : 'SEÇÃO' }}:</div>
+
+    <div class="panel-body">
+      <div class="panel-title">DESAFIO</div>
+
+      <div *ngIf="challenges.length === 0" class="empty">Nenhum desafio encontrado.</div>
+
+      <div class="items">
+        <div *ngFor="let c of challenges" class="item" (click)="openMission(c)">
+          <button class="difficulty" [ngClass]="c.difficulty?.toLowerCase()" (click)="$event.stopPropagation(); openMission(c)">
+            {{ c.difficulty }}
+            <span class="points-text">( + {{ c.points ?? 0 }} PONTOS )</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

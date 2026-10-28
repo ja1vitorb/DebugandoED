@@ -1,0 +1,381 @@
+<div class="grafos-root">
+  <h1 id="titulo">{{ 'GRAPH.TITLE' | translate }}</h1>
+
+  <div class="container2">
+
+    <!-- Painel: Painel Principal -->
+    <div class="painel">
+      <div class="topCard">
+        <h1>{{ 'GRAPH.PANEL.TITLE' | translate }}</h1>
+        <span class="help-icon" (click)="openHelp('painel')">?</span>
+      </div>
+      <div class="card">
+        <div class="btn">
+          <!-- Um único botão: verde "Inicializar Grafo" enquanto não há grafo,
+               vermelho "Reiniciar execução" depois que o grafo existe. -->
+          <div class="btnInicializa" *ngIf="!hasNodes()" (click)="openRandomModal()">
+            <img src="images/inicializaVet.svg" alt="Ícone" width="20" height="20">
+            {{ 'GRAPH.BUTTON.INIT' | translate }}
+          </div>
+
+          <!-- Na tela de "rodar tudo" / "passo a passo" ainda nada rodou, então
+               em vez de "Reiniciar execução" (que apaga o grafo inteiro), mostra
+               "Voltar", que só desmarca o algoritmo e volta pro <select>. -->
+          <div class="btnReset" *ngIf="hasNodes() && !showRunModeChoice" (click)="resetAll()">
+            <span class="btn-icon">↻</span> {{ 'GRAPH.BUTTON.RESET' | translate }}
+          </div>
+
+          <div class="btnVoltar" *ngIf="hasNodes() && showRunModeChoice" (click)="backToAlgorithmSelection()">
+            <span class="btn-icon">←</span> {{ 'GRAPH.BUTTON.BACK' | translate }}
+          </div>
+
+          <!-- Inserir / excluir nó (mesmo padrão de campo + botão do módulo Vetor).
+               Pedido do professor: com nenhum algoritmo ativo, só "Inserir nó" fica visível
+               antes de existir qualquer nó no grafo; "Excluir nó" e "Conectar nós" só aparecem
+               depois que já existe pelo menos um nó. Assim que um algoritmo é escolhido/rodando
+               (canCancelExecution), os três somem e sobra só "Reiniciar execução" + os controles
+               do algoritmo — painel fica limpo com só o que é preciso em cada etapa. -->
+          <ng-container *ngIf="!canCancelExecution">
+            <div class="campo-acao insereElemento">
+              <input id="insereElemento" #addNodeInput type="text" [placeholder]="'GRAPH.PLACEHOLDER.NODE_NAME' | translate"
+                     (keyup.enter)="addNodeByLabel(addNodeInput.value); addNodeInput.value=''">
+              <div class="campo-btn insere" (click)="addNodeByLabel(addNodeInput.value); addNodeInput.value=''">
+                <span class="btn-icon">+</span> {{ 'GRAPH.BUTTON.INSERT_NODE' | translate }}
+              </div>
+            </div>
+
+            <ng-container *ngIf="hasNodes()">
+              <div class="campo-acao apagaVet">
+                <input id="apagaMostra" #delNodeInput type="text" [placeholder]="'GRAPH.PLACEHOLDER.NODE_TO_DELETE' | translate"
+                       (keyup.enter)="removeNodeByLabel(delNodeInput.value); delNodeInput.value=''">
+                <div class="campo-btn apaga" (click)="removeNodeByLabel(delNodeInput.value); delNodeInput.value=''">
+                  <span class="btn-icon">🗑</span> {{ 'GRAPH.BUTTON.DELETE_NODE' | translate }}
+                </div>
+              </div>
+            </ng-container>
+            <p class="campo-msg" *ngIf="nodeActionMessage()">{{ nodeActionMessage() }}</p>
+
+            <!-- Conectar nós pelo nome (alternativa acessível ao clique duplo no grafo) -->
+            <ng-container *ngIf="hasNodes()">
+              <div class="conectaNos">
+                <div class="conecta-inputs">
+                  <input #nodeAInput type="text" [placeholder]="'GRAPH.PLACEHOLDER.NODE_A' | translate">
+                  <input #nodeBInput type="text" [placeholder]="'GRAPH.PLACEHOLDER.NODE_B' | translate">
+                  <input #pesoInput type="number" [placeholder]="'GRAPH.PLACEHOLDER.WEIGHT' | translate" value="1">
+                </div>
+                <div class="conecta-btn"
+                     (click)="connectNodesByLabel(nodeAInput.value, nodeBInput.value, pesoInput.value); nodeAInput.value=''; nodeBInput.value=''; pesoInput.value='1'">
+                  <span class="btn-icon">🔗</span> {{ 'GRAPH.BUTTON.CONNECT_NODES' | translate }}
+                </div>
+              </div>
+              <p class="campo-msg" *ngIf="connectActionMessage()">{{ connectActionMessage() }}</p>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <!-- Seleção de algoritmo: só aparece depois que existe pelo menos um nó no grafo -->
+        <ng-container *ngIf="hasNodes()">
+          <hr class="painel-divisor">
+
+          <div class="algoritmo-select">
+            <select (change)="onAlgorithmSelected($any($event.target).value)">
+              <option value="">{{ 'GRAPH.SELECT.CHOOSE_ALGORITHM' | translate }}</option>
+              <option value="bfs">{{ 'GRAPH.ALGO.BFS' | translate }}</option>
+              <option value="dfs">{{ 'GRAPH.ALGO.DFS' | translate }}</option>
+              <option value="dijkstra">{{ 'GRAPH.ALGO.DIJKSTRA' | translate }}</option>
+              <option value="coloring">{{ 'GRAPH.ALGO.COLORING' | translate }}</option>
+              <option value="tsp">{{ 'GRAPH.ALGO.TSP' | translate }}</option>
+            </select>
+            <p class="status-msg" *ngIf="statusMessage()">{{ statusMessage() }}</p>
+          </div>
+        </ng-container>
+
+        <!-- Escolha do modo de execução: completo ou passo a passo (caminhos separados) -->
+        <div class="run-mode" *ngIf="showRunModeChoice">
+          <button class="mode-btn" (click)="chooseRunMode('full')">{{ 'GRAPH.BUTTON.RUN_FULL' | translate }}</button>
+          <button class="mode-btn" (click)="chooseRunMode('step')">{{ 'GRAPH.BUTTON.RUN_STEP' | translate }}</button>
+        </div>
+
+        <!-- Depois que um modo foi escolhido, o X aparece no mesmo lugar dos
+             botões acima — encerra o algoritmo atual (em qualquer estágio:
+             escolhendo origem, animando, passo a passo ou já com resultado) e
+             volta pra essa mesma escolha de modo, do mesmo algoritmo. -->
+        <div class="run-mode" *ngIf="!showRunModeChoice && canCancelExecution">
+          <button type="button" class="btn-encerrar" (click)="cancelExecution()"
+                  [title]="'GRAPH.CANCEL_ALGO_TITLE' | translate">
+            {{ 'GRAPH.BUTTON.CANCEL_ALGO' | translate }}
+          </button>
+        </div>
+
+        <!-- Macro-passos didáticos (modo "passo a passo") — funciona para qualquer algoritmo selecionado -->
+        <div class="result-panel" *ngIf="isTraceAlgorithm()">
+          <span class="badge-approx" *ngIf="traceAlgorithm === 'tsp' && tspIsHeuristic">{{ 'GRAPH.HEURISTIC_WARNING' | translate }}</span>
+          <strong>{{ activeMacroSteps[macroStepIndex()].title }}</strong>
+          <p class="trace-desc">{{ activeMacroSteps[macroStepIndex()].description }}</p>
+
+          <div class="stepper">
+            <button class="step-btn" (click)="prevMacroStep()" [disabled]="macroStepIndex() === 0">‹</button>
+            <span class="step-label">{{ 'GRAPH.STEP_LABEL' | translate: { current: macroStepIndex() + 1, total: activeMacroSteps.length } }}</span>
+            <button class="step-btn" (click)="nextMacroStep()" [disabled]="!canAdvanceMacroStep">›</button>
+          </div>
+
+          <!-- Controles extras só no passo 3 (a fase que repete) — navegação manual, sem auto-play -->
+          <div class="loop-controls" *ngIf="macroStepIndex() === 2">
+            <div class="stepper">
+              <button class="step-btn" (click)="prevIteration()" [disabled]="iterationIndex() <= -1">‹</button>
+              <span class="step-label">{{ 'GRAPH.ITERATION_LABEL' | translate: { current: iterationIndex() + 1, total: macroIterationsCount } }}</span>
+              <button class="step-btn" (click)="nextIteration()" [disabled]="iterationIndex() >= macroIterationsCount - 1">›</button>
+            </div>
+          </div>
+
+          <!-- Passo 4: explorar o resultado final -->
+          <!-- Coloração não tem "caminho" nó a nó — mostra os grupos de cor formados -->
+          <ng-container *ngIf="macroStepIndex() === 3 && traceAlgorithm === 'coloring' && coloringGroups()">
+            <hr>
+            <strong>{{ 'GRAPH.COLOR_GROUPS' | translate }}</strong>
+            <ol>
+              <li *ngFor="let group of coloringGroups()"
+                  (mouseenter)="highlightColorGroup(group.nodeIds)"
+                  (mouseleave)="clearHighlight()">
+                <span class="color-swatch" [style.backgroundColor]="group.color"></span>
+                {{ group.labels.join(', ') }}
+              </li>
+            </ol>
+          </ng-container>
+
+          <!-- Demais algoritmos (BFS, DFS, Dijkstra, TSP): histórico nó a nó -->
+          <ng-container *ngIf="macroStepIndex() === 3 && traceAlgorithm !== 'coloring' && algorithmResult()">
+            <hr>
+            <strong>{{ 'GRAPH.FINAL_HISTORY' | translate }}</strong>
+            <div class="stepper">
+              <button class="step-btn" (click)="prevStep()" [disabled]="currentStepIndex() === 0">‹</button>
+              <span class="step-label">
+                {{ 'GRAPH.STEP_OF_PLAIN' | translate: { current: currentStepIndex() + 1, total: algorithmResult()!.length } }} <strong>{{ algorithmResult()![currentStepIndex()].label }}</strong>
+              </span>
+              <button class="step-btn" (click)="nextStep()" [disabled]="currentStepIndex() === algorithmResult()!.length - 1">›</button>
+            </div>
+
+            <ol>
+              <li *ngFor="let step of algorithmResult(); let i = index"
+                  [class.active-step]="i === currentStepIndex()"
+                  (click)="goToStep(i)"
+                  (mouseenter)="highlightPath(step.nodeId)"
+                  (mouseleave)="highlightPath(algorithmResult()![currentStepIndex()].nodeId)">
+                {{ step.label }}
+              </li>
+            </ol>
+          </ng-container>
+        </div>
+
+        <!-- Resultado da Coloração -->
+        <div class="result-panel" *ngIf="coloringGroups() && !isTraceAlgorithm()">
+          <strong>{{ 'GRAPH.COLOR_GROUPS' | translate }}</strong>
+          <ol>
+            <li *ngFor="let group of coloringGroups()"
+                (mouseenter)="highlightColorGroup(group.nodeIds)"
+                (mouseleave)="clearHighlight()">
+              <span class="color-swatch" [style.backgroundColor]="group.color"></span>
+              {{ group.labels.join(', ') }}
+            </li>
+          </ol>
+        </div>
+
+        <!-- Histórico do algoritmo (BFS "rodar tudo", DFS, Dijkstra, TSP) -->
+        <div class="result-panel" *ngIf="algorithmResult() && !coloringGroups() && !isTraceAlgorithm()">
+          <strong>{{ 'GRAPH.ALGO_HISTORY' | translate }}</strong>
+
+          <div class="stepper" *ngIf="algorithmResult()!.length">
+            <button class="step-btn" (click)="prevStep()" [disabled]="currentStepIndex() === 0">‹</button>
+            <span class="step-label">
+              {{ 'GRAPH.STEP_LABEL' | translate: { current: currentStepIndex() + 1, total: algorithmResult()!.length } }}
+              <strong>{{ algorithmResult()![currentStepIndex()].label }}</strong>
+              <span *ngIf="algorithmResult()![currentStepIndex()].distance !== undefined">
+                {{ 'GRAPH.DISTANCE_LABEL' | translate: { value: algorithmResult()![currentStepIndex()].distance } }}
+              </span>
+            </span>
+            <button class="step-btn" (click)="nextStep()" [disabled]="currentStepIndex() === algorithmResult()!.length - 1">›</button>
+          </div>
+
+          <ol>
+            <li *ngFor="let step of algorithmResult(); let i = index"
+                [class.active-step]="i === currentStepIndex()"
+                (click)="goToStep(i)"
+                (mouseenter)="highlightPath(step.nodeId)"
+                (mouseleave)="highlightPath(algorithmResult()![currentStepIndex()].nodeId)">
+              {{ step.label }}<span *ngIf="step.distance !== undefined">{{ 'GRAPH.DISTANCE_LABEL' | translate: { value: step.distance } }}</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel: Código C -->
+    <div class="codigo">
+      <div class="topCard">
+        <h1>{{ 'GRAPH.CODE.TITLE' | translate }}</h1>
+        <span class="help-icon" (click)="openHelp('codigo')">?</span>
+      </div>
+      <div class="card">
+        <ng-container *ngIf="isTraceAlgorithm(); else codigoNormal">
+          <div class="code-line" *ngFor="let line of activeCodeLines; let i = index" [class.active-line]="traceCodeLines().includes(i)">
+            <span class="line-number">{{ i + 1 }}</span>
+            <span class="line-text">{{ line || ' ' }}</span>
+          </div>
+        </ng-container>
+        <ng-template #codigoNormal>
+          <pre id="textCod">{{ codigoAtual() }}</pre>
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- Painel: Memória -->
+    <div class="memoria">
+      <div class="topCard">
+        <h1>{{ 'GRAPH.MEMORY.TITLE' | translate }}</h1>
+        <span class="help-icon" (click)="openHelp('memoria')">?</span>
+      </div>
+      <div class="card">
+        <div class="memoria-body">
+          <!-- Cabeçalho e linhas são todos filhos diretos do mesmo grid (memoria-body),
+               então as colunas sempre ficam com a largura exata uma da outra —
+               não dá mais pra desalinhar, mesmo com a barra de rolagem aparecendo. -->
+          <ng-container *ngIf="memoryRows().length || hasTraceMemory">
+            <div class="mem-cell mem-header-cell nome"><div class="dados"><p>{{ 'GRAPH.MEMORY.VARIABLE' | translate }}</p></div></div>
+            <div class="mem-cell mem-header-cell mem"><div class="dados"><p>{{ 'GRAPH.MEMORY.ADDRESS' | translate }}</p></div></div>
+            <div class="mem-cell mem-header-cell conteudo"><div class="dados"><p>{{ 'GRAPH.MEMORY.CONTENT' | translate }}</p></div></div>
+          </ng-container>
+
+          <!-- Memória "real" do grafo (nós e arestas) — nunca é apagada -->
+          <ng-container *ngFor="let row of memoryRows()">
+            <div class="mem-cell nome"><div class="dados"><p>{{ row.nome }}</p></div></div>
+            <div class="mem-cell mem"><div class="dados"><p>{{ row.endereco }}</p></div></div>
+            <div class="mem-cell conteudo"><div class="dados"><p>{{ row.conteudo }}</p></div></div>
+          </ng-container>
+
+          <!-- Variáveis do algoritmo em execução (passo a passo OU "rodar tudo"), misturadas ao resto -->
+          <ng-container *ngIf="hasTraceMemory">
+            <ng-container *ngFor="let row of traceMemoryRows()">
+              <div class="mem-cell nome"><div class="dados"><p>{{ row.nome }}</p></div></div>
+              <div class="mem-cell mem"><div class="dados"><p>{{ row.endereco }}</p></div></div>
+              <div class="mem-cell conteudo">
+                <div class="dados">
+                  <p>{{ row.conteudo }}</p>
+                  <div class="swatch-row" *ngIf="row.swatches?.length">
+                    <span class="color-swatch" *ngFor="let cor of row.swatches" [style.backgroundColor]="cor"></span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Simulação -->
+  <div class="execucao">
+    <div class="topCard">
+      <h1>{{ 'GRAPH.EXECUTION_TITLE' | translate }}</h1>
+      <div class="topCard-icons">
+        <div class="export-menu-wrapper">
+          <span class="export-icon" (click)="toggleExportMenu()" [title]="'GRAPH.EXPORT_TITLE' | translate">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </span>
+          <ng-container *ngIf="exportMenuOpen()">
+            <div class="export-menu-backdrop" (click)="closeExportMenu()"></div>
+            <div class="export-dropdown">
+              <button type="button" (click)="onExportClick()">{{ 'GRAPH.EXPORT_PDF' | translate }}</button>
+            </div>
+          </ng-container>
+        </div>
+        <span class="help-icon" (click)="openHelp('execucao')">?</span>
+      </div>
+    </div>
+    <div class="card">
+      <div #cyContainer class="graph-container"></div>
+    </div>
+  </div>
+
+  <!-- Modal: Gerar Grafo Aleatório -->
+  <div class="modal" *ngIf="randomModalOpen()">
+    <div class="modalContent">
+      <h2 class="modalTitulo">{{ 'GRAPH.MODAL.RANDOM_TITLE' | translate }}</h2>
+      <div class="modalContainer">
+        <label>{{ 'GRAPH.MODAL.NODE_COUNT_LABEL' | translate }}
+          <input #nodeCountInput type="number" class="input" value="6" min="1" max="10" (input)="onNodeCountInput(nodeCountInput.value)">
+        </label>
+        <span *ngIf="nodeCountError()" class="erro">{{ nodeCountError() }}</span>
+
+        <label>{{ 'GRAPH.MODAL.MAX_WEIGHT_LABEL' | translate }}
+          <input #maxWeightInput type="number" class="input" value="20" min="1">
+        </label>
+
+        <label class="checkbox-label"><input #directedInput type="checkbox"> {{ 'GRAPH.MODAL.DIRECTED' | translate }}</label>
+        <label class="checkbox-label"><input #connectedInput type="checkbox" checked> {{ 'GRAPH.MODAL.CONNECTED' | translate }}</label>
+
+        <div class="btns">
+          <button class="btnModal" id="btnCria" (click)="confirmRandomGraph(nodeCountInput.value, maxWeightInput.value, directedInput.checked, connectedInput.checked)">{{ 'GRAPH.BUTTON.CONFIRM' | translate }}</button>
+          <button class="btnModal" id="btnCancela" (click)="closeRandomModal()">{{ 'GRAPH.BUTTON.CANCEL' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Criar Nó -->
+  <div class="modal" *ngIf="nodeModalOpen()">
+    <div class="modalContent">
+      <h2 class="modalTitulo">{{ 'GRAPH.MODAL.CREATE_NODE_TITLE' | translate }}</h2>
+      <div class="modalContainer">
+        <input #nodeLabelInput type="text" class="input" [placeholder]="'GRAPH.PLACEHOLDER.NODE_NAME_SHORT' | translate"
+               (keyup.enter)="confirmCreateNode(nodeLabelInput.value)">
+        <div class="btns">
+          <button class="btnModal" id="btnCria" (click)="confirmCreateNode(nodeLabelInput.value)">{{ 'GRAPH.BUTTON.CONFIRM' | translate }}</button>
+          <button class="btnModal" id="btnCancela" (click)="cancelCreateNode()">{{ 'GRAPH.BUTTON.CANCEL' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Criar Aresta -->
+  <div class="modal" *ngIf="edgeModalOpen()">
+    <div class="modalContent">
+      <h2 class="modalTitulo">{{ 'GRAPH.MODAL.EDGE_WEIGHT_TITLE' | translate }}</h2>
+      <div class="modalContainer">
+        <input #edgeWeightInput type="number" class="input" [placeholder]="'GRAPH.PLACEHOLDER.WEIGHT' | translate" value="1"
+               (keyup.enter)="confirmCreateEdge(edgeWeightInput.value)">
+        <div class="btns">
+          <button class="btnModal" id="btnCria" (click)="confirmCreateEdge(edgeWeightInput.value)">{{ 'GRAPH.BUTTON.CONFIRM' | translate }}</button>
+          <button class="btnModal" id="btnCancela" (click)="cancelCreateEdge()">{{ 'GRAPH.BUTTON.CANCEL' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Ajuda -->
+  <div class="modal modal-ajuda" *ngIf="helpModalOpen() && activeHelp() as help">
+    <div class="modalContent">
+      <h2 class="modalTitulo">{{ help.title }}</h2>
+      <div class="modalContainer">
+        <div class="ajuda-secao" *ngFor="let secao of help.sections">
+          <h3 *ngIf="secao.subtitle">{{ secao.subtitle }}</h3>
+          <p>{{ secao.text }}</p>
+
+          <pre class="ajuda-codigo" *ngIf="secao.codeBlock">{{ secao.codeBlock }}</pre>
+
+          <div class="ajuda-imagem" *ngFor="let img of secao.images">
+            <img [src]="img.src" [alt]="img.alt"
+                 (error)="$any($event.target).style.display = 'none'">
+          </div>
+        </div>
+
+        <div class="btns">
+          <button class="btnModal" id="btnCria" (click)="closeHelp()">{{ 'GRAPH.BUTTON.OK' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,17 @@
+<div class="home">
+    <h1>{{ 'HOME.TITLE' | translate }}</h1>
+    <div class="card-total">
+        <div class="card-home" *ngFor="let item of menuItems" [routerLink]="item.route">
+            <div class="card-titulo">
+                <a>
+                    <img [src]="getImagePath(item.icon)" [alt]="(item.labelKey | translate)">
+                    {{ item.labelKey | translate }}
+                </a>
+                <p>{{ item.descricaoKey | translate }}</p>
+                <div class="corpo-card">
+                    <img [src]="getImagePath(item.corpo)">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

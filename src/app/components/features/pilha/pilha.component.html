@@ -1,0 +1,475 @@
+<h1 id="titulo">{{ tituloPag | translate }}</h1>
+
+<div class="modal" id="modal-ajuda-secoes" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'MODAL.CHOICE_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="scrollable-content">
+                <div class="explicacao-texto">
+                    <div class="btn-ajuda btn-cinza" (click)="abaExplicacao = 'ajuda_codigo'"><p>{{ 'TITLES.TITLE_CODE' | translate }}</p></div>
+                    <div class="btn-ajuda btn-laranja" (click)="abaExplicacao = 'ajuda_memoria'"><p>{{ 'TITLES.TITLE_MEMORY' | translate }}</p></div>
+                    <div class="btn-ajuda btn-preto" (click)="abaExplicacao = 'ajuda_execucao'"><p>{{ 'TITLES.TITLE_EXECUTION' | translate }}</p></div>
+                </div>
+
+                <div class="explicaTudo" *ngIf="abaExplicacao">
+                    <div *ngIf="abaExplicacao === 'ajuda_codigo'">
+                        <h3>{{ 'STACK.EXPLANATION.CODE_TITLE' | translate }}</h3>
+                        <p>{{ 'STACK.EXPLANATION.CODE_TEXT' | translate }}</p>
+                        <img [src]="getImagePath(codigoPilha)" alt="Código">
+                    </div>
+
+                    <div *ngIf="abaExplicacao === 'ajuda_memoria'">
+                        <h3>{{ 'STACK.EXPLANATION.MEMORY_TITLE' | translate }}</h3>
+                        <p>{{ 'STACK.EXPLANATION.MEMORY_TEXT' | translate }}</p>
+                        <img [src]="getImagePath(memoriaPilha)" alt="Memória">
+                    </div>
+
+                    <div *ngIf="abaExplicacao === 'ajuda_execucao'">
+                        <h3>{{ 'STACK.EXPLANATION.EXEC_TITLE' | translate }}</h3>
+                        <p>{{ 'STACK.EXPLANATION.EXEC_TEXT' | translate }}</p>
+                        <img [src]="getImagePath(execucaoPilha)" alt="Execução">
+                    </div>
+                </div>
+            </div>
+            <div class="btns">
+                <button class="btnModal" style="background-color: blue; width: 100%;" (click)="fecharAjuda('modal-ajuda-secoes')">{{ 'MODAL.OK' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="explicacao-modal-pilha" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'MODAL.CHOICE_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicacao-texto">
+                <div class="btnModal2" (click)="abaExplicacao = 'reiniciar'">
+                    <p>{{ 'STACK.BUTTON.RESTART' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="abaExplicacao = 'mostrar_todos'">
+                    <p>{{ 'STACK.BUTTON.SHOW_ALL' | translate }}</p>
+                </div>
+                <div class="inserir" (click)="abaExplicacao = 'inserir'">
+                    <p>{{ 'STACK.BUTTON.INSERT' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="abaExplicacao = 'mostrar'">
+                    <p>{{ 'STACK.BUTTON.SHOW_TOP' | translate }}</p>
+                </div>
+                <div class="btnModal2" (click)="abaExplicacao = 'remover'">
+                    <p>{{ 'STACK.BUTTON.DELETE' | translate }}</p>
+                </div>
+            </div>
+
+            <div class="explicaTudo">
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'reiniciar'">
+                    <h3>{{ 'STACK.EXPLANATION.RESTART_TITLE' | translate }}</h3>
+                    <p>{{ 'STACK.EXPLANATION.RESTART_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(reiniciaPilha)" alt="Reiniciar">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'mostrar_todos'">
+                    <h3>{{ 'STACK.EXPLANATION.SHOW_ALL_TITLE' | translate }}</h3>
+                    <p>{{ 'STACK.EXPLANATION.SHOW_ALL_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(mostraTodos)" alt="Mostrar Todos">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'inserir'">
+                    <h3>{{ 'STACK.EXPLANATION.INSERT_TITLE' | translate }}</h3>
+                    <p>{{ 'STACK.EXPLANATION.INSERT_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(inserePilha)" alt="Inserir">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'mostrar'">
+                    <h3>{{ 'STACK.EXPLANATION.SHOW_SPECIFIC_TITLE' | translate }}</h3>
+                    <p>{{ 'STACK.EXPLANATION.SHOW_SPECIFIC_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(mostraEspecificoPilha)" alt="Mostrar Topo">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'remover'">
+                    <h3>{{ 'STACK.EXPLANATION.REMOVE_TITLE' | translate }}</h3>
+                    <p>{{ 'STACK.EXPLANATION.REMOVE_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(removePilha)" alt="Remover">
+                </div>
+            </div>
+
+            <div class="explicacao-texto">
+                <div class="inserir" (click)="abaExplicacao = 'funcao_push'">
+                    <p>{{ 'STACK.BUTTON.PUSH' | translate }}</p>
+                </div>
+                <div class="btnModal2" (click)="abaExplicacao = 'funcao_pop'">
+                    <p>{{ 'STACK.BUTTON.POP' | translate }}</p>
+                </div>
+            </div>
+
+            <div class="explicaTudo" *ngIf="abaExplicacao === 'funcao_push' || abaExplicacao === 'funcao_pop'">
+
+                <div *ngIf="abaExplicacao === 'funcao_push'">
+                    <h3>{{ 'STACK.EXPLANATION.PUSH_FUNC_TITLE' | translate }}</h3>
+                    <p>{{ 'STACK.EXPLANATION.PUSH_FUNC_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(pushPilha)" alt="Push">
+                </div>
+
+                <div *ngIf="abaExplicacao === 'funcao_pop'">
+                    <h3>{{ 'STACK.EXPLANATION.POP_FUNC_TITLE' | translate }}</h3>
+                    <p>{{ 'STACK.EXPLANATION.POP_FUNC_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(popPilha)" alt="Pop">
+                </div>
+            </div>
+
+            <div class="btns">
+                <button class="btnModal" style="background-color: blue;" (click)="fecharModalPilha()">{{ 'MODAL.CLOSE' |
+                    translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalPilha">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'STACK.TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <h2>{{ 'STACK.INIT_STACK' | translate }}</h2>
+            <div class="inputPilha">
+                <input type="number" placeholder="Insira o tamanho da pilha" #tamanhoInput
+                    (keyup.enter)="criarPilhas(tamanhoInput)" />
+            </div>
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="criarPilhas(tamanhoInput)">{{
+                    'VECTOR.INPUT.CONFIRM' | translate }}</button>
+                <button class="btnModal" id="btnCancela" (click)="fecharModal()">{{ 'MODAL.CANCEL' |
+                    translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalMostraTopo">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'STACK.TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <h2>{{ 'STACK.EXPLANATION.SHOW_TOPO' | translate }}</h2>
+            <div class="pilhaTopo">
+                <div class="codigoPilha">
+                    <P id="tituloPilhaCod">{{ 'STACK.EXPLANATION.CODE_VAR' | translate }}</P>
+                    <p id="textCodTopo">{{ 'STACK.EXPLANATION.CODE_VAR_TEXT' | translate }}</p>
+                </div>
+                <div class="conteudo" *ngIf="topoA !== -1">
+                    <p id="tituloPilhaCod">{{ 'STACK.EXPLANATION.CONTENT' | translate }}</p>
+                    <p>{{ conteudoTopo }}</p>
+                </div>
+            </div>
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="fecharTopoPilha()">{{
+                    'VECTOR.INPUT.CONFIRM' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalMostraPilha">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'STACK.TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <h2>{{ 'STACK.EXPLANATION.TITULO_MODAL_SLA' | translate }}</h2>
+            <div class="telaTotal">
+                <div class="tabelaPilha">
+                    <div class="posicao">
+                        <p id="tituloPilhaCod">{{ 'STACK.EXPLANATION.POSITION' | translate }}</p>
+                        <div *ngFor="let item of elementosNaPilha; let i = index">
+                            <p>{{ 'STACK.TITLE' | translate }}[{{ topoA - i }}]</p>
+                        </div>
+                    </div>
+
+                    <div class="conteudo">
+                        <p id="tituloPilhaCod">{{ 'STACK.EXPLANATION.CONTENT' | translate }}</p>
+                        <div *ngFor="let item of elementosNaPilha">
+                            <p>{{ item.conteudo }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="codigoPilha">
+                    <p id="tituloPilhaCod">{{ 'STACK.EXPLANATION.CODE_VAR' | translate }}</p>
+                    <div class="card-codigo-modal">
+                        <pre id="textCodTodas"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="fecharModalTodas()">{{
+                    'VECTOR.INPUT.CONFIRM' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-nao-inicializada" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'STACK.TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="scrollable-content">
+                <div class="explicaTudo">
+                    <p style="font-weight: bold;">{{ 'STACK.DESCRIPTION.STACK_DESCRIPTION' | translate }}</p>
+
+                    <p>{{ 'STACK.DESCRIPTION.STACK_TEXT' | translate }}</p>
+                    
+                    <p style="font-weight: bold;" >{{ 'STACK.DESCRIPTION.STACK_TUTORIAL' | translate }}</p>
+                    
+                    <p>
+                        {{ 'STACK.DESCRIPTION.STACK_TUTORIAL_TEXT' | translate }}
+                    </p>
+                    
+                    <img [src]="getImagePath(criaPilha)" alt="Tutorial Pilha">
+                </div>
+            </div>
+            
+            <div class="btns" style="width: 100%;">
+                <button class="btnModal" 
+                        style="background-color: blue; width: 70%; margin: 0 auto;" 
+                        (click)="fecharAjuda('modal-nao-inicializada')">
+                    {{ 'MODAL.OK' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container2">
+    <div class="painel">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.PANEL.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" *ngIf="pilhaInicializada" (click)="abrirModalPilha()" id="explicaModal">
+            <img [src]="getImagePath(icon)"  *ngIf="!pilhaInicializada"  id="explicaModal" (click)="abrirAjuda('modal-nao-inicializada')">
+        </div>
+        <div class="card">
+            <div class="btn">
+                <div class="btnS" *ngIf="!pilhaInicializada" (click)="abrirModal()">
+                    <a>
+                        <img [src]="getImagePath(inicia)">
+                        <p>{{ 'MATRIX.BUTTON.CREATE' | translate }}</p>
+                    </a>
+                </div>
+                <div class="btnReset" *ngIf="pilhaInicializada" (click)="reiniciarExecucao()">
+                    <a role="button">
+                        <img [src]="getImagePath(reset)">
+                        <p>{{ 'MATRIX.BUTTON.RESET' | translate }}</p>
+                    </a>
+                </div>
+
+                <div class="btnMostraTodos" *ngIf="pilhaInicializada" (click)="abrirModalTodas()">
+                    <a>
+                        <img [src]="getImagePath(mostra)">
+                        <p>{{ 'MATRIX.BUTTON.SHOW_ALL' | translate }}</p>
+                    </a>
+                </div>
+
+                <div class="insereElemento" *ngIf="pilhaInicializada">
+                    <input type="number" id="insereElemento" #valorPush (keyup.enter)="empilhar(valorPush)" />
+                    <div class="insere">
+                        <a role="button" (click)="empilhar(valorPush)">
+                            <img [src]="getImagePath(insere)">
+                            <p>{{ 'MATRIX.BUTTON.ADD_ELEMENT' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mostraEspecifico" *ngIf="pilhaInicializada">
+                    <div class="mostraInputs">
+                        <select name="mostraCelula" id="mostraCelula">
+                            <option value="">{{ 'STACK.EXPLANATION.TOPO' | translate }}</option>
+                        </select>
+                    </div>
+                    <div class="mostra">
+                        <a role="button" (click)="abrirTopoPilha()">
+                            <img [src]="getImagePath(mostra)">
+                            <p>{{ 'MATRIX.BUTTON.SHOW_SPECIFIC' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="apagaVet" *ngIf="pilhaInicializada">
+                    <div class="apagaInputs">
+                        <select name="apagaCelula" #selectRemover>
+                            <option value="">{{ 'STACK.EXPLANATION.SELECT' | translate }}</option>
+                            <option *ngFor="let item of elementosNaPilha" [value]="item.id">
+                                {{ item.conteudo }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="apaga" (click)="removerEspecifico(selectRemover.value)">
+                        <a role="button">
+                            <img [src]="getImagePath(apaga)">
+                            <p>{{ 'MATRIX.BUTTON.DELETE_ELEMENT' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="codigo">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.CODE.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" *ngIf="pilhaInicializada" id="explicaModal" (click)="abrirAjudaSecoes('ajuda_codigo')">
+            <img [src]="getImagePath(icon)" *ngIf="!pilhaInicializada" id="explicaModal">
+        </div>
+
+        <div class="card">
+            <pre id="textCod"></pre>
+        </div>
+    </div>
+
+    <div class="memoria">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.MEMORY.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" *ngIf="pilhaInicializada" id="explicaModal" (click)="abrirAjudaSecoes('ajuda_memoria')">
+            <img [src]="getImagePath(icon)" *ngIf="!pilhaInicializada" id="explicaModal">
+        </div>
+        <div class="card">
+            <div class="topCard" *ngIf="pilhaInicializada">
+                <div class="tipo">
+                    <div class="dados">
+                        <p>{{ 'STACK.EXPLANATION.VARIABLE' | translate }}</p>
+                    </div>
+                </div>
+                <div class="mem">
+                    <div class="dados">
+                        <p>{{ 'STACK.EXPLANATION.MEMORY' | translate }}</p>
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <div class="dados">
+                        <p>{{ 'MATRIX.MEMORY.CONTENT' | translate }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <ng-container *ngIf="pilhaInicializada">
+                <div class="memoriaDiv cl-row info-header">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>{{ 'STACK.EXPLANATION.TAMANHO_PILHA' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>0x0A00</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p>{{ pilhaA.length }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="memoriaDiv cl-row info-header">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>{{ 'STACK.EXPLANATION.P1_TOP' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>0x0A04</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p>{{ topoA }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memoriaDiv cl-row" *ngFor="let item of pilhaA; let i = index">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>p.[{{i}}]</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>{{ item.endereco }}</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p class="lixo-color">{{ item.lixoMemoria }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="memoriaDiv cl-row info-header">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>{{ 'STACK.EXPLANATION.P1_TOP' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>0x0B04</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p>{{ topoB }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memoriaDiv cl-row" *ngFor="let item of pilhaB; let i = index">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>p1.[{{i}}]</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>{{ item.endereco }}</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p class="lixo-color">{{ item.lixoMemoria }}</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<div class="exec" *ngIf="pilhaInicializada">
+    <div class="parteCima">
+        <span></span>
+        <h1>{{ 'MATRIX.EXECUTION_TITLE' | translate }}</h1>
+        <img [src]="getImagePath(icon)" *ngIf="pilhaInicializada" alt="ícone" (click)="abrirAjudaSecoes('ajuda_execucao')">
+        <img [src]="getImagePath(icon)" *ngIf="!pilhaInicializada" alt="ícone">
+    </div>
+    <div class="corpo">
+        <div class="pilhas">
+            <div class="stack-container">
+                <p>{{ 'STACK.EXPLANATION.PILHA' | translate }}</p>
+                <div class="matriz">
+                    <div class="linha-caixas">
+                        <div class="caixa" *ngFor="let p of pilhaA; let i = index" [class.lixo]="i > topoA"
+                            [class.inserido]="i <= topoA">
+                            {{ p.conteudo }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stack-container">
+                <p>{{ 'STACK.EXPLANATION.PILHA_AUX' | translate }}</p>
+                <div class="matriz">
+                    <div class="linha-caixas">
+                        <div class="caixa" *ngFor="let p1 of pilhaB; let j = index" [class.lixo]="j > topoB"
+                            [class.inserido]="j <= topoB">
+                            {{ p1.conteudo }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

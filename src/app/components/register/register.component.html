@@ -1,0 +1,114 @@
+<div class="page-with-footer">
+  <div class="register-outer">
+    <div class="register-card">
+      <h1 class="title">{{ 'REGISTER.TITLE' | translate }}</h1>
+
+      <form (ngSubmit)="submit()" class="register-form">
+        <div class="grid">
+          <div class="col-2">
+            <label class="field">
+              <span class="label-text">{{ 'REGISTER.NAME' | translate }}</span>
+              <input name="name" [(ngModel)]="name" required />
+            </label>
+          </div>
+
+          <div class="col-2">
+            <label class="field">
+              <span class="label-text">{{ 'REGISTER.BIRTHDATE' | translate }}</span>
+              <input name="birthDate" type="date" [(ngModel)]="birthDate" />
+            </label>
+          </div>
+
+          <div class="col-1">
+            <label class="field">
+              <span class="label-text">{{ 'REGISTER.EDUCATION' | translate }}</span>
+              <select name="educationLevel" [(ngModel)]="educationLevel">
+                <option value="">Selecione...</option>
+                <option *ngFor="let level of educationLevels" [value]="level">{{ level }}</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="col-1">
+            <label class="field">
+              <span class="label-text">{{ 'REGISTER.INSTITUTION' | translate }}</span>
+              <select name="institution" [(ngModel)]="institution">
+                <option value="">Selecione...</option>
+                <option *ngFor="let inst of institutions" [value]="inst">{{ inst }}</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="col-1" *ngIf="institution === 'OUTRA'">
+            <label class="field">
+              <span class="label-text">{{ 'REGISTER.CUSTOM_INSTITUTION' | translate }}</span>
+              <input name="customInstitution" [(ngModel)]="customInstitution" placeholder="Digite o nome da instituição" />
+            </label>
+          </div>
+
+          <!-- <div class="col-2">
+            <label class="field">
+              <span class="label-text">{{ 'REGISTER.CITY' | translate }}</span>
+              <input name="city" [(ngModel)]="city" />
+            </label>
+          </div>
+
+          <div class="col-2">
+            <label class="field">
+              <span class="label-text">{{ 'REGISTER.STATE' | translate }}</span>
+              <input name="state" [(ngModel)]="state" />
+            </label>
+          </div> -->
+
+          <div class="col-2">
+            <label class="field">
+              <span class="label-text">{{ 'REGISTER.EMAIL' | translate }}</span>
+              <input name="email" type="email" [(ngModel)]="email" required />
+            </label>
+          </div>
+
+          <div class="col-2">
+            <label class="field">
+              <span class="label-text">{{ 'REGISTER.CONFIRM_EMAIL' | translate }}</span>
+              <input name="confirmEmail" type="email" [(ngModel)]="confirmEmail" />
+            </label>
+          </div>
+
+          <div class="col-2">
+            <label class="field">
+              <span class="label-text">{{ 'REGISTER.PASSWORD' | translate }}</span>
+              <input name="password" type="password" [(ngModel)]="password" required minlength="6" />
+            </label>
+          </div>
+
+          <div class="col-2">
+            <label class="field">
+              <span class="label-text">{{ 'REGISTER.CONFIRM' | translate }}</span>
+              <input name="confirm" type="password" [(ngModel)]="confirm" required minlength="6" />
+            </label>
+          </div>
+        </div>
+
+        <div class="avatar-section">
+          <div class="avatar-grid">
+            <div 
+              *ngFor="let avatar of avatars" 
+              class="avatar-option" 
+              [class.selected]="selectedAvatar === avatar.url"
+              (click)="selectAvatar(avatar.url)"
+            >
+              <img [src]="avatar.url" [alt]="avatar.name" />
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary" [disabled]="loading">REGISTRAR</button>
+          <button type="button" class="btn cancel" (click)="cancel()">CANCELAR</button>
+        </div>
+
+        <div class="error" *ngIf="error">{{ error }}</div>
+      </form>
+    </div>
+  </div>
+</div>

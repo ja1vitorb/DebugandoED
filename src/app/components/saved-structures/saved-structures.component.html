@@ -1,0 +1,77 @@
+<div class="saved-structures-container">
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Carregando estruturas salvas...</p>
+  </div>
+
+  <div *ngIf="!loading" class="content">
+    <div class="header">
+      <h2>INFORMAÇÕES DAS ESTRUTURAS CRIADAS</h2>
+    </div>
+
+    <div *ngIf="message" class="alert" [ngClass]="{'alert-success': messageType === 'success', 'alert-error': messageType === 'error'}">
+      {{ message }}
+    </div>
+
+    <div *ngIf="savedStructures.length === 0" class="empty-state">
+      <p>Você ainda não salvou nenhuma estrutura.</p>
+      <p>Crie estruturas nas páginas de simulação e salve-as para acessá-las posteriormente.</p>
+    </div>
+
+    <div *ngIf="savedStructures.length > 0" class="structures-table">
+      <table>
+        <thead>
+          <tr>
+            <th class="checkbox-col">
+              <input 
+                type="checkbox" 
+                [checked]="isAllSelected()"
+                (change)="toggleSelectAll()"
+              />
+            </th>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Estrutura</th>
+            <th>Tamanho</th>
+            <th>Criada em</th>
+            <th>Atualizada em</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let structure of savedStructures; let i = index" 
+              [class.selected]="isSelected(structure.id)">
+            <td class="checkbox-col">
+              <input 
+                type="checkbox" 
+                [checked]="isSelected(structure.id)"
+                (change)="toggleSelection(structure.id)"
+              />
+            </td>
+            <td>{{ i + 1 }}</td>
+            <td class="name-col">{{ structure.name }}</td>
+            <td>{{ getStructureTypeLabel(structure.structureType) }}</td>
+            <td>{{ structure.data.size }}</td>
+            <td>{{ formatDate(structure.createdAt) }}</td>
+            <td>{{ formatDate(structure.updatedAt) }}</td>
+            <td class="actions-col">
+              <button class="btn-load" (click)="loadStructure(structure)" title="Carregar estrutura">
+                <span class="icon">📂</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="action-buttons">
+        <button 
+          class="btn-delete" 
+          (click)="deleteSelected()"
+          [disabled]="selectedStructures.size === 0"
+        >
+          DELETAR SELECIONADAS ({{ selectedStructures.size }})
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

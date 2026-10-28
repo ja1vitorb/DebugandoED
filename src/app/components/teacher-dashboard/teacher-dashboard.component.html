@@ -1,0 +1,115 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>📊 {{ 'DASHBOARD.TITLE' | translate }}</h1>
+    <p class="subtitle">{{ 'DASHBOARD.SUBTITLE' | translate }}</p>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    <p>{{ 'DASHBOARD.LOADING' | translate }}</p>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    <p>{{ error }}</p>
+    <button (click)="loadDashboard()" class="retry-button">
+      {{ 'DASHBOARD.RETRY' | translate }}
+    </button>
+  </div>
+
+  <div *ngIf="!loading && !error && stats" class="dashboard-content">
+    <div class="stats-cards">
+      <div class="stat-card blue">
+        <div class="icon">👥</div>
+        <div class="content">
+          <h3>{{ stats.overview.totalStudents }}</h3>
+          <p>{{ 'DASHBOARD.TOTAL_STUDENTS' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="stat-card green">
+        <div class="icon">✅</div>
+        <div class="content">
+          <h3>{{ stats.overview.correctSubmissions }}</h3>
+          <p>{{ 'DASHBOARD.CORRECT_SUBMISSIONS' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="stat-card red">
+        <div class="icon">❌</div>
+        <div class="content">
+          <h3>{{ stats.overview.incorrectSubmissions }}</h3>
+          <p>{{ 'DASHBOARD.INCORRECT_SUBMISSIONS' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="stat-card purple">
+        <div class="icon">📈</div>
+        <div class="content">
+          <h3>{{ stats.overview.successRate }}</h3>
+          <p>{{ 'DASHBOARD.SUCCESS_RATE' | translate }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="structure-distribution">
+      <h2>{{ 'DASHBOARD.STRUCTURE_DISTRIBUTION' | translate }}</h2>
+      <p class="description">{{ 'DASHBOARD.STRUCTURE_DESCRIPTION' | translate }}</p>
+
+      <div *ngIf="stats.structureLevels.length === 0" class="empty-state">
+        <p>{{ 'DASHBOARD.NO_PROGRESS_DATA' | translate }}</p>
+      </div>
+
+      <div *ngIf="stats.structureLevels.length > 0" class="structure-list">
+        <div *ngFor="let structure of stats.structureLevels; let i = index" 
+             class="structure-item">
+          <div class="structure-info">
+            <span class="structure-name">{{ structure.structure }}</span>
+            <span class="structure-count">
+              {{ structure.studentsUnlocked }} {{ 'DASHBOARD.STUDENTS' | translate }} 
+              ({{ getStructurePercentage(structure.studentsUnlocked) }}%)
+            </span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" 
+                 [style.width.%]="getStructurePercentage(structure.studentsUnlocked)"
+                 [style.background-color]="getStructureColor(i)">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="stats.structureLevels.length > 0" class="insights">
+        <h3>💡 {{ 'DASHBOARD.INSIGHTS' | translate }}</h3>
+        <div class="insight-card">
+          <p *ngIf="stats.structureLevels[0]">
+            <strong>{{ getStructurePercentage(stats.structureLevels[0].studentsUnlocked) }}%</strong> 
+            {{ 'DASHBOARD.INSIGHT_TEXT' | translate }}
+            <strong>{{ stats.structureLevels[0].structure }}</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="submissions-chart">
+      <h2>{{ 'DASHBOARD.SUBMISSIONS_OVERVIEW' | translate }}</h2>
+      <div class="chart-container">
+        <div class="bar-chart">
+          <div class="bar correct-bar">
+            <div class="bar-fill" 
+                 [style.height.%]="stats.overview.totalSubmissions > 0 ? (stats.overview.correctSubmissions / stats.overview.totalSubmissions * 100) : 0">
+              <span class="bar-label">{{ stats.overview.correctSubmissions }}</span>
+            </div>
+            <span class="bar-name">{{ 'DASHBOARD.CORRECT' | translate }}</span>
+          </div>
+          <div class="bar incorrect-bar">
+            <div class="bar-fill" 
+                 [style.height.%]="stats.overview.totalSubmissions > 0 ? (stats.overview.incorrectSubmissions / stats.overview.totalSubmissions * 100) : 0">
+              <span class="bar-label">{{ stats.overview.incorrectSubmissions }}</span>
+            </div>
+            <span class="bar-name">{{ 'DASHBOARD.INCORRECT' | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="conquistas-container">
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Carregando conquistas...</p>
+  </div>
+
+  <div *ngIf="!loading">
+    <div class="user-profile">
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <img [src]="userAvatar" alt="Avatar" class="avatar-image">
+          <div class="points-badge">
+            <span class="points">{{ userPoints }}</span>
+            <span class="points-label">pontos</span>
+          </div>
+        </div>
+        <h2 class="user-name">{{ userName }}</h2>
+      </div>
+    </div>
+
+  <div class="conquistas-section">
+    <div class="section-header">
+      <h3>CONQUISTAS</h3>
+    </div>
+
+    <div class="medals-grid">
+      <div class="medals-row">
+        <div *ngFor="let medal of medals.slice(0, 4); let i = index" 
+             class="medal-item"
+             (mouseenter)="showMedalDetails(medal, i)"
+             (mouseleave)="closeMedalDetails()">
+          <img [src]="getMedalImage(medal)" 
+               [alt]="medal.name" 
+               class="medal-icon"
+               [class.unlocked]="medal.isUnlocked">
+          <p class="medal-name">{{ medal.name }}</p>
+        </div>
+      </div>
+
+      <div class="medals-row">
+        <div *ngFor="let medal of medals.slice(4, 8); let i = index" 
+             class="medal-item"
+             (mouseenter)="showMedalDetails(medal, i + 4)"
+             (mouseleave)="closeMedalDetails()">
+          <img [src]="getMedalImage(medal)" 
+               [alt]="medal.name" 
+               class="medal-icon"
+               [class.unlocked]="medal.isUnlocked">
+          <p class="medal-name">{{ medal.name }}</p>
+        </div>
+      </div>
+
+      <div class="medals-row">
+        <div *ngFor="let medal of medals.slice(8, 12); let i = index" 
+             class="medal-item"
+             (mouseenter)="showMedalDetails(medal, i + 8)"
+             (mouseleave)="closeMedalDetails()">
+          <img [src]="getMedalImage(medal)" 
+               [alt]="medal.name" 
+               class="medal-icon"
+               [class.unlocked]="medal.isUnlocked">
+          <p class="medal-name">{{ medal.name }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="medal-details" *ngIf="selectedMedal" 
+         [class.locked]="!selectedMedal.isUnlocked"
+         [class.align-left]="isLastColumn(selectedMedalIndex)">
+      <img [src]="getDisplayMedalImage(selectedMedal)" 
+           [alt]="selectedMedal.name" 
+           class="detail-icon">
+      <h4 [class.locked-text]="!selectedMedal.isUnlocked">{{ selectedMedal.name }}</h4>
+      <p class="description" [class.locked-text]="!selectedMedal.isUnlocked">
+        {{ selectedMedal.description }}
+      </p>
+      <p *ngIf="selectedMedal.isUnlocked && selectedMedal.earnedAt" class="earned-date">
+        Conquistada em: {{ selectedMedal.earnedAt | date: 'dd/MM/yyyy' }}
+      </p>
+    </div>
+  </div>
+</div>
+</div>

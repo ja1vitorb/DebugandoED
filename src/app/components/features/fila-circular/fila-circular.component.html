@@ -1,0 +1,453 @@
+<h1 id="titulo">{{ tituloPag | translate }}</h1>
+
+<div class="modal" id="modal-fila-nao-inicializada" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'QUEUE.TITLE_SWAP' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicaTudo">
+                <p style="font-weight: bold;">
+                    {{ 'QUEUE.DESCRIPTION.TITLE' | translate }}
+                </p>
+
+                <p>
+                    {{ 'QUEUE.DESCRIPTION.TEXT' | translate }}
+                </p>
+
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 1rem 0;">
+
+                <p style="font-weight: bold;">
+                    {{ 'QUEUE.DESCRIPTION.TUTORIAL_TITLE' | translate }}
+                </p>
+
+                <p>
+                    {{ 'QUEUE.DESCRIPTION.TUTORIAL_TEXT' | translate }}
+                </p>
+
+                <img [src]="getImagePath(filaCria)" alt="Explicação da Fila">
+            </div>
+
+            <div class="btns" style="width: 100%;">
+                <button class="btnModal" style="background-color: blue; width: 70%; margin: 0 auto;"
+                    (click)="fecharAjuda('modal-fila-nao-inicializada')">
+                    {{ 'MODAL.OK' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-ajuda-secoes-fila" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'MODAL.CHOICE_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicaTudo" *ngIf="abaExplicacao">
+                <div *ngIf="abaExplicacao === 'ajuda_codigo'">
+                    <h3>{{ 'QUEUE.EXPLANATION.CODE_TITLE' | translate }}</h3>
+                    <p>{{ 'QUEUE.EXPLANATION.CODE_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(filaCodigo)" alt="Código">
+                </div>
+
+                <div *ngIf="abaExplicacao === 'ajuda_memoria'">
+                    <h3>{{ 'QUEUE.EXPLANATION.MEMORY_TITLE' | translate }}</h3>
+                    <p>{{ 'QUEUE.EXPLANATION.MEMORY_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(filaMemoria)" alt="Memória">
+                </div>
+
+                <div *ngIf="abaExplicacao === 'ajuda_execucao'">
+                    <h3>{{ 'QUEUE.EXPLANATION.EXEC_TITLE' | translate }}</h3>
+                    <p>{{ 'QUEUE.EXPLANATION.EXEC_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(filaExecucao)" alt="Execução">
+                </div>
+            </div>
+            <div class="btns">
+                <button class="btnModal" style="background-color: blue; width: 100%;"
+                    (click)="fecharAjuda('modal-ajuda-secoes-fila')">
+                    {{ 'MODAL.OK' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="explicacao-modal-fila" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'MODAL.CHOICE_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicacao-texto">
+                <div class="btnModal2" (click)="abaExplicacao = 'reiniciar'">
+                    <p>{{ 'QUEUE.BTN.RESTART' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="abaExplicacao = 'mostrar_todos'">
+                    <p>{{ 'QUEUE.BTN.SHOW_ALL' | translate }}</p>
+                </div>
+                <div class="inserir" (click)="abaExplicacao = 'inserir'">
+                    <p>{{ 'QUEUE.BTN.INSERT' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="abaExplicacao = 'mostrar'">
+                    <p>{{ 'QUEUE.BTN.SHOW_SPECIFIC' | translate }}</p>
+                </div>
+                <div class="btnModal2" (click)="abaExplicacao = 'remover'">
+                    <p>{{ 'QUEUE.BTN.DELETE' | translate }}</p>
+                </div>
+            </div>
+
+            <div class="explicaTudo">
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'reiniciar'">
+                    <h3>{{ 'QUEUE.EXPLANATION.RESTART_TITLE' | translate }}</h3>
+                    <p>{{ 'QUEUE.EXPLANATION.RESTART_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(filaReinicia)" alt="Reiniciar">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'mostrar_todos'">
+                    <h3>{{ 'QUEUE.EXPLANATION.SHOW_ALL_TITLE' | translate }}</h3>
+                    <p>{{ 'QUEUE.EXPLANATION.SHOW_ALL_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(filaMostraTodos)" alt="Exibir Todos">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'inserir'">
+                    <h3>{{ 'QUEUE.EXPLANATION.INSERT_TITLE' | translate }}</h3>
+                    <p>{{ 'QUEUE.EXPLANATION.INSERT_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(filaInsere)" alt="Adicionar">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'mostrar'">
+                    <h3>{{ 'QUEUE.EXPLANATION.SHOW_SPECIFIC_TITLE' | translate }}</h3>
+                    <p>{{ 'QUEUE.EXPLANATION.SHOW_SPECIFIC_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(filaMostraEspecifico)" alt="Mostrar">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'remover'">
+                    <h3>{{ 'QUEUE.EXPLANATION.DELETE_TITLE' | translate }}</h3>
+                    <p>{{ 'QUEUE.EXPLANATION.DELETE_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(filaRemover)" alt="Remover">
+                </div>
+            </div>
+
+            <div class="explicacao-texto">
+                <div class="inserir" (click)="abaExplicacao = 'funcao_insert'">
+                    <p>Insert</p>
+                </div>
+                <div class="btnModal2" (click)="abaExplicacao = 'funcao_remove'">
+                    <p>Remove</p>
+                </div>
+            </div>
+
+            <div class="explicaTudo">
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'funcao_insert'">
+                    <h3>{{ 'QUEUE.EXPLANATION.INSERT_FUNC_TITLE' | translate }}</h3>
+                    <p>{{ 'QUEUE.EXPLANATION.INSERT_FUNC_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(filaInsert)" alt="Insert">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'funcao_remove'">
+                    <h3>{{ 'QUEUE.EXPLANATION.REMOVE_FUNC_TITLE' | translate }}</h3>
+                    <p>{{ 'QUEUE.EXPLANATION.REMOVE_FUNC_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(filaRemove)" alt="Remove">
+                </div>
+            </div>
+
+
+            <div class="btns">
+                <button class="btnModal" style="background-color: blue;" (click)="fecharModalExplicaFila()">
+                    {{ 'MODAL.CLOSE' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalFilaBasica">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'CIRCLE_QUEUE.MODAL_GENERIC_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <h2>{{ 'CIRCLE_QUEUE.MODAL_GENERIC_START_QUEUE' | translate }}</h2>
+            <div class="inputPilha">
+                <input type="number" placeholder="Insira o tamanho da fila" #tamanhoFila
+                    (keyup.enter)="criarFila(tamanhoFila)" />
+            </div>
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="criarFila(tamanhoFila)">{{
+                    'VECTOR.INPUT.CONFIRM' | translate }}</button>
+                <button class="btnModal" id="btnCancela" (click)="fecharModalCriaFila()">{{ 'MODAL.CANCEL' |
+                    translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalMostraInicio">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'CIRCLE_QUEUE.MODAL_GENERIC_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <h2>{{ 'CIRCLE_QUEUE.MODAL_INIT' | translate }}</h2>
+            <div class="pilhaTopo">
+                <div class="codigoPilha">
+                    <p id="tituloPilhaCod">{{ 'CIRCLE_QUEUE.CODE' | translate }}:</p>
+                    <p id="textCodInicio">{{ 'CIRCLE_QUEUE.CODE_TEXT' | translate }} [ {{ inicio }} ] ) ;</p>
+                </div>
+                <div class="conteudo">
+                    <p id="tituloPilhaCod">{{ 'CIRCLE_QUEUE.CONTENT' | translate }}:</p>
+                    <p>{{ conteudoInicio }}</p>
+                </div>
+            </div>
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="fecharInicioFila()">{{
+                    'VECTOR.INPUT.CONFIRM' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalMostraFila">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'CIRCLE_QUEUE.MODAL_GENERIC_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <h2>{{ 'CIRCLE_QUEUE.SHOW_ALL_VALID_POSITIONS' | translate }}</h2>
+            <div class="telaTotal">
+                <div class="tabelaPilha">
+                    <div class="posicao">
+                        <p id="tituloPilhaCod">{{ 'CIRCLE_QUEUE.POSITION' | translate }}</p>
+                        <div *ngFor="let item of fila; let i = index">
+                            <p *ngIf="i >= inicio && i < fim">fila[{{ i }}]</p>
+                        </div>
+                    </div>
+
+                    <div class="conteudo">
+                        <p id="tituloPilhaCod">{{ 'CIRCLE_QUEUE.QUEUE_CONTENT' | translate }}</p>
+                        <div *ngFor="let item of fila; let i = index">
+                            <p *ngIf="i >= inicio && i < fim">{{ item.conteudo }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="codigoPilha">
+                    <p id="tituloPilhaCod">Código</p>
+                    <div class="card-codigo-modal">
+                        <pre id="textCodTodasFila"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="fecharModalTodas()">{{
+                    'VECTOR.INPUT.CONFIRM' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container2">
+    <div class="painel">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.PANEL.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" *ngIf="filaCriada" (click)="abrirModalExplicaFila()" id="explicaModal">
+            <img [src]="getImagePath(icon)" *ngIf="!filaCriada" id="explicaModal"
+                (click)="abrirAjuda('modal-fila-nao-inicializada')">
+        </div>
+        <div class="card">
+            <div class="btn">
+                <div class="btnS" *ngIf="!filaCriada" (click)="abrirModalCriaFila()">
+                    <a>
+                        <img [src]="getImagePath(inicia)">
+                        <p>{{ 'MATRIX.BUTTON.CREATE' | translate }}</p>
+                    </a>
+                </div>
+                <div class="btnReset" *ngIf="filaCriada" (click)="reiniciaPagina()">
+                    <a role="button">
+                        <img [src]="getImagePath(reset)">
+                        <p>{{ 'MATRIX.BUTTON.RESET' | translate }}</p>
+                    </a>
+                </div>
+
+                <div class="btnMostraTodos" *ngIf="filaCriada" (click)="abrirModalTodas()">
+                    <a>
+                        <img [src]="getImagePath(mostra)">
+                        <p>{{ 'MATRIX.BUTTON.SHOW_ALL' | translate }}</p>
+                    </a>
+                </div>
+
+                <div class="insereElemento" *ngIf="filaCriada">
+                    <input type="number" id="insereElemento" #inputFila (keyup.enter)="enfileirar(inputFila)" />
+                    <div class="insere" (click)="enfileirar(inputFila)">
+                        <a role="button">
+                            <img [src]="getImagePath(insere)">
+                            <p>{{ 'MATRIX.BUTTON.ADD_ELEMENT' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mostraEspecifico" *ngIf="filaCriada">
+                    <div class="mostraInputs">
+                        <select name="mostraCelula" id="mostraCelula">
+                            <option value="">{{ 'CIRCLE_QUEUE.INIT' | translate }}</option>
+                        </select>
+                    </div>
+                    <div class="mostra" (click)="abrirInicioFila()">
+                        <a role="button">
+                            <img [src]="getImagePath(mostra)">
+                            <p>{{ 'MATRIX.BUTTON.SHOW_SPECIFIC' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="apagaVet" *ngIf="filaCriada">
+                    <div class="apagaInputs">
+                        <select name="apagaCelula">
+                            <option value="">Inicio</option>
+                        </select>
+                    </div>
+                    <div class="apaga" (click)="desenfileirar()">
+                        <a role="button">
+                            <img [src]="getImagePath(apaga)">
+                            <p>{{ 'MATRIX.BUTTON.DELETE_ELEMENT' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="codigo">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.CODE.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" *ngIf="filaCriada" id="explicaModal"
+                (click)="abrirAjudaSecoesFila('ajuda_codigo')">
+            <img [src]="getImagePath(icon)" *ngIf="!filaCriada" id="explicaModal">
+        </div>
+
+        <div class="card">
+            <pre id="textCod"></pre>
+        </div>
+    </div>
+
+    <div class="memoria">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.MEMORY.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" id="explicaModal" (click)="abrirAjudaSecoesFila('ajuda_memoria')"
+                *ngIf="filaCriada">
+            <img [src]="getImagePath(icon)" id="explicaModal" (click)="abrirAjudaSecoesFila('ajuda_memoria')"
+                *ngIf="!filaCriada">
+        </div>
+        <div class="card">
+            <div class="topCard" *ngIf="filaCriada">
+                <div class="tipo">
+                    <div class="dados">
+                        <p>{{ 'CIRCLE_QUEUE.VARIABLE' | translate }}</p>
+                    </div>
+                </div>
+                <div class="mem">
+                    <div class="dados">
+                        <p>{{ 'CIRCLE_QUEUE.MEMORY' | translate }}</p>
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <div class="dados">
+                        <p>{{ 'MATRIX.MEMORY.CONTENT' | translate }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <ng-container *ngIf="filaCriada">
+                <div class="memoriaDiv cl-row info-header">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>{{ 'CIRCLE_QUEUE.F_INIT' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>0x0A00</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p>{{ inicio }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memoriaDiv cl-row info-header">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>{{ 'CIRCLE_QUEUE.F_END' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>0x0A04</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p>{{ fim }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memoriaDiv cl-row" *ngFor="let item of fila; let i = index">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>f.{{ 'CIRCLE_QUEUE.QUEUE' | translate }}[{{i}}]</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>{{ item.endereco }}</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p [ngClass]="{'lixo-color': item.conteudo === item.lixoOriginal}">
+                                {{ item.conteudo }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<div class="exec" *ngIf="filaCriada">
+    <div class="parteCima">
+        <span></span>
+        <h1>{{ 'MATRIX.EXECUTION_TITLE' | translate }}</h1>
+        <img [src]="getImagePath(icon)" alt="ícone" *ngIf="filaCriada" (click)="abrirAjudaSecoesFila('ajuda_execucao')">
+        <img [src]="getImagePath(icon)" alt="ícone" *ngIf="!filaCriada">
+    </div>
+
+    <div class="corpo">
+        <div class="matriz svg-container">
+            <p id="tituloFilaF">{{ 'CIRCLE_QUEUE.QUEUE_EXECUTION' | translate }}</p>
+
+            <svg viewBox="0 0 100 100" class="donut-svg">
+                @for (item of segments; track $index) {
+                <g>
+                    <path [attr.d]="item.pathData" [attr.fill]="item.isLixo ? '#f9f9f9' : 'white'" stroke="#333333"
+                        stroke-width="0.4" />
+
+                    <text [attr.x]="item.labelX" [attr.y]="item.labelY - 1" [class.valor-real]="!item.isLixo"
+                        [class.valor-lixo]="item.isLixo">
+                        {{ item.conteudo }}
+                    </text>
+
+                    <text [attr.x]="item.labelX" [attr.y]="item.labelY + 3" class="indice-svg">
+                        {{ $index }}
+                    </text>
+
+                    <g>
+                        <text *ngIf="$index === inicio" [attr.x]="item.pointerX"
+                            [attr.y]="inicio === fim ? item.pointerY - 3 : item.pointerY" class="seta-inicio">
+                            {{ 'CIRCLE_QUEUE.INIT' | translate }}
+                        </text>
+
+                        <text *ngIf="$index === fim" [attr.x]="item.pointerX"
+                            [attr.y]="inicio === fim ? item.pointerY + 3 : item.pointerY" class="seta-fim">
+                            {{ 'CIRCLE_QUEUE.END' | translate }}
+                        </text>
+                    </g>
+                </g>
+                }
+            </svg>
+        </div>
+    </div>
+</div>

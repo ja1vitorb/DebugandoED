@@ -1,0 +1,52 @@
+<div class="mission-view">
+  <!-- Timer and Action Buttons -->
+  <div class="mission-header">
+    <div class="timer-container" [class.time-warning]="minutes <= 1">
+      <span class="timer-icon">⏱️</span>
+      <span class="timer-display">{{ minutes }}:{{ seconds < 10 ? '0' + seconds : seconds }}</span>
+    </div>
+    <div class="action-buttons">
+      <button class="btn-cancel" (click)="cancelMission()">
+        Sair
+      </button>
+      <button class="btn-submit" (click)="submitMission()" [disabled]="timeExpired">
+        Finalizar Missão
+      </button>
+    </div>
+  </div>
+
+  <div class="mission-description panel">
+    <div class="panel-header">DESCRIÇÃO DA MISSÃO</div>
+    <div class="panel-body">
+      <div *ngIf="challenge; else loading">
+        <h3>{{ challenge.title || challenge.name }}</h3>
+        <p [innerHTML]="challenge.description || challenge.text"></p>
+        <div class="challenge-level" [ngClass]="'level-' + (challenge.difficulty || 'medium')">
+          Nível: {{ challenge.difficulty || 'Médio' }}
+          <span *ngIf="challenge.points"> (+{{ challenge.points }} pontos)</span>
+        </div>
+      </div>
+      <ng-template #loading>
+        <p>Carregando missão...</p>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="mission-structure">
+    <div class="structure-wrapper">
+      <ng-container *ngIf="selectedComponent; else noComp">
+        <ng-container *ngComponentOutlet="selectedComponent"></ng-container>
+      </ng-container>
+      <ng-template #noComp>
+        <p>Componente estrutural não disponível para: {{ structure }}</p>
+      </ng-template>
+    </div>
+  </div>
+
+
+  <div class="mission-footer">
+    <button class="btn-submit-large" (click)="submitMission()" [disabled]="timeExpired">
+      {{ timeExpired ? 'Tempo Esgotado' : 'Finalizar Missão' }}
+    </button>
+  </div>
+</div>

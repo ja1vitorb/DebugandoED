@@ -1,0 +1,82 @@
+.register-page { display: flex; justify-content: center; padding: 24px; }
+.page-with-footer {
+	min-height: calc(100vh - 120px);
+	background: #e9e9e9;
+	display: flex; align-items: center; justify-content: center; padding: 40px 20px;
+}
+
+.register-outer { width: 100%; max-width: 760px; display: flex; justify-content: center; }
+
+.register-card { background: #fff; width: 600px; max-width: 100%; padding: 24px 28px; border-radius: 8px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18); }
+.register-card .title { text-align: center; color: #1e5bff; font-size: 28px; margin: 6px 0 14px; }
+
+.avatar-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.avatar-grid {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-option {
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 80px;
+  height: 80px;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+    border-color: #1e5bff33;
+  }
+  
+  &.selected {
+    border-color: #1e5bff;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1e5bff;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 12px; }
+.col-1 { grid-column: span 4; }
+.col-2 { grid-column: span 2; }
+.field { display: flex; flex-direction: column; }
+.label-text { font-size: 12px; color: #333; margin-bottom: 6px; }
+.field input,
+.field select { height: 34px; padding: 6px 8px; border: 1px solid #cfcfcf; border-radius: 4px; }
+
+.actions { display: flex; justify-content: center; gap: 12px; margin-top: 18px; }
+.btn { padding: 10px 32px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; font-size: 14px; min-width: 140px; }
+.btn.cancel { background: #dc3545; color: #fff; }
+.btn.primary { background: #1e5bff; color: #fff; }
+
+.error { color: #c11; margin-top: 10px; text-align: center; }
+
+.register-form { width: 100%; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .avatar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .role-options {
+    flex-direction: column;
+  }
+  
+  .register-card {
+    width: 100%;
+  }
+}

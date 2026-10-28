@@ -1,0 +1,393 @@
+<div class="vetor-root">
+    <h1 id="titulo">{{ 'VECTOR.TITLE' | translate }}</h1>
+
+    <div class="container2">
+
+        <div class="modal" id="explicacao-modal4" style="display: none;">
+            <div class="modalContent">
+                <h2 id="tituloModal">{{ 'MODAL.CHOICE_TITLE' | translate }}</h2>
+                <div class="modalContainer">
+                    <div class="explicacao-texto">
+                        <div class="btnModal2" id="reiniciaModal" (click)="btnReinicia()">
+                            <p>{{ 'MODAL.RESTART' | translate }}</p>
+                        </div>
+                        <div class="inicializar" (click)="btnInicializa()">
+                            <p>{{ 'MODAL.INITIALIZE' | translate }}</p>
+                        </div>
+                        <div class="inicializar" (click)="btnMostraTodos()">
+                            <p>{{ 'MODAL.SHOW_ALL' | translate }}</p>
+                        </div>
+                        <div class="inicializar" (click)="btnMostra()">
+                            <p>{{ 'MODAL.SHOW_SPECIFIC' | translate }}</p>
+                        </div>
+                        <div class="excluir" (click)="btnExcluir()">
+                            <p>{{ 'MODAL.DELETE' | translate }}</p>
+                        </div>
+                        <div class="inserir" (click)="btnInserir()">
+                            <p>{{ 'MODAL.INSERT' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="explicaTudo">
+                        <div class="explicaReinicia" id="reinicia">
+                            <h3>{{ 'VECTOR.RESTART_OPTION.TITLE' | translate }}</h3>
+                            <p>{{ 'VECTOR.RESTART_OPTION.TEXT' | translate }}</p>
+                            <img src="images/imgExplicacao/ReiniciaExec.png"
+                                alt="{{ 'VECTOR.IMAGES.REINICIA' | translate }}">
+                        </div>
+                        <div class="explicaReinicia" id="inicializar">
+                            <h3>{{ 'VECTOR.INIT_OPTION.TITLE' | translate }}</h3>
+                            <p>{{ 'VECTOR.INIT_OPTION.TEXT' | translate }}</p>
+                            <img src="images/imgExplicacao/imgInicializarExplicacao.png"
+                                alt="{{ 'VECTOR.IMAGES.INIT' | translate }}">
+                        </div>
+                        <div class="explicaReinicia" id="MostrarTodos">
+                            <h3>{{ 'VECTOR.SHOW_ALL.TITLE' | translate }}</h3>
+                            <p>{{ 'VECTOR.SHOW_ALL.TEXT' | translate }}</p>
+                            <img src="images/imgExplicacao/MostraTodos.png"
+                                alt="{{ 'VECTOR.IMAGES.MOSTRA_TODOS' | translate }}">
+                        </div>
+                        <div class="explicaReinicia" id="MostrarEspecifico">
+                            <h3>{{ 'VECTOR.SHOW_SPECIFIC.TITLE' | translate }}</h3>
+                            <p>{{ 'VECTOR.SHOW_SPECIFIC.TEXT' | translate }}</p>
+                            <img src="images/imgExplicacao/MostraEspecifico.png"
+                                alt="{{ 'VECTOR.IMAGES.MOSTRA_ESPECIFICO' | translate }}">
+                        </div>
+                        <div class="explicaReinicia" id="Excluir">
+                            <h3>{{ 'VECTOR.DELETE_OPTION.TITLE' | translate }}</h3>
+                            <p>{{ 'VECTOR.DELETE_OPTION.TEXT1' | translate }}</p>
+                            <p>{{ 'VECTOR.DELETE_OPTION.TEXT2' | translate }}</p>
+                            <img src="images/imgExplicacao/Excluir.png" alt="{{ 'VECTOR.IMAGES.EXCLUIR' | translate }}">
+                        </div>
+                        <div class="explicaReinicia" id="Inserir">
+                            <h3>{{ 'VECTOR.INSERT_OPTION.TITLE' | translate }}</h3>
+                            <p>{{ 'VECTOR.INSERT_OPTION.TEXT' | translate }}</p>
+                            <img src="images/imgExplicacao/Inserir.png" alt="{{ 'VECTOR.IMAGES.INSERIR' | translate }}">
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <button class="btnModal" id="btnCria" (click)="fecharModalExplicacao4()">{{ 'MODAL.CLOSE' |
+                            translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="explicacao-modal3" style="display: none;">
+            <div class="modalContent">
+                <h2 id="tituloModal">{{ 'VECTOR.DESCRIPTION_TITLE' | translate }}</h2>
+                <div class="modalContainer">
+                    <div class="explicacao-texto">
+                        <p>{{ 'VECTOR.DESCRIPTION_TEXT.MEMORY' | translate }}</p>
+                        <img src="images/imgExplicacao/memoriaExplicacao.png"
+                            alt="{{ 'VECTOR.IMAGES.MEMORIA' | translate }}">
+                    </div>
+                    <div class="btns">
+                        <button class="btnModal" id="btnCria" (click)="fecharModalExplicacao3()">{{ 'MODAL.CLOSE' |
+                            translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="explicacao-modal2" style="display: none;">
+            <div class="modalContent">
+                <h2 id="tituloModal">{{ 'VECTOR.CODES_TITLE' | translate }}</h2>
+                <div class="modalContainer">
+                    <div class="explicacao-texto">
+                        <p>{{ 'VECTOR.DESCRIPTION_TEXT.CODES' | translate }}</p>
+                        <img src="images/imgExplicacao/codigo.png" alt="{{ 'VECTOR.IMAGES.CODIGO' | translate }}">
+                    </div>
+                    <div class="btns">
+                        <button class="btnModal" id="btnCria" (click)="fecharModalExplicacao2()">{{ 'MODAL.CLOSE' |
+                            translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="explicacao-modal" style="display: none;">
+            <div class="modalContent">
+                <h2 id="tituloModal">{{ 'VECTOR.EXECUTION_TITLE' | translate }}</h2>
+                <div class="modalContainer">
+                    <div class="explicacao-texto">
+                        <p>{{ 'VECTOR.DESCRIPTION_TEXT.EXECUTION' | translate }}</p>
+                        <img src="images/imgExplicacao/exec.png" alt="{{ 'VECTOR.IMAGES.EXEC' | translate }}">
+                    </div>
+                    <div class="btns">
+                        <button class="btnModal" id="btnCria" (click)="fecharModalExplicacao()">{{ 'MODAL.CLOSE' |
+                            translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="SemVetor" style="display: none;">
+            <div class="modalContent">
+                <h2 id="tituloModal">{{ 'VECTOR.DESCRIPTION_SECTION.TITLE' | translate }}</h2>
+                <div class="modalContainer">
+                    <div class="explicacao-texto">
+                        <h3>{{ 'VECTOR.DESCRIPTION_SECTION.HEADER' | translate }}</h3>
+                        <p>{{ 'VECTOR.DESCRIPTION_SECTION.HOW_TO_TEXT' | translate }}</p>
+                        <h3>{{ 'VECTOR.DESCRIPTION_SECTION.HOW_TO_TITLE' | translate }}</h3>
+                        <p>{{ 'VECTOR.DESCRIPTION_SECTION.HOW_TO_TEXT' | translate }}</p>
+                    </div>
+                    <div class="btns">
+                        <button class="btnModal" id="btnCria" (click)="fecharSemVet()">{{ 'MODAL.CLOSE' | translate
+                            }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="modalContent">
+                <h2 id="tituloModal">{{ 'VECTOR.INPUT.TITLE' | translate }}</h2>
+                <div class="modalContainer">
+                    <h2>{{ 'VECTOR.INPUT.TITLE' | translate }}</h2>
+                    <input type="number" id="tamanhoVetor" class="input"
+                        placeholder="{{ 'VECTOR.INPUT.PLACEHOLDER' | translate }}" min="1" (keyup.enter)="iniciaVet()">
+                    <div class="btns">
+                        <button class="btnModal" id="btnCria" (click)="iniciaVet()">{{ 'VECTOR.INPUT.CONFIRM' |
+                            translate }}</button>
+                        <button class="btnModal" id="btnCancela" (click)="fecharModal()">{{ 'MODAL.CANCEL' | translate
+                            }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modalMostraEspecifico">
+            <div class="modalContent">
+                <h2 id="tituloModal">{{ 'VECTOR.MODAL.SHOWING_CONTENT' | translate }} [ {{ indiceEspecifico }} ]</h2>
+                <div class="modalContainer">
+                    <table style="width:100%; margin-top:15px;">
+                        <tr>
+                            <th>{{ 'VECTOR.MODAL.SHOW_CONTENT' | translate }}</th>
+                            <th>{{ 'VECTOR.MODAL.SHOW_CODE' | translate }}</th>
+                        </tr>
+                        <tr>
+                            <td>{{ elementoEspecifico }}</td>
+                            <td><code>printf(" %d ", vetor[{{ indiceEspecifico }}]);</code></td>
+                        </tr>
+                    </table>
+                    <button class="btnModal" id="btnFecharEspecifico" (click)="fecharModalEspecifico()">{{ 'MODAL.OK' |
+                        translate }}</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modalMostraTodas">
+            <div class="modalContent">
+                <h2>{{ 'VECTOR.MODAL.SHOWING_ALL.TITLE' | translate }}</h2>
+                <div class="modalContainer">
+                    <div class="content-container">
+
+                        <table class="vetor-table">
+                            <thead>
+                                <tr>
+                                    <th>{{ 'VECTOR.TABLE.POSITION' | translate }}</th>
+                                    <th>{{ 'VECTOR.TABLE.CONTENT' | translate }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let valor of vetor; let i = index">
+                                    <td>{{ 'VECTOR.ROW.POSITION' | translate }} [ {{ i }} ]</td>
+                                    <td>{{ valor }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="code-snippet">
+                            <div class="snippet-header">
+                                {{ 'VECTOR.CODE.HEADER' | translate }}
+                            </div>
+                            <div>{{ gerarCodigoLoop(linguagemCodigo) }}</div>
+                        </div>
+
+                    </div>
+
+                    <button class="btn-ok" (click)="fecharModalTodas()">{{ 'MODAL.OK' | translate }}</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="painelPrincipal">
+            <div class="topCard">
+                <h1>{{ 'VECTOR.PANEL.TITLE' | translate }}</h1>
+                <img [src]="getImagePath(icon)" *ngIf="!vetorInicializado" (click)="semVet()" id="explicaModal">
+                <img [src]="getImagePath(icon)" *ngIf="vetorInicializado" (click)="abrirModal()" id="explicaModal">
+            </div>
+            <div class="card">
+                <div class="btn">
+                    <div *ngIf="!vetorInicializado" class="btnS" (click)="abrirModalC()">
+                        <a>
+                            <img [src]="getImagePath(inicia)">
+                            <p>{{ 'VECTOR.BUTTON.CREATE' | translate }}</p>
+                        </a>
+                    </div>
+
+                    <div *ngIf="vetorInicializado" class="btnReset" (click)="resetPagina()">
+                        <a>
+                            <img [src]="getImagePath(reset)">
+                            <p>{{ 'VECTOR.BUTTON.RESET' | translate }}</p>
+                        </a>
+                    </div>
+
+                    <div *ngIf="vetorInicializado" class="btnInicia" (click)="preencherComZeros()">
+                        <a id="btnInit">
+                            <img [src]="getImagePath(inicia)">
+                            <p>{{ 'VECTOR.BUTTON.INIT' | translate }}</p>
+                        </a>
+                    </div>
+
+                    <div *ngIf="vetorInicializado" class="btnMostraTodos" (click)="abrirModalTodas()">
+                        <a>
+                            <img [src]="getImagePath(mostra)">
+                            <p>{{ 'VECTOR.BUTTON.SHOW_ALL' | translate }}</p>
+                        </a>
+                    </div>
+
+                    <div *ngIf="vetorInicializado" class="mostraEspecifico">
+                        <input type="number" id="insereMostra" (keyup.enter)="mostrarEspecifico()">
+                        <div class="mostra" (click)="mostrarEspecifico()">
+                            <a>
+                                <img [src]="getImagePath(mostra)">
+                                <p>{{ 'VECTOR.BUTTON.SHOW_SPECIFIC' | translate }}</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div *ngIf="vetorInicializado" class="apagaVet">
+                        <input type="number" id="apagaMostra" (keyup.enter)="excluirElemento()">
+                        <div class="apaga" (click)="excluirElemento()">
+                            <a>
+                                <img [src]="getImagePath(apaga)">
+                                <p>{{ 'VECTOR.BUTTON.DELETE_ELEMENT' | translate }}</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div *ngIf="vetorInicializado" class="insereElemento">
+                        <input type="number" id="insereElemento" (keyup.enter)="adicionarElemento()">
+                        <div class="insere" (click)="adicionarElemento()">
+                            <a>
+                                <img [src]="getImagePath(insere)">
+                                <p>{{ 'VECTOR.BUTTON.ADD_ELEMENT' | translate }}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="codigo">
+            <div class="topCard">
+                <h1>{{ 'VECTOR.CODE.TITLE' | translate }}</h1>
+                <img [src]="getImagePath(icon)" (click)="abrirModalExplicacao2()" id="explicaModal">
+            </div>
+
+            <div class="card" [ngSwitch]="codigoVisivel">
+
+                <pre id="textCod" *ngSwitchCase="'count'">{{ getResetCountCodigo() }}</pre>
+
+                <pre id="textCod" *ngSwitchCase="'inicializacao'">{{ getCodigoInicializacao().trim() }}</pre>
+
+                <pre id="textCod"
+                    *ngSwitchCase="'operacao'">{{ gerarCodigo(linguagemCodigo, operacaoAtual, indiceRemocao).join('\n').trim() }}</pre>
+
+                <div class="card placeholder" *ngSwitchCase="'nenhum'">
+                    <p>{{ 'VECTOR.NOT_INITIALIZED' | translate }}</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="memoria">
+            <div class="topCard">
+                <h1>{{ 'VECTOR.MEMORY.TITLE' | translate }}</h1>
+                <img [src]="getImagePath(icon)" (click)="abrirModalExplicacao3()" id="explicaModal">
+            </div>
+            <div class="card">
+                <div class="topCard" *ngIf="vetorInicializado">
+                    <div class="nome" *ngIf="vetorInicializado">
+                        <div class="dados">
+                            <p>{{ 'VECTOR.MEMORY.VARIABLE' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="mem" *ngIf="vetorInicializado">
+                        <div class="dados">
+                            <p>{{ 'VECTOR.MEMORY.POSITION' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="conteudo" *ngIf="vetorInicializado">
+                        <div class="dados">
+                            <p>{{ 'VECTOR.MEMORY.CONTENT' | translate }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memoriaDiv" *ngIf="vetorInicializado">
+                    <div class="nome">
+                        <div class="dados">
+                            <p>{{ 'VECTOR.MEMORY.COUNT_LABEL' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>{{ gerarEnderecoMemoria() }}</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p>{{ count }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memoriaDiv" *ngFor="let valor of vetor; let i = index">
+                    <div class="nome">
+                        <div class="dados">
+                            <p>{{ 'VECTOR.ROW.POSITION' | translate }} [{{ i }}]</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>{{ vetorMemorias[i] }}</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p>{{ valor }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="exec">
+        <div class="parteDeCima">
+            <span></span>
+            <h1>{{ 'VECTOR.EXECUTION_TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" id="explicaModal" (click)="abrirModalExplicacao()">
+        </div>
+        <div class="corpo">
+            <div *ngIf="vetorInicializado" class="corpo">
+                <div *ngFor="let caixa of caixas ; let i = index" class="caixa">
+                    <div class="count-label" *ngIf="i === count && count <= caixas.length ">{{
+                        'VECTOR.MEMORY.COUNT_LABEL' | translate }}</div>
+                    <div class="numero" [style.color]="elementosModificados[i] ? '#0000FF' : '#FF0000'">
+                        {{ caixa }}
+                    </div>
+                    <div class="indice">{{ i }}</div>
+                </div>
+                <div class="count-label extra" *ngIf="count === caixas.length">{{ 'VECTOR.MEMORY.COUNT_LABEL' |
+                    translate }}</div>
+            </div>
+        </div>
+    </div>
+
+</div>

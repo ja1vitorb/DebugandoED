@@ -1,0 +1,509 @@
+<h1 id="titulo">{{ tituloPag | translate }}</h1>
+
+<div class="modal" id="modal-lista-nao-criada" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'LINKED_LIST.TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicaTudo">
+                <p style="font-weight: bold; text-align: center;">{{ 'LINKED_LIST.DESCRIPTION.TITLE' | translate }}</p>
+                <p>{{ 'LINKED_LIST.DESCRIPTION.TEXT' | translate }}</p>
+
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 1rem 0;">
+
+                <p style="font-weight: bold; text-align: center;">{{ 'LINKED_LIST.DESCRIPTION.TUTORIAL_TITLE' |
+                    translate }}</p>
+                <p>{{ 'LINKED_LIST.DESCRIPTION.TUTORIAL_TEXT' | translate }}</p>
+
+                <img [src]="getImagePath(listaCria)" alt="Tutorial">
+            </div>
+            <div class="btns" style="width: 100%;">
+                <button class="btnModal" style="background-color: blue; width: 70%; margin: 0 auto;"
+                    (click)="fecharAjuda('modal-lista-nao-criada')">
+                    {{ 'LINKED_LIST.DESCRIPTION.OK' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="explicacao-modal-lista" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'MODAL.CHOICE_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicacao-texto">
+                <div class="btnModal2" (click)="abaExplicacao = 'reiniciar'">
+                    <p>{{ 'LINKED_LIST.BTN.REINICIAR' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="abaExplicacao = 'mostrar_todos'">
+                    <p>{{ 'LINKED_LIST.BTN.MOSTRARTODOS' | translate }}</p>
+                </div>
+                <div class="inserir" (click)="abaExplicacao = 'inserir'">
+                    <p>{{ 'LINKED_LIST.BTN.INSERIR' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="abaExplicacao = 'mostrar'">
+                    <p>{{ 'LINKED_LIST.BTN.MOSTRAR_ESPECIFICO' | translate }}</p>
+                </div>
+                <div class="btnModal2" (click)="abaExplicacao = 'remover'">
+                    <p>{{ 'LINKED_LIST.BTN.EXCLUIR' | translate }}</p>
+                </div>
+            </div>
+
+            <div class="explicaTudo">
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'reiniciar'">
+                    <h3>{{ 'LINKED_LIST_END.EXPLANATION.RESTART_TITLE' | translate }}</h3>
+                    <p>{{ 'LINKED_LIST_END.EXPLANATION.RESTART_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(listaReinicia)" alt="Reiniciar">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'mostrar_todos'">
+                    <h3>{{ 'LINKED_LIST_END.EXPLANATION.SHOW_ALL_TITLE' | translate }}</h3>
+                    <p>{{ 'LINKED_LIST_END.EXPLANATION.SHOW_ALL_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(listaMostraTodos)" alt="Exibir Todos">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'inserir'">
+                    <h3>{{ 'LINKED_LIST_END.EXPLANATION.INSERT_TITLE' | translate }}</h3>
+                    <p>{{ 'LINKED_LIST_END.EXPLANATION.INSERT_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(listaInsere)" alt="Inserir">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'mostrar'">
+                    <h3>{{ 'LINKED_LIST_END.EXPLANATION.SHOW_SPECIFIC_TITLE' | translate }}</h3>
+                    <p>{{ 'LINKED_LIST_END.EXPLANATION.SHOW_SPECIFIC_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(listaMostraEspecifico)" alt="Mostrar">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'remover'">
+                    <h3>{{ 'LINKED_LIST_END.EXPLANATION.DELETE_TITLE' | translate }}</h3>
+                    <p>{{ 'LINKED_LIST_END.EXPLANATION.DELETE_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(listaRemover)" alt="Remover">
+                </div>
+            </div>
+
+            <h2 style="font-size: 18px;">{{ 'LINKED_LIST.TITLE_FUNCTIONS' | translate }}</h2>
+            <div class="explicacao-texto">
+                <div class="inserir" (click)="abaExplicacao = 'funcao_insert'">
+                    <p>{{ 'LINKED_LIST_ORDENATE.BTN.INSERE_FIM' | translate }}</p>
+                </div>
+                <div class="btnModal2" (click)="abaExplicacao = 'funcao_remove'">
+                    <p>{{ 'LINKED_LIST_ORDENATE.BTN.REMOVE_FIM' | translate }}</p>
+                </div>
+            </div>
+
+            <div class="explicaTudo">
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'funcao_insert'">
+                    <h3>{{ 'LINKED_LIST_ORDENATE.EXPLANATION.INSERT_FUNC_TITLE' | translate }}</h3>
+                    <p>{{ 'LINKED_LIST_ORDENATE.EXPLANATION.INSERT_FUNC_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(listaCodigoInsereInicio)" alt="Lógica Inserção Início">
+                </div>
+
+                <div class="explicaReinicia" *ngIf="abaExplicacao === 'funcao_remove'">
+                    <h3>{{ 'LINKED_LIST_ORDENATE.EXPLANATION.REMOVE_FUNC_TITLE' | translate }}</h3>
+                    <p>{{ 'LINKED_LIST_ORDENATE.EXPLANATION.REMOVE_FUNC_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(listaCodigoRemoveInicio)" alt="Lógica Remoção Início">
+                </div>
+            </div>
+
+            <div class="btns">
+                <button class="btnModal" style="background-color: blue; width: 100%;"
+                    (click)="fecharModalExplicaLista()">
+                    {{ 'MODAL.CLOSE' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-ajuda-secoes-lista" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'MODAL.CHOICE_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicacao-texto">
+                <div class="btn-ajuda btn-cinza" (click)="abaExplicacao = 'ajuda_codigo'">
+                    <p>{{ 'TITLES.TITLE_CODE' | translate }}</p>
+                </div>
+                <div class="btn-ajuda btn-laranja" (click)="abaExplicacao = 'ajuda_memoria'">
+                    <p>{{ 'TITLES.TITLE_MEMORY' | translate }}</p>
+                </div>
+                <div class="btn-ajuda btn-preto" (click)="abaExplicacao = 'ajuda_execucao'">
+                    <p>{{ 'TITLES.TITLE_EXECUTION' | translate }}</p>
+                </div>
+            </div>
+
+            <div class="explicaTudo">
+                <div *ngIf="abaExplicacao === 'ajuda_codigo'">
+                    <h3>{{ 'LINKED_LIST.TECH.CODE_TITLE' | translate }}</h3>
+                    <p>{{ 'LINKED_LIST.TECH.CODE_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(listaCodigo)" alt="Código">
+                </div>
+
+                <div *ngIf="abaExplicacao === 'ajuda_memoria'">
+                    <h3>{{ 'LINKED_LIST.TECH.MEMORY_TITLE' | translate }}</h3>
+                    <p>{{ 'LINKED_LIST.TECH.MEMORY_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(listaMemoria)" alt="Memória">
+                </div>
+
+                <div *ngIf="abaExplicacao === 'ajuda_execucao'">
+                    <h3>{{ 'LINKED_LIST.TECH.EXEC_TITLE' | translate }}</h3>
+                    <p>{{ 'LINKED_LIST.TECH.EXEC_TEXT' | translate }}</p>
+                    <img [src]="getImagePath(listaExecucao)" alt="Execução">
+                </div>
+            </div>
+
+            <div class="btns">
+                <button class="btnModal" style="background-color: blue; width: 100%;"
+                    (click)="fecharAjuda('modal-ajuda-secoes-lista')">
+                    {{ 'LINKED_LIST.DESCRIPTION.OK' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalMostraPosicao">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.MODAL_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <h2>{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.MODAL_H2' | translate }}: {{ valorBusca }}</h2>
+            <div class="conteudo" style="display: flex; margin: 0 30px;">
+                <div class="codigoPilha" style="margin-right: 30px; text-align: left;">
+                    <p id="tituloPilhaCod">{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.CODE' | translate }}:</p>
+                    <div class="card-codigo-modal">
+                        <pre id="textCodInicio"></pre>
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <p id="tituloPilhaCod">{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.TITLE_LISTA2' | translate }}:</p>
+                    <p>{{ posicaoEncontrada }}</p>
+                </div>
+            </div>
+            <div class="btns" (click)="fechaModalMostraEspecifico()">
+                <button class="btnModal" id="btnCria">{{
+                    'VECTOR.INPUT.CONFIRM' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalMostraLista">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.MODAL_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <h2>{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.MODAL_TITLE2' | translate }}:</h2>
+            <div class="telaTotal">
+                <div class="tabelaPilha tabela-larga">
+                    <div class="posicao">
+                        <p id="tituloPilhaCod">{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.MODAL_H2_2' | translate }}</p>
+                        <div *ngFor="let item of elementosParaExibir; let i = index">
+                            <p>{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.P_DATA' | translate }}</p>
+                        </div>
+                    </div>
+
+                    <div class="conteudo">
+                        <p id="tituloPilhaCod">{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.CONTENT' | translate }}</p>
+                        <div *ngFor="let item of elementosParaExibir">
+                            <p>{{ item.value }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="codigoPilha">
+                    <p id="tituloPilhaCod">{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.CODE' | translate }}</p>
+                    <div class="card-codigo-modal">
+                        <pre id="textCodTodasFila"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btns" (click)="fechaModalMostraLista()">
+                <button class="btnModal" id="btnCria">{{
+                    'VECTOR.INPUT.CONFIRM' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container2">
+    <div class="painel">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.PANEL.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" id="explicaModal" *ngIf="listaCriada" (click)="abrirModalExplicaLista()">
+            <img [src]="getImagePath(icon)" id="explicaModal" *ngIf="!listaCriada"
+                (click)="abrirAjuda('modal-lista-nao-criada')">
+        </div>
+        <div class="card">
+            <div class="btn">
+                <div class="insereElemento" *ngIf="!listaCriada">
+                    <input type="number" id="insereElemento" #inputLista (keyup.enter)="criaLista(inputLista)" />
+                    <div class="insere" id="btnCriaLista" (click)="criaLista(inputLista)">
+                        <a role="button">
+                            <img [src]="getImagePath(insere)" *ngIf="listaCriada">
+                            <p>{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.CREATE' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="btnReset" *ngIf="listaCriada" (click)="reiniciaPagina()">
+                    <a role="button">
+                        <img [src]="getImagePath(reset)">
+                        <p>{{ 'MATRIX.BUTTON.RESET' | translate }}</p>
+                    </a>
+                </div>
+
+                <div class="btnMostraTodos" *ngIf="listaCriada" (click)="abreModalMostraLista()">
+                    <a>
+                        <img [src]="getImagePath(mostra)">
+                        <p>{{ 'MATRIX.BUTTON.SHOW_ALL' | translate }}</p>
+                    </a>
+                </div>
+
+                <div class="insereElemento" *ngIf="listaCriada">
+                    <input type="number" id="insereElemento" #inputLista (keyup.enter)="inserirOrdenado(inputLista)" />
+                    <div class="insere">
+                        <a role="button" (click)="inserirOrdenado(inputLista)">
+                            <img [src]="getImagePath(insere)" *ngIf="listaCriada">
+                            <p>{{ 'MATRIX.BUTTON.ADD_ELEMENT' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mostraEspecifico" *ngIf="listaCriada">
+                    <div class="mostraInputs">
+                        <select name="mostraCelula" id="mostraCelula" #posicaoSelecionada>
+                            <option *ngIf="elementosParaExibir.length === 0">Lista Vazia</option>
+                            <option *ngFor="let item of elementosParaExibir; let i = index" [value]="i">
+                                {{ item.value }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mostra">
+                        <a role="button" (click)="abreModalMostraEspecifico(posicaoSelecionada)">
+                            <img [src]="getImagePath(mostra)">
+                            <p>{{ 'MATRIX.BUTTON.SHOW_SPECIFIC' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="apagaVet" *ngIf="listaCriada">
+                    <div class="apagaInputs">
+                        <select name="apagaCelula" #valorParaRemover>
+                            <option value="" disabled selected>{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.CHOOSE' | translate  }}</option>
+                            <option *ngFor="let item of elementosParaExibir" [value]="item.value">
+                                {{ item.value }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="apaga" (click)="removerPorValor(valorParaRemover)">
+                        <a role="button">
+                            <img [src]="getImagePath(apaga)">
+                            <p>{{ 'MATRIX.BUTTON.DELETE_ELEMENT' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="codigo">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.CODE.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" id="explicaModal" *ngIf="listaCriada"
+                (click)="abrirAjudaSecoesLista('ajuda_codigo')">
+            <img [src]="getImagePath(icon)" id="explicaModal" *ngIf="!listaCriada">
+        </div>
+
+        <div class="card">
+            <pre id="textCod"></pre>
+        </div>
+    </div>
+
+    <div class="memoria">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.MEMORY.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" id="explicaModal" *ngIf="listaCriada"
+                (click)="abrirAjudaSecoesLista('ajuda_memoria')">
+            <img [src]="getImagePath(icon)" id="explicaModal" *ngIf="!listaCriada">
+        </div>
+
+        <div class="card">
+            <div class="topCard" *ngIf="listaCriada">
+                <div class="tipo">
+                    <div class="dados">
+                        <p>{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.MODAL_H2_2' | translate }}</p>
+                    </div>
+                </div>
+                <div class="mem">
+                    <div class="dados">
+                        <p>{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.MEMORY' | translate }}</p>
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <div class="dados">
+                        <p>{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.CONTENT' | translate }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <ng-container *ngIf="listaCriada">
+                <div class="memoriaDiv cl-row info-header">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.INIT' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>0x0004</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p>{{ inicioMemoria }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memoriaDiv cl-row" *ngIf="linhaFixaPrimeiroNo"
+                    style="min-height: 70px; background-color: rgba(255,255,255,0.05);">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.VALUE' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>{{ linhaFixaPrimeiroNo.endereco }}</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <div class="dados">
+                            <p>{{ linhaFixaPrimeiroNo.conteudo }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memoriaDiv cl-row" *ngIf="primeiroNoMemoria" style="min-height: 70px;">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>{{ primeiroNoMemoria.info | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>{{ primeiroNoMemoria.endereco | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="conteudo" style="display: flex; flex-direction: column; padding: 0 !important;">
+                        <div
+                            style="flex: 1; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #444; color: #444; width: 100%;">
+                            <p>{{ primeiroNoMemoria.conteudo }}</p>
+                        </div>
+                        <div style="flex: 1; display: flex; align-items: center; justify-content: center; color: #444;">
+                            <p style="font-size: 0.85em; ">{{ primeiroNoMemoria.proximo }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memoriaDiv cl-row" *ngFor="let item of memoriaSimuladaRestante" style="min-height: 70px;">
+                    <div class="tipo">
+                        <div class="dados">
+                            <p>{{ item.info | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="mem">
+                        <div class="dados">
+                            <p>{{ item.endereco }}</p>
+                        </div>
+                    </div>
+                    <div class="conteudo"
+                        style="display: flex; flex-direction: column; padding: 0 !important; align-items: stretch;">
+                        <div
+                            style="flex: 1; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #444; width: 100%; color: #333;">
+                            <p [ngClass]="{'lixo-color': !item.isReal}">{{ item.conteudo }}</p>
+                        </div>
+                        <div
+                            style="flex: 1; display: flex; align-items: center; justify-content: center; color: #333; border-bottom: 1px solid #444; width: 100%; background: white;">
+                            <p style="font-size: 0.75em; color: #444;">{{ item.proximo }}</p>
+                        </div>
+                        <div
+                            style="flex: 1; display: flex; align-items: center; justify-content: center; color: #333; width: 100%; background: white;">
+                            <p style="font-size: 0.75em; color: #444;">{{ item.anterior }}</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<div class="exec">
+    <div class="parteCima">
+        <span></span>
+        <h1>{{ 'MATRIX.EXECUTION_TITLE' | translate }}</h1>
+        <img [src]="getImagePath(icon)" alt="ícone" *ngIf="listaCriada"
+            (click)="abrirAjudaSecoesLista('ajuda_execucao')">
+        <img [src]="getImagePath(icon)" alt="ícone" *ngIf="!listaCriada">
+    </div>
+    <div class="corpo">
+        <div class="canvas-lista">
+            <div class="head-pointer-svg">
+                <svg width="100" height="50">
+                    <text x="0" y="15" font-size="14" font-weight="bold" fill="#333">{{ 'DOUBLY_LINKED_LIST_ORDENATE.MODAL.INIT' | translate }}</text>
+                    <path d="M 45 10 L 75 10 M 67 4 L 75 10 L 67 16" stroke="#333" fill="none" stroke-width="2" />
+                </svg>
+            </div>
+
+            <div class="fluxo-lista">
+                <div class="no-container" *ngFor="let no of elementosParaExibir; let i = index">
+                    <div class="no-wrapper">
+                        <div class="no-box" style="width: 140px; display: flex; border: 2px solid #333;">
+                            <div class="anterior"
+                                style="flex: 1; font-size: 8px; background: white; display: flex; align-items: center; justify-content: center; border-right: 2px solid #333;">
+                                {{ no.prevMemoria }}
+                            </div>
+                            <div class="valor"
+                                style="flex: 2; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; color: blue;">
+                                {{ no.value }}
+                            </div>
+                            <div class="proximo"
+                                style="flex: 1; font-size: 8px; background: white; display: flex; align-items: center; justify-content: center; color: #333; border-left: 2px solid #333;">
+                                {{ no.nextMemoria }}
+                            </div>
+                            <div class="endereco"
+                                style="position: absolute; bottom: -25px; width: 100%; text-align: center; font-size: 11px; font-weight: bold;">
+                                {{ no.memoria }}
+                            </div>
+                        </div>
+
+                        <div class="conexao-visual" *ngIf="!no.isLastInRow && no.nextMemoria !== 'NULL'">
+                            <svg width="30" height="40" style="overflow: visible;">
+                                <path d="M 0 15 L 45 15 M 37 9 L 45 15 L 37 21" stroke="#333" fill="none"
+                                    stroke-width="2" />
+                                <path d="M 45 25 L 0 25 M 8 19 L 0 25 L 8 31" stroke="#333" fill="none"
+                                    stroke-width="2" />
+                            </svg>
+                        </div>
+
+                        <div class="conexao-visual" *ngIf="no.nextMemoria === 'NULL'">
+                            <svg width="40" height="30">
+                                <path d="M0 15 L15 15 M15 15 L15 25 M5 25 L25 25 M8 28 L22 28" stroke="#333" fill="none"
+                                    stroke-width="1.5" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="quebra-ortogonal" *ngIf="no.isLastInRow && no.nextMemoria !== 'NULL'">
+                        <svg width="800" height="150" style="overflow: visible;">
+                            <path d="M 0 15 L 60 15 L 60 85 L -650 85 L -650 145 L -620 145" stroke="#333" fill="none"
+                                stroke-width="2" />
+                            <path d="M -628 139 L -620 145 L -628 151" stroke="#333" fill="none" stroke-width="2" />
+
+                            <path d="M -620 155 L -665 155 L -665 70 L 50 70 L 50 25 L 0 25" stroke="#333" fill="none"
+                                stroke-width="2" />
+                            <path d="M 8 19 L 0 25 L 8 31" stroke="#333" fill="none" stroke-width="2" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

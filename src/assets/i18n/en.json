@@ -1,0 +1,1285 @@
+{
+  "HOME": {
+    "TITLE": "Available Structures",
+    "CARDS": {
+      "VECTOR": {
+        "LABEL": "Vector",
+        "DESCRIPTION": "Vector simulator"
+      },
+      "MATRIX": {
+        "LABEL": "Matrix",
+        "DESCRIPTION": "Matrix simulator"
+      },
+      "POINTER": {
+        "LABEL": "Pointer",
+        "DESCRIPTION": "Pointer simulator"
+      },
+      "STACK": {
+        "LABEL": "Stack",
+        "DESCRIPTION": "Stack simulator"
+      },
+      "QUEUE": {
+        "LABEL": "Queue",
+        "DESCRIPTION": "Queue simulator"
+      },
+      "LIST": {
+        "LABEL": "List",
+        "DESCRIPTION": "List simulator"
+      }
+    }
+  },
+  "APP": {
+    "TITLE": "DebugandoED"
+  },
+  "MENU": {
+    "SAVE": "Save",
+    "PROFILE": "Profile",
+    "STRUCTURES": "Structures",
+    "VECTOR": "Vector",
+    "MATRIX": "Matrix",
+    "POINTER": "Pointer",
+    "STACK": "Stack",
+    "QUEUE": "Queue",
+    "LIST": "Lists",
+    "GRAPH": "Graphs"
+  },
+  "MODAL": {
+    "CHOICE_TITLE": "Choose the option to describe",
+    "CODE_HELP_TITLE": "Code",
+    "MEMORY_HELP_TITLE": "Memory",
+    "EXECUTION_HELP_TITLE": "Execution/Simulation",
+    "RESTART": "Restart",
+    "INITIALIZE": "Initialize",
+    "SHOW_ALL": "Show all",
+    "SHOW_ALL_TITLE": "Show all",
+    "SHOW_SPECIFIC": "Show specific",
+    "DELETE": "Delete",
+    "INSERT": "Insert",
+    "CLOSE": "Close",
+    "CANCEL": "Cancel",
+    "CODE_HEADER": "Code",
+    "OK": "OK",
+    "STRUCTURE": {
+      "MATRIX": {
+        "REINICIA": "If you want to change the size of the matrix or start a new matrix, click the RESTART button (indicated by the Arrow). It will return to the option to choose the matrix size, as illustrated in image (A).",
+        "INSERIR": "To add content (INSERT button), type the value in the field (in the example, demonstrated by the value 111 inside the red circle), click the INSERT button (Arrow 1). Then the value will be inserted into the vector (Arrow 2).\nNOTE: the value will be inserted at the position marked by 'cl'. If the matrix is completely filled, 'cl' will be outside the matrix and no value can be inserted.",
+        "MOSTRA_ESPECIFICO": "To add content (INSERT button), type the value in the field (in the example, demonstrated by the value 111 inside the red circle), click the INSERT button (Arrow 1). Then the value will be inserted into the vector (Arrow 2).\nNOTE: the value will be inserted at the position marked by 'cl'. If the matrix is completely filled, 'cl' will be outside the matrix and no value can be inserted.",
+        "EXCLUIR": "To remove the content of a given position, select the index as illustrated by Arrow 1 and Arrow 2 (this index of Arrow 1 and 2 will be the same index of Arrow 4). Then click REMOVE as shown by Arrow 3.\nNote that in the matrix shown by Arrow 5, the content was shifted and the value at position [0][0] was replaced. Also note that Arrow 6 demonstrates that as the content was removed, the content of that position became garbage in memory, shown in red, due to the shift.",
+        "INICIALIZA": "After creating the matrix with the desired size, click the INITIALIZE button (Arrow 1). All matrix/vector content (Arrow 2) will be initialized with the value 0.",
+        "MOSTRA_TODOS": "This item shows all valid content inserted into the matrix. To view it, click the SHOW ALL button (indicated by the Arrow). A window will appear as illustrated in image A.\nNote: garbage in memory is not shown by this function."
+      },
+      "VECTOR": {
+        "REINICIA": "If you want to change the size of the vector or start a new vector, click the RESTART button (indicated by the Arrow). It will return to the option to choose the vector size, as illustrated in image (A).",
+        "INSERIR": "To add content (INSERT button), type the value in the field (in the example, demonstrated by the value 111 inside the red circle), click the INSERT button (Arrow 1). Then the value will be inserted into the vector (Arrow 2).\nNOTE: the value will be inserted at the position marked by 'count'. If the vector is full, 'count' will be out of range and no value can be inserted.",
+        "MOSTRA_ESPECIFICO": "The SHOW button displays the specific content of a single chosen position. To do this, choose the index of the vector you want to show as indicated by the red arrow, then click the show button which will display a modal on your screen as shown in image A.",
+        "EXCLUIR": "To remove the content of a given position, select the index (Arrow 1). Then click the REMOVE button.\nNote that in the shown vector (Arrow 2), the content was shifted and the value at index 0 (chosen to be removed) was replaced.",
+        "INICIALIZA": "After creating the vector with the desired size, click the INITIALIZE button (Arrow 1). All vector content (Arrow 2) will be initialized with the value 0.",
+        "MOSTRA_TODOS": "This implementation shows all valid content inserted into the vector. To view it, click the button indicated by the red arrow which will display a modal on your screen as shown in image A.\nNote: garbage in memory is not shown by this function."
+      }
+    },
+    "SEM_ESTRUTURA": {
+      "MATRIZ": {
+        "TITULO": "Matrix Description",
+        "DESCRICAO": "A matrix is a multidimensional data structure. It is very similar to a vector, but with two or more dimensions. All items in a matrix must be of the same data type. You can think of a matrix as a table with rows and columns.",
+        "TITULO2": "HOW TO USE THE MATRIX SIMULATOR?",
+        "COMO_UTILIZAR": "How to use the matrix simulator?",
+        "PASSOS": "To simulate the multidimensional matrix, you need to select the number of columns (Arrow 1) and select the number of rows (Arrow 2). Then click the Create button (Arrow 3). The options for manipulating the Matrix will appear."
+      },
+      "VETOR": {
+        "TITULO": "Vector Description",
+        "DESCRICAO": "A vector is a one-dimensional data structure that stores elements of the same type. It is a contiguous sequence of elements in memory, allowing for fast access through indices.",
+        "TITULO2": "HOW TO USE THE VECTOR SIMULATOR?",
+        "COMO_UTILIZAR": "How to use the vector simulator?",
+        "PASSOS": "To create the vector, you need to enter its size (Arrow 1 in the Figure). Then, click the button indicated by Arrow 2. This will bring up the options for manipulating vectors."
+      }
+    }
+  },
+  "LOGIN": {
+    "TITLE": "Sign in",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "SUBMIT": "Sign in",
+    "CANCEL": "Cancel",
+    "NEW_HERE": "New here?",
+    "SIGNUP": "Sign up"
+  },
+  "REGISTER": {
+    "TITLE": "Register",
+    "NAME": "Full name",
+    "EMAIL": "Email",
+    "CONFIRM_EMAIL": "Email confirmation",
+    "PASSWORD": "Password",
+    "CONFIRM": "Confirm Password",
+    "SUBMIT": "Register",
+    "BIRTHDATE": "Birthdate",
+    "EDUCATION": "Education",
+    "INSTITUTION": "Institution",
+    "STATE": "State",
+    "CITY": "City",
+    "CHOOSE_AVATAR": "Choose your Avatar",
+    "ROLE": "You are:",
+    "STUDENT": "Student",
+    "TEACHER": "Teacher",
+    "CUSTOM_INSTITUTION": "Institution Name"
+  },
+  "MODAL_OK": "OK",
+  "NO_CONTENT": "No elements available to display",
+  "VECTOR": {
+    "TITLE": "Vector",
+    "RESTART_OPTION": {
+      "TITLE": "RESTART OPTION",
+      "TEXT": "If you want to change the size of the vector or start a new vector, click the RESTART button (indicated by the arrow). It will return to the option to choose the vector size, as illustrated in image (A)."
+    },
+    "INIT_OPTION": {
+      "TITLE": "INITIALIZE OPTION",
+      "TEXT": "If you want to change the size of the vector or start a new vector, click the RESTART button (indicated by the arrow). It will return to the option to choose the vector size, as illustrated in image (A)."
+    },
+    "SHOW_ALL": {
+      "TITLE": "SHOW ALL",
+      "TEXT": "This implementation shows all valid content inserted into the vector. To view it, click the button indicated by the red arrow which will display a modal on your screen as shown in image A. Note: garbage in memory is not shown by this function."
+    },
+    "SHOW_SPECIFIC": {
+      "TITLE": "SHOW",
+      "TEXT": "The SHOW button displays the specific content of a single chosen position. To do this, choose the index of the vector you want to show as indicated by the red arrow, then click the show button which will display a modal on your screen as shown in image A."
+    },
+    "DELETE_OPTION": {
+      "TITLE": "REMOVE OPTION",
+      "TEXT1": "To remove the content of a given position, select the index (Arrow 1). Then click the REMOVE button.",
+      "TEXT2": "Note that in the shown vector (Arrow 2), the content was shifted and the value at index 0 (chosen to be removed) was replaced."
+    },
+    "INSERT_OPTION": {
+      "TITLE": "INSERT IN AVAILABLE POSITION",
+      "TEXT": "To add content (INSERT button), type the value in the field, click the INSERT button (Arrow 1). Then the value will be inserted into the vector (Arrow 2). NOTE: the value will be inserted at the position marked by 'count'. If the vector is full, 'count' will be out of range and no value can be inserted."
+    },
+    "DESCRIPTION_TITLE": "Vector Description",
+    "CODES_TITLE": "Codes",
+    "EXECUTION_TITLE": "EXECUTION / SIMULATION",
+    "DESCRIPTION_SECTION": {
+      "TITLE": "DESCRIPTION",
+      "HEADER": "VECTOR DESCRIPTION",
+      "HOW_TO_TITLE": "HOW TO USE THE VECTOR SIMULATOR?",
+      "HOW_TO_TEXT": "To create the vector, enter the size (Arrow 1 in the figure). Then click the button indicated by Arrow 2. The vector manipulation options will appear."
+    },
+    "INPUT": {
+      "TITLE": "Start Vector",
+      "PLACEHOLDER": "Type the vector size",
+      "CONFIRM": "Confirm"
+    },
+    "SHOWING_CONTENT": "Showing the content of vector",
+    "TABLE": {
+      "POSITION": "Position",
+      "CONTENT": "Content:",
+      "CODE": "Code:"
+    },
+    "MODAL": {
+      "SHOW_CONTENT": "Content:",
+      "SHOW_CODE": "Code:",
+      "SHOWING_CONTENT": "Showing the content of vector",
+      "SHOWING_ALL": {
+        "TITLE": "Showing all positions:"
+      }
+    },
+    "SHOWING_ALL": {
+      "TITLE": "Showing all positions:"
+    },
+    "CODE_LABEL": "Code",
+    "NOT_INITIALIZED": "Vector not initialized. Create a vector to see the code.",
+    "PANEL": {
+      "TITLE": "Main Panel"
+    },
+    "BUTTON": {
+      "CREATE": "Create",
+      "RESET": "Restart execution",
+      "INIT": "Initialize Vector",
+      "SHOW_ALL": "Show all",
+      "SHOW_SPECIFIC": "Show specific",
+      "DELETE_ELEMENT": "Delete element",
+      "ADD_ELEMENT": "Add element",
+      "OK": "OK"
+    },
+    "CODE_SECTION": {
+      "TITLE": "Code"
+    },
+    "CODE": {
+      "HEADER": "Code",
+      "TITLE": "Code"
+    },
+    "MEMORY": {
+      "TITLE": "Memory",
+      "VARIABLE": "Variable",
+      "POSITION": "Position",
+      "CONTENT": "Content",
+      "COUNT_LABEL": "count"
+    },
+    "ROW": {
+      "POSITION": "vector"
+    },
+    "DESCRIPTION_TEXT": {
+      "MEMORY": "Memory illustrates the 'name', content, and address of each item allocated in memory as the program runs. Arrow 1 indicates the index of the created vector or the variable name. Arrow 2 indicates the address where that position or variable is stored. Arrow 3 indicates the content stored by the respective variable.",
+      "CODES": "To assist in learning, all code parts are presented in the CODE space (image below). The example illustrates the code executed when the INITIALIZE button was clicked.",
+      "EXECUTION": "In this section, the Matrix is shown graphically. Operations performed on the matrix will be displayed. Being limited to a relatively small screen for the size of a matrix and as a simulator, it is not allowed to define a matrix with very large dimensions."
+    },
+    "IMAGES": {
+      "REINICIA": "Image: restart execution",
+      "INIT": "Image: initialize vector",
+      "MOSTRA_TODOS": "Image: show all",
+      "MOSTRA_ESPECIFICO": "Image: show specific",
+      "EXCLUIR": "Image: delete element",
+      "INSERIR": "Image: insert element",
+      "MEMORIA": "Image: memory explanation",
+      "CODIGO": "Image: code example",
+      "EXEC": "Image: execution/simulation"
+    },
+    "ALERTS": {
+      "CREATE_FIRST": "Create a vector first using 'Start Vector'!",
+      "INVALID_SIZE": "Enter a valid size",
+      "INVALID_INDEX": "Invalid index!",
+      "REMOVE_ONLY_ACTIVE": "You can only remove active positions (blue).",
+      "INVALID_VALUE": "Enter a valid value to insert.",
+      "VECTOR_FULL": "The vector is already full!"
+    }
+  },
+  "MATRIX": {
+    "TITLE": "Matrix",
+    "DESCRIPTION_TITLE": "Matrix Description",
+    "CODES_TITLE": "Codes",
+    "EXECUTION_TITLE": "EXECUTION / SIMULATION",
+    "DESCRIPTION_SECTION": {
+      "TITLE": "DESCRIPTION",
+      "HEADER": "MATRIX DESCRIPTION",
+      "HOW_TO_TITLE": "HOW TO USE THE MATRIX SIMULATOR?",
+      "HOW_TO_TEXT": "To create the matrix, enter the sizes (rows and columns). Then click the indicated button to create and manipulate the matrix."
+    },
+    "INPUT": {
+      "TITLE": "Start Matrix",
+      "PLACEHOLDER": "Type the matrix size",
+      "CONFIRM": "Confirm"
+    },
+    "SHOWING_CONTENT": "Showing the content of matrix",
+    "TABLE": {
+      "POSITION": "Position",
+      "CONTENT": "Content:",
+      "CODE": "Code:"
+    },
+    "ROW": {
+      "POSITION": "matrix"
+    },
+    "CODE_LABEL": "Code",
+    "NOT_INITIALIZED": "Matrix not initialized. Create a matrix to see the code.",
+    "PANEL": {
+      "TITLE": "Main Panel"
+    },
+    "BUTTON": {
+      "CREATE": "Create",
+      "RESET": "Restart execution",
+      "INIT": "Initialize Matrix",
+      "SHOW_ALL": "Show all",
+      "SHOW_SPECIFIC": "Show specific",
+      "DELETE_ELEMENT": "Delete element",
+      "ADD_ELEMENT": "Add element"
+    },
+    "CODE_SECTION": {
+      "TITLE": "Code"
+    },
+    "MEMORY": {
+      "TITLE": "Memory",
+      "VARIABLE": "Variable",
+      "POSITION": "Position",
+      "CONTENT": "Content"
+    }
+  },
+  "BLOCKS": {
+    "PANEL": {
+      "TITLE": "Main Panel"
+    },
+    "CODE": {
+      "TITLE": "Code"
+    },
+    "MEMORY": {
+      "TITLE": "Memory"
+    }
+  },
+  "EXECUTION": {
+    "TITLE": "Execution/Simulation"
+  },
+  "FOOTER": {
+    "QUESTIONS": "Questions or comments?",
+    "SEND_EMAIL": "Send an email to"
+  },
+  "LANG": {
+    "TOGGLE": "Language"
+  },
+  "POINTER": {
+    "TITLE_MAIN": "Pointer",
+    "TITLE": "POINTERS",
+    "MODAL": {
+      "VIEW_TITLE": "Showing all pointers",
+      "CREATE_TITLE": "Initialize Pointer",
+      "POINT_TITLE": "Creating Assignment",
+      "POINTED": "Pointed to",
+      "DATA_TYPE": "Data type:",
+      "TYPING": "Typing:",
+      "TYPE": "Type:",
+      "NAME": "Name:",
+      "VARIABLE": "Variable",
+      "POINTER_TYPE": "Pointer",
+      "POINTER_MODAL_TITLE": "Select a Pointer",
+      "POINTER_MODAL_TITLE2": "Select the item to be pointed to",
+      "POINT_TO": "Points To",
+      "SELECT_POINTER": "Select a Pointer",
+      "SELECT_TARGET": "Select the target item",
+      "INIT_TITLE": "Initialize Pointer",
+      "POINTER_LABEL": "Pointer",
+      "VIEW_LABEL": "SHOW",
+      "PLACEHOLDER_NAME": "Pointer or variable name",
+      "ADD": "Add",
+      "TYPE_VAR": "Variable",
+      "TYPE_POINT": "Pointer",
+      "INT": "Int(Integer)",
+      "FLOAT": "Float",
+      "CHAR": "Char(Character)",
+      "CONTENT": "Content",
+      "BUTTON": {
+        "INIT": "Start",
+        "POINT": "Point",
+        "SHOW": "Show Pointers",
+        "INSERT": "Insert",
+        "CREATE": "Create"
+      },
+      "TABLE": {
+        "POINTER": "Pointer",
+        "VARIABLE": "Variable",
+        "CONTENT": "Content"
+      }
+    },
+    "BUTTON": {
+      "INIT": "Initialize",
+      "POINT": "Point",
+      "SHOW_POINTERS": "Show",
+      "INSERT": "Insert",
+      "CREATE": "Create"
+    },
+    "EXPLANATION": {
+      "RESTART_TITLE": "RESTART OPTION",
+      "RESTART_TEXT": "If you want to clear all assignments and variables, click the RESTART button (Arrow 1). Everything done will be deleted and you will return to the home screen (Image A).",
+      "CREATE_TITLE": "CREATE",
+      "CREATE_TEXT": "To create variables/pointers, select the 'Data type' field (Arrow 1). Choose the variable type (Arrow 2), and type the name of the variable/pointer you wish to create (Arrow 3). If you want to create more variables, click the add button (Arrow 4) and repeat the process. If you do not wish to create more variables, click the FINISH button (Arrow 5). Image (B) shows the table with the data of the variables created after clicking the add button represented by the red Arrow 4.",
+      "CREATE_OBS": "Observations:",
+      "CREATE_OBS_A": "a) Due to screen restrictions, the maximum amount of variables and/or pointers is 10.",
+      "CREATE_OBS_B": "b) The name of each variable or pointer must be between 1 and 8 characters long.",
+      "CREATE_OBS_C": "c) The content to be inserted is a maximum of 4 digits for int and float, and only 1 for char.",
+      "POINT_TITLE": "POINT",
+      "POINT_TEXT": "To create an assignment, click the POINT button (Arrow 1). Choose the pointer (Arrow 2) and the variable (Arrow 3) to be pointed to. Click the CREATE ASSIGNMENT button. In the Execution/Simulation section, you can see that the pointer will receive the memory address of said variable (Arrow 4).",
+      "SHOW_TITLE": "SHOW",
+      "SHOW_TEXT": "The SHOW button presents the specific content of a selected variable or pointer. To do this, choose the variable or pointer you want to view (Arrow 1). Then click the SHOW button (Arrow 2). The information will be displayed on a screen (Image A).",
+      "INSERT_TITLE": "INSERT",
+      "INSERT_TEXT": "To add content to the variable, choose the variable (Arrow 1), and type the value in the field - in this example, the value is 333 (Arrow 2). Click the INSERT button (Arrow 3). In the Execution/Simulation section, you can see the value inserted into the variable (Arrow 4).",
+      "CODE_TITLE": "Code",
+      "CODE_TEXT": "To assist in learning, all the code part is presented in the CODE space (Image below). The example illustrates the code executed when an assignment was made by clicking the POINT button.",
+      "MEMORY_TITLE": "MEMORY",
+      "MEMORY_TEXT": "This item illustrates: the type, the name, the address of each item allocated in memory as the program runs, and the content. Note that Arrow 1 indicates the type of pointer or variable. Arrow 2 indicates the name. Arrow 3 indicates the address of the pointer or variable in memory. Arrow 4 indicates the content stored in the respective position.",
+      "EXEC_TITLE": "Execution/Simulation",
+      "EXEC_TEXT": "This item graphically presents the execution of the pointers. Operations performed with the pointers will be visually displayed. Being limited to a relatively small screen and, as it is a simulator, a maximum of 10 variables and/or pointers can be created in the simulation."
+    }
+  },
+  "STACK": {
+    "TITLE": "STACK",
+    "INIT_STACK": "Initialize Stack",
+    "DESCRIPTION": {
+      "STACK_DESCRIPTION": "STACK DESCRIPTION",
+      "STACK_TEXT": "Stacks are LIFO (Last-In First-Out) data structures, where the last element inserted will be the first one to be removed. Thus, a stack allows access to only one data item - the last one inserted. To process the second-to-last item inserted, the last one must be removed.",
+      "STACK_TUTORIAL": "HOW TO USE THE STACK SIMULATOR?",
+      "STACK_TUTORIAL_TEXT": "To create the stack, you must enter the size (Arrow 1). Then, click the button indicated by Arrow 2. After this, the options for stack manipulation will appear."
+    },
+    "EXPLANATION": {
+      "RESTART_TITLE": "RESTART OPTION",
+      "RESTART_TEXT": "If you wish to change the stack size or start a new stack, click the RESTART button (indicated by the Arrow). It will return to the option to choose the stack size, as illustrated in image (A).",
+      "SHOW_ALL_TITLE": "SHOW ALL",
+      "SHOW_ALL_TEXT": "This item displays all valid content inserted into the stack. To view this, click the SHOW ALL button (indicated by the Arrow). A new window will appear (image A). Note: memory junk will not be shown in this function.",
+      "INSERT_TITLE": "INSERT",
+      "INSERT_TEXT": "To add content to the stack, insert a value in the indicated location (Arrow 1), and then click the INSERT button to add the value to the stack (Arrow 2).",
+      "SHOW_SPECIFIC_TITLE": "SHOW",
+      "SHOW_SPECIFIC_TEXT": "The SHOW button presents the specific content of the top position. To do this, click the SHOW button (Arrow 1), and a window like the one in Image A will appear.",
+      "REMOVE_TITLE": "REMOVE TOP POSITION",
+      "REMOVE_TEXT": "To remove the top content, select the top content (Arrow 1) and then click the button indicated by Arrow 2. Note that in the Stack, Arrow 3 indicates the content before being removed and Arrow 4 indicates the state of the Stack after removing the content previously pointed to by the top.",
+      "PUSH_FUNC_TITLE": "PUSH",
+      "PUSH_FUNC_TEXT": "In literature, the function to push elements onto the stack is called PUSH. Here is the code used to perform the PUSH.",
+      "POP_FUNC_TITLE": "POP",
+      "POP_FUNC_TEXT": "In literature, the function to pop elements from the stack is called POP. Here is the code used to perform the POP.",
+      "SHOW_TOPO": "Showing stack top content",
+      "CONTENT": "Content:",
+      "CODE_VAR": "Code:",
+      "CODE_VAR_TEXT": "printf(\"%d\", stack[p -> top]);",
+      "TOPO": "Top",
+      "SELECT": "Select the value",
+      "PILHA": "STACK ( p )",
+      "PILHA_AUX": "AUXILIARY STACK ( p1 )",
+      "P1_TOP": "p1.top",
+      "TITULO_MODAL_SLA": "Showing all valid positions",
+      "POSITION": "Position",
+      "TAMANHO_PILHA": "stackSize",
+      "VARIABLE": "Variable",
+      "MEMORY": "Memory",
+      "CODE_TITLE": "CODE",
+      "CODE_TEXT": "To assist in learning, the entire code section is presented in the CODE space (Image below). The example illustrates the code executed when the stack was initially created.",
+      "MEMORY_TITLE": "MEMORY",
+      "MEMORY_TEXT": "This item illustrates: the position, the address, and the content of each item allocated in memory. Note (Arrow 1) the index of the created stack. Arrow 2 indicates the address where that stack position is stored in memory. Arrow 3 indicates the content stored in the respective stack position.",
+      "EXEC_TITLE": "Execution/Simulation",
+      "EXEC_TEXT": "In this item, the Stack is presented visually. With this, the operations performed on the stack will be displayed visually. Due to being limited to a relatively small screen for the size of a stack and being a simulator, it is not allowed to define a very large stack."
+    },
+    "TITLES": {
+      "TITLE_CODE": "CODE",
+      "TITLE_MEMORY": "MEMORY",
+      "TITLE_EXECUTION": "EXECUTION"
+    },
+    "BUTTON": {
+      "RESTART": "Restart",
+      "SHOW_ALL": "Show all",
+      "DELETE": "Remove",
+      "INSERT": "Insert",
+      "PUSH": "Push",
+      "POP": "Pop",
+      "SHOW_TOP": "Show"
+    }
+  },
+  "QUEUE": {
+    "TITLE": "Basic Queue",
+    "TITLE_SWAP": "Swap Queue",
+    "GENERIC_TITLE": "Queue",
+    "GENERIC_TITLE2": "Basic Queue",
+    "DESCRIPTION": {
+      "TITLE": "QUEUE DESCRIPTION",
+      "TEXT": "A Queue is a dynamic data structure that allows for the removal and insertion of new elements. A queue is subject to the following operating rule: whenever a removal occurs, the element removed is the one that has been in the structure the longest. In other words, the first object inserted into the queue is also the first to be removed, also known by the acronym FIFO (First-In-First-Out).",
+      "TUTORIAL_TITLE": "HOW TO USE THE QUEUE SIMULATOR?",
+      "TUTORIAL_TEXT": "To create the queue, it is necessary to enter the size (Arrow 1). Immediately after, click the CREATE button (Arrow 2). This will bring up the options for manipulating the queue."
+    },
+    "MODAL_QUEUE": {
+      "OK": "OK",
+      "SIMULATION_BASIC": "Basic Queue Simulator",
+      "SIMULATION_SWAP": "Swap Queue Simulator",
+      "SIMULATION_CIRCLE": "Circular Queue Simulator"
+    },
+    "EXPLANATION": {
+      "RESTART_TITLE": "RESTART OPTION",
+      "RESTART_TEXT": "If you wish to change the size of the queue or start a new one, click the RESTART button (Red Arrow). It will return to the option to choose the queue size (Image A).",
+      "SHOW_ALL_TITLE": "SHOW ALL",
+      "SHOW_ALL_TEXT": "In this item, all valid content inserted into the queue is displayed. To trigger this visualization, click the SHOW ALL button (Red Arrow). A new window (Image A) will appear with the information. Note: memory junk is not shown in this function.",
+      "INSERT_TITLE": "INSERT",
+      "INSERT_TEXT": "To add content to the queue, enter a value (Arrow 1), then click the INSERT button, placing the value into the queue (Arrow 2).",
+      "SHOW_SPECIFIC_TITLE": "SHOW",
+      "SHOW_SPECIFIC_TEXT": "The SHOW button displays the specific content of the start position. To do this, simply click the SHOW button (Arrow 1). A new window will appear with the information (Image A).",
+      "DELETE_TITLE": "REMOVE START POSITION",
+      "DELETE_TEXT": "To remove content, click the REMOVE button (Arrow 1). Note that in the queue, Arrow 2 indicates the position of the start of the queue. Arrow 3 subsequently indicates the state of the queue after the removal operation of the content indicated by the start.",
+      "INSERT_FUNC_TITLE": "INSERT",
+      "INSERT_FUNC_TEXT": "Here is the code used to perform insertion into the queue.",
+      "REMOVE_FUNC_TITLE": "REMOVE",
+      "REMOVE_FUNC_TEXT": "Here is the code used to perform removal from the queue.",
+      "CODE_TITLE": "CODE",
+      "CODE_TEXT": "To assist in learning, the entire code section is presented in the CODE space (Image below). The example illustrates the code executed when the queue was initially created.",
+      "CODE_SNIPPET": "printf(\"%d\", f->fila[f->inicio]);",
+      "MEMORY_TITLE": "MEMORY MAP",
+      "MEMORY_TEXT": "This item illustrates: the position, the address, and the content of each item allocated in memory. Note (Arrow 1) the index of the created queue. Arrow 2 indicates the address where that queue position is stored in memory. Arrow 3 indicates the content stored by the respective queue position.",
+      "EXEC_TITLE": "EXECUTION / SIMULATION",
+      "EXEC_TEXT": "In this item, the Queue is presented visually. With this, operations performed on the queue will be visually displayed. Being limited to a relatively small screen for the size of a queue and, as it is a simulator, defining a large-scale queue is not permitted."
+    },
+    "BTN": {
+      "RESTART": "Restart",
+      "SHOW_ALL": "Show all",
+      "DELETE": "Remove",
+      "INSERT": "Insert",
+      "SHOW_SPECIFIC": "Show"
+    },
+    "MODAL_SHOW_INIT": {
+      "TITLE": "Showing content of the queue start",
+      "CONTENT": "Content:",
+      "CODE_VAR": "Code:",
+      "CODE_VAR_TEXT": "printf(\"%d\", f->fila[f->inicio]);"
+    },
+    "MODAL_SHOW_QUEUE": {
+      "TITLE": "Showing all valid positions",
+      "POSITION": "Position",
+      "TAMANHO_FILA": "queueSize",
+      "VARIABLE": "Variable",
+      "MEMORY": "Memory",
+      "CODE_TITLE": "CODE",
+      "CODE_TEXT": "To assist in learning, the entire code section is presented in the CODE space (Image below). The example illustrates the code executed when the queue was initially created."
+    },
+    "TOP_CARD": {
+      "INIT": "Start"
+    },
+    "MEMORY": {
+      "VARIABLE": "Variable",
+      "MEMORY": "Memory",
+      "F_INIT": "f->start",
+      "F_END": "f->end",
+      "F_QUEUE": "f->queue",
+      "INIT": "Start",
+      "END": "End"
+    }
+  },
+  "QUEUE_SWAP": {
+    "TITLE": "Swap Queue",
+    "GENERIC_TITLE": "Queue",
+    "MODAL_SHOW_INIT": {
+      "SHOW_SELECTED_CONTENT": "Showing content of the selected position",
+      "SHOW_ALL_CONTENT": "Showing all valid positions",
+      "CODE": "Code:",
+      "SHOW_CODE": "printf ( \"%d\", f -> queue",
+      "SHOW_CONTENT": "Content:",
+      "POSITION": "Position",
+      "SHOW_CONTENT2": "Content",
+      "CODE2": "Code:",
+      "EXECUTION_TITLE": "QUEUE ( f )",
+      "END": "End",
+      "INIT": "Start"
+    }
+  },
+  "QUEUE_COMPONENT": {
+    "BASIC_QUEUE": "Basic Queue",
+    "SWAP_QUEUE": "Swap Queue",
+    "CIRCLE_QUEUE": "Circular Queue"
+  },
+  "CIRCLE_QUEUE": {
+    "TITLE": "Circular Queue",
+    "MODAL_INIT": "Showing content from the start of the queue",
+    "CONTENT": "Content",
+    "CODE": "Code",
+    "CODE_TEXT": "printf ( \" % d \", f -> queue",
+    "MODAL_GENERIC_TITLE": "Queue",
+    "MODAL_GENERIC_START_QUEUE": "Initialize Queue",
+    "SHOW_ALL_VALID_POSITIONS": "Showing all valid positions",
+    "POSITION": "Position",
+    "QUEUE_CONTENT": "Content",
+    "VARIABLE": "Variable",
+    "MEMORY": "Memory",
+    "F_INIT": "f->start",
+    "F_END": "f->end",
+    "QUEUE": "queue",
+    "QUEUE_EXECUTION": "CIRCULAR QUEUE ( f )",
+    "INIT": "Start",
+    "END": "End"
+  },
+  "LINKED_LIST": {
+    "TITLE": "Linked List",
+    "ABSOLUT_TITLE": "LINKED LIST ( INSERT AT START )",
+    "DOUBLY_TITLE": "Doubly Linked List",
+    "DESCRIPTION_TITLE": "Linked List Simulator",
+    "DESCRIPTION_DOUBLE_TITLE": "Doubly Linked List Simulator",
+    "TITLE_FUNCTIONS": "Choose the function you want to be described:",
+    "LABEL_INIT": "Insert at the beginning",
+    "LABEL_END": "Insert at the end",
+    "LABEL_ORDENATE": "Insert ordered",
+    "LABEL_DESCRIPTION_INIT": "Simulation of a linked list with insertion at the beginning",
+    "LABEL_DESCRIPTION_END": "Simulation of a linked list with insertion at the end",
+    "LABEL_DESCRIPTION_ORDENATE": "Simulation of a linked list with insertion ordered",
+    "EXPLANATION": {
+      "RESTART_TITLE": "RESTART OPTION",
+      "RESTART_TEXT": "If you want to start a new list, click the RESTART button (indicated by the Arrow). It will return to the initial list screen again (Image A).",
+      "SHOW_ALL_TITLE": "SHOW ALL",
+      "SHOW_ALL_TEXT": "This item presents all valid content that has been inserted into the list. To trigger this visualization, click the SHOW ALL button (Arrow). A new window will appear, as illustrated in image A.",
+      "INSERT_TITLE": "INSERT",
+      "INSERT_TEXT": "To add content to the list, enter a value (Arrow 1) and then click the INSERT button. A new node will be created in the list with the typed content (Arrow 2). All new nodes will be inserted at the beginning of the list for this simulation.",
+      "SHOW_SPECIFIC_TITLE": "SHOW",
+      "SHOW_SPECIFIC_TEXT": "The SHOW button displays the position that a value (content) occupies in the list. To do this, select the value as indicated by Arrow 1, and click the button (Arrow 2). A new window will appear with the information (Image A).",
+      "DELETE_TITLE": "REMOVE FROM START",
+      "DELETE_TEXT": "To remove the content from the start, just click the REMOVE button (Arrow 1). Note that in the list, Arrow 2 indicates the content the 'start' pointer is pointing to before removal. Arrow 3 shows the result after removal.",
+      "INSERT_FUNC_TITLE": "INSERT_START",
+      "INSERT_FUNC_TEXT": "In the code section of the simulator, the function to insert at the end of the list is described: 'head' is updated to point to the new node. This ensures that the new element is always the first in the list.",
+      "REMOVE_FUNC_TITLE": "REMOVE_START",
+      "REMOVE_FUNC_TEXT": "In the code section of the simulator, the function to remove from the end of the list is described:"
+    },
+    "ALERTS": {
+      "NOT_CREATED": "The list has not been created yet. Enter an initial value in the 'Create' field to initialize the Start pointer (head) and unlock the code and execution sections."
+    },
+    "TECH": {
+      "CODE_TITLE": "CODE",
+      "CODE_TEXT": "To assist in learning, the entire code section is presented in the CODE space (Image below). The example illustrates the code executed when a value was inserted into the list.",
+      "MEMORY_TITLE": "MEMORY",
+      "MEMORY_TEXT": "Memory illustrates the position, the address of each item allocated in memory, and its content. Arrow 1 indicates the content of the 'start' variable. Arrow 2 indicates the content of the list, and Arrow 3 indicates the address of the next position in the list.",
+      "EXEC_TITLE": "EXECUTION / SIMULATION",
+      "EXEC_TEXT": "In this section, the list is shown graphically. With this, operations performed on the list will be displayed visually. Being limited to a relatively small screen for the size of a list and, being a simulator, creating lists with very large dimensions is not permitted."
+    },
+    "BTN": {
+      "REINICIAR": "Restart",
+      "MOSTRARTODOS": "Show all",
+      "MOSTRAR_ESPECIFICO": "Show",
+      "EXCLUIR": "Remove",
+      "INSERIR": "Insert",
+      "INSERE_INICIO": "INSERT_START",
+      "REMOVE_INICIO": "REMOVE_START"
+    },
+    "MODAL": {
+      "MODAL_TITLE": "List",
+      "MODAL_H2": "Showing content position",
+      "TITLE_LISTA": "Code",
+      "TITLE_LISTA2": "Position",
+      "MODAL_TITLE2": "SHOWING ALL VALID INFORMATION",
+      "MODAL_H2_2": "Information",
+      "P_DATA": "p->data",
+      "CONTENT": "Content",
+      "CODE": "Code",
+      "CREATE": "Create",
+      "NONE_LIST": "Empty list",
+      "INIT": "Start",
+      "MEMORY": "Memory",
+      "VALUE": "Value"
+    },
+    "DESCRIPTION": {
+      "TITLE": "LIST DESCRIPTION",
+      "TEXT": "A linked list is a representation of a sequence of objects, all of the same type, in the computer's RAM (Random Access Memory). Each element of the sequence is stored in a list cell: the first element in the first cell, the second in the second, and so on.",
+      "TUTORIAL_TITLE": "HOW TO USE THE LIST SIMULATOR?",
+      "TUTORIAL_TEXT": "To create the list, you must choose and type the value to be inserted in the first position (Arrow 1). Immediately after, click the button indicated by Arrow 2. With this, the options for manipulating the list will appear.",
+      "OK": "OK"
+    }
+  },
+  "LINKED_LIST_END": {
+    "TITLE": "LINKED LIST ( INSERTION AT END )",
+    "EXPLANATION": {
+      "RESTART_TITLE": "RESTART OPTION",
+      "RESTART_TEXT": "If you want to change or start a new list, click the RESTART button (indicated by the Arrow). It will return to the option to choose the list again, as illustrated in image (A).",
+      "SHOW_ALL_TITLE": "SHOW ALL",
+      "SHOW_ALL_TEXT": "This item shows all valid content inserted into the list. To trigger this visualization, click the SHOW ALL button (indicated by the Arrow). A window will appear as illustrated in image A.",
+      "INSERT_TITLE": "INSERT",
+      "INSERT_TEXT": "To add content to the end of the list, enter a value (Arrow 1) and then click the INSERT button. A new node will be created in the list with the typed content (Arrow 2). All new nodes will be inserted at the end of the list for this simulation.",
+      "SHOW_SPECIFIC_TITLE": "SHOW",
+      "SHOW_SPECIFIC_TEXT": "The SHOW button displays the position that a value occupies in the list. To do this, select the value as indicated by arrow 1 and click the button as shown by arrow 2; a modal will appear on your screen as shown in Image A.",
+      "DELETE_TITLE": "REMOVE FROM END",
+      "DELETE_TEXT": "To remove the content, just click the REMOVE button (Arrow 1). Note that in the list, Arrow 2 indicates the content the 'end' pointer is pointing to before removal. And Arrow 3 shows the result after removal.",
+      "INSERT_FUNC_TITLE": "INSERT_END",
+      "INSERT_FUNC_TEXT": "In the code section of the simulator, the function to insert at the end of the list is described:",
+      "REMOVE_FUNC_TITLE": "REMOVE_END",
+      "REMOVE_FUNC_TEXT": "In the code section of the simulator, the function to remove from the end of the list is described:"
+    },
+    "BTN": {
+      "INSERE_FIM": "INSERT_END",
+      "REMOVE_FIM": "REMOVE_END"
+    },
+    "MODAL": {
+      "MODAL_TITLE": "List",
+      "MODAL_H2": "Showing content position",
+      "TITLE_LISTA": "Code",
+      "TITLE_LISTA2": "Position",
+      "MODAL_TITLE2": "SHOWING ALL VALID INFORMATION",
+      "MODAL_H2_2": "Information",
+      "P_DATA": "p->data",
+      "CONTENT": "Content",
+      "CODE": "Code",
+      "CREATE": "Create",
+      "NONE_LIST": "Empty list",
+      "INIT": "Start",
+      "MEMORY": "Memory",
+      "VALUE": "Value",
+      "END": "End"
+    }
+  },
+  "LINKED_LIST_ORDENATE": {
+    "TITLE": "LINKED LIST ( SORTED INSERTION )",
+    "EXPLANATION": {
+      "RESTART_TITLE": "RESTART OPTION",
+      "RESTART_TEXT": "If you wish to change or start a new list, click the RESTART button (indicated by the Arrow). It will return to the list selection option again, as illustrated in image (A).",
+      "SHOW_ALL_TITLE": "SHOW ALL",
+      "SHOW_ALL_TEXT": "This item shows all valid content inserted into the list. To trigger this visualization, click the SHOW ALL button (indicated by the Arrow). A window will appear as illustrated in image A.",
+      "INSERT_TITLE": "INSERT",
+      "INSERT_TEXT": "To add content to the list, enter a value (Arrow 1), and then click the INSERT button. This will insert the value into the list (Arrow 2). Note: all values are inserted in a sorted manner.",
+      "SHOW_SPECIFIC_TITLE": "SHOW",
+      "SHOW_SPECIFIC_TEXT": "The SHOW button displays the position a value occupies in the list. To do this, select the value as indicated by arrow 1 and click the button as shown by arrow 2; a modal will appear on your screen as shown in Image A.",
+      "DELETE_TITLE": "REMOVE",
+      "DELETE_TEXT": "To remove content, choose the value as illustrated by Arrow 1, and then click the remove button as shown by arrow 2. Note that in the list, arrow 3 indicates the content before removal, and arrow 4 shows the result after removal.",
+      "INSERT_FUNC_TITLE": "SORTED INSERT",
+      "INSERT_FUNC_TEXT": "In the code section of the simulator, the function to insert into the list is described:",
+      "REMOVE_FUNC_TITLE": "SORTED REMOVE",
+      "REMOVE_FUNC_TEXT": "In the code section of the simulator, the function to remove from the list is described:"
+    },
+    "BTN": {
+      "INSERE_FIM": "SORTED_INSERT",
+      "REMOVE_FIM": "SORTED_REMOVE"
+    }
+  },
+  "DOUBLY_LINKED_LIST": {
+    "TITLE": "DOUBLY LINKED LIST (Insert at end)",
+    "EXPLANATION": {
+      "RESTART_TITLE": "RESTART OPTION",
+      "RESTART_TEXT": "If you want to change or start a new list, click the RESTART button (indicated by the Arrow). It will return to the list selection option again, as illustrated in image (A).",
+      "SHOW_ALL_TITLE": "SHOW ALL",
+      "SHOW_ALL_TEXT": "This item shows all valid content inserted into the list. To trigger this visualization, click the SHOW ALL button (indicated by the Arrow). A window will appear as illustrated in image A.",
+      "INSERT_TITLE": "INSERT",
+      "INSERT_TEXT": "To add content to the list, enter a value (Arrow 1), and then click the INSERT button. This will insert the value into the list (Arrow 2). Note: all values are inserted in a sorted manner.",
+      "SHOW_SPECIFIC_TITLE": "SHOW",
+      "SHOW_SPECIFIC_TEXT": "The SHOW button displays the position a value occupies in the list. To do this, select the value as indicated by arrow 1 and click the button as shown by arrow 2; a modal will appear on your screen as shown in Image A.",
+      "DELETE_TITLE": "REMOVE",
+      "DELETE_TEXT": "To remove content, choose the value as illustrated by Arrow 1, and then click the remove button as shown by arrow 2. Note that in the list, arrow 3 indicates the content before removal, and arrow 4 shows the result after removal.",
+      "INSERT_FUNC_TITLE": "SORTED INSERT",
+      "INSERT_FUNC_TEXT": "In the code section of the simulator, the function to insert into the list is described:",
+      "REMOVE_FUNC_TITLE": "SORTED REMOVE",
+      "REMOVE_FUNC_TEXT": "In the code section of the simulator, the function to remove from the list is described:"
+    },
+    "BTN": {
+      "INSERE_FIM": "SORTED_INSERT",
+      "REMOVE_FIM": "SORTED_REMOVE"
+    },
+    "MODAL": {
+      "MODAL_TITLE": "List",
+      "MODAL_H2": "Showing content position",
+      "TITLE_LISTA": "Code",
+      "TITLE_LISTA2": "Position",
+      "MODAL_TITLE2": "SHOWING ALL VALID INFORMATION",
+      "MODAL_H2_2": "Information",
+      "P_DATA": "p->data",
+      "CONTENT": "Content",
+      "CODE": "Code",
+      "CREATE": "Create",
+      "NONE_LIST": "Empty list",
+      "INIT": "Start",
+      "MEMORY": "Memory",
+      "VALUE": "Value",
+      "END": "End"
+    }
+  },
+  "DOUBLY_LINKED_LIST_START": {
+    "TITLE": "DOUBLY LINKED LIST (Insertion at start)",
+    "EXPLANATION": {
+      "RESTART_TITLE": "RESTART OPTION",
+      "RESTART_TEXT": "If you want to change or start a new list, click the RESTART button (indicated by the Arrow). It will return to the list selection option again, as illustrated in image (A).",
+      "SHOW_ALL_TITLE": "SHOW ALL",
+      "SHOW_ALL_TEXT": "This item shows all valid content inserted into the list. To trigger this visualization, click the SHOW ALL button (indicated by the Arrow). A window will appear as illustrated in image A.",
+      "INSERT_TITLE": "INSERT",
+      "INSERT_TEXT": "To add content to the list, enter a value (Arrow 1), and then click the INSERT button. This will insert the value into the list (Arrow 2). Note: all values are inserted in a sorted manner.",
+      "SHOW_SPECIFIC_TITLE": "SHOW",
+      "SHOW_SPECIFIC_TEXT": "The SHOW button displays the position a value occupies in the list. To do this, select the value as indicated by arrow 1 and click the button as shown by arrow 2; a modal will appear on your screen as shown in Image A.",
+      "DELETE_TITLE": "REMOVE",
+      "DELETE_TEXT": "To remove content, choose the value as illustrated by Arrow 1, and then click the remove button as shown by arrow 2. Note that in the list, arrow 3 indicates the content before removal, and arrow 4 shows the result after removal.",
+      "INSERT_FUNC_TITLE": "SORTED INSERT",
+      "INSERT_FUNC_TEXT": "In the code section of the simulator, the function to insert into the list is described:",
+      "REMOVE_FUNC_TITLE": "SORTED REMOVE",
+      "REMOVE_FUNC_TEXT": "In the code section of the simulator, the function to remove from the list is described:"
+    },
+    "BTN": {
+      "INSERE_FIM": "SORTED_INSERT",
+      "REMOVE_FIM": "SORTED_REMOVE"
+    },
+    "MODAL": {
+      "MODAL_TITLE": "List",
+      "MODAL_H2": "Showing content position",
+      "TITLE_LISTA": "Code",
+      "TITLE_LISTA2": "Position",
+      "MODAL_TITLE2": "SHOWING ALL VALID INFORMATION",
+      "MODAL_H2_2": "Information",
+      "P_DATA": "p->data",
+      "CONTENT": "Content",
+      "CODE": "Code",
+      "CREATE": "Create",
+      "NONE_LIST": "Empty list",
+      "INIT": "Start",
+      "MEMORY": "Memory",
+      "VALUE": "Value",
+      "END": "End"
+    }
+  },
+  "DOUBLY_LINKED_LIST_ORDENATE": {
+    "TITLE": "DOUBLY LINKED LIST (Sorted Insertion)",
+    "EXPLANATION": {
+      "RESTART_TITLE": "RESTART OPTION",
+      "RESTART_TEXT": "If you wish to change or start a new list, click the RESTART button (indicated by the Arrow). It will return to the list selection option again, as illustrated in image (A).",
+      "SHOW_ALL_TITLE": "SHOW ALL",
+      "SHOW_ALL_TEXT": "This item shows all valid content inserted into the list. To trigger this visualization, click the SHOW ALL button (indicated by the Arrow). A window will appear as illustrated in image A.",
+      "INSERT_TITLE": "INSERT",
+      "INSERT_TEXT": "To add content to the list, enter a value (Arrow 1), and then click the INSERT button. This will insert the value into the list (Arrow 2). Note: all values are inserted in a sorted manner.",
+      "SHOW_SPECIFIC_TITLE": "SHOW",
+      "SHOW_SPECIFIC_TEXT": "The SHOW button displays the position a value occupies in the list. To do this, select the value as indicated by arrow 1 and click the button as shown by arrow 2; a modal will appear on your screen as shown in Image A.",
+      "DELETE_TITLE": "REMOVE",
+      "DELETE_TEXT": "To remove content, choose the value as illustrated by Arrow 1, and then click the remove button as shown by arrow 2. Note that in the list, arrow 3 indicates the content before removal, and arrow 4 shows the result after removal.",
+      "INSERT_FUNC_TITLE": "SORTED INSERT",
+      "INSERT_FUNC_TEXT": "In the code section of the simulator, the function to insert into the list is described:",
+      "REMOVE_FUNC_TITLE": "SORTED REMOVE",
+      "REMOVE_FUNC_TEXT": "In the code section of the simulator, the function to remove from the list is described:"
+    },
+    "BTN": {
+      "INSERE_FIM": "SORTED_INSERT",
+      "REMOVE_FIM": "SORTED_REMOVE"
+    },
+    "MODAL": {
+      "MODAL_TITLE": "List",
+      "MODAL_H2": "Showing content position",
+      "TITLE_LISTA": "Code",
+      "TITLE_LISTA2": "Position",
+      "MODAL_TITLE2": "SHOWING ALL VALID INFORMATION",
+      "MODAL_H2_2": "Information",
+      "P_DATA": "p->data",
+      "CONTENT": "Content",
+      "CODE": "Code",
+      "CREATE": "Create",
+      "NONE_LIST": "Empty list",
+      "INIT": "Start",
+      "MEMORY": "Memory",
+      "VALUE": "Value",
+      "END": "End",
+      "CHOOSE": "Choose the value"
+    }
+  },
+  "GRAPH": {
+    "TITLE": "Graphs",
+    "PANEL": {
+      "TITLE": "Main Panel"
+    },
+    "BUTTON": {
+      "INIT": "Initialize Graph",
+      "RESET": "Restart execution",
+      "INSERT_NODE": "Insert Node",
+      "DELETE_NODE": "Delete Node",
+      "CONNECT_NODES": "Connect Nodes",
+      "RUN_FULL": "▶ Run all at once",
+      "RUN_STEP": "⏭ Run step by step",
+      "CANCEL_ALGO": "✕ Stop algorithm",
+      "CONFIRM": "Confirm",
+      "CANCEL": "Cancel",
+      "OK": "Ok",
+      "BACK": "Back"
+    },
+    "CANCEL_ALGO_TITLE": "Stop the algorithm and choose the mode again",
+    "PLACEHOLDER": {
+      "NODE_NAME": "Node name (e.g.: G)",
+      "NODE_NAME_SHORT": "Node name (e.g.: A)",
+      "NODE_TO_DELETE": "Name of the node to delete",
+      "NODE_A": "Node A",
+      "NODE_B": "Node B",
+      "WEIGHT": "Weight"
+    },
+    "SELECT": {
+      "CHOOSE_ALGORITHM": "Select an algorithm"
+    },
+    "ALGO": {
+      "BFS": "Breadth-First Search (BFS)",
+      "DFS": "Depth-First Search (DFS)",
+      "DIJKSTRA": "Dijkstra",
+      "COLORING": "Graph Coloring (Welsh-Powell)",
+      "TSP": "Traveling Salesman Problem (TSP)"
+    },
+    "HEURISTIC_WARNING": "⚠ approximate heuristic, not the exact optimum",
+    "STEP_LABEL": "Step {{current}} of {{total}}",
+    "ITERATION_LABEL": "Iteration {{current}} of {{total}}",
+    "COLOR_GROUPS": "Color groups:",
+    "FINAL_HISTORY": "Final history:",
+    "ALGO_HISTORY": "Algorithm history:",
+    "DISTANCE_LABEL": "— distance: {{value}}",
+    "CODE": {
+      "TITLE": "Code"
+    },
+    "MEMORY": {
+      "TITLE": "Memory",
+      "VARIABLE": "Variable",
+      "ADDRESS": "Address",
+      "CONTENT": "Content",
+      "EMPTY": "No items created yet."
+    },
+    "EXECUTION_TITLE": "EXECUTION / SIMULATION",
+    "MODAL": {
+      "RANDOM_TITLE": "Generate Random Graph",
+      "NODE_COUNT_LABEL": "Number of nodes (max: 10):",
+      "MAX_WEIGHT_LABEL": "Maximum weight:",
+      "DIRECTED": "Directed",
+      "CONNECTED": "Connected",
+      "CREATE_NODE_TITLE": "Create Node",
+      "EDGE_WEIGHT_TITLE": "Edge Weight"
+    },
+    "MSG": {
+      "MAX_NODES": "Maximum of 10 nodes allowed.",
+      "NODE_EXISTS": "A node \"{{name}}\" already exists.",
+      "NODE_INSERTED": "Node \"{{name}}\" inserted.",
+      "NODE_NOT_FOUND": "Node \"{{name}}\" not found.",
+      "NODE_REMOVED": "Node \"{{name}}\" removed (along with its connected edges).",
+      "CONNECT_NEED_TWO_NAMES": "Enter the names of both nodes to connect.",
+      "CONNECT_SAME_NODE": "Choose two different nodes.",
+      "DRAW_NODE_FIRST": "Draw at least one node before running an algorithm.",
+      "CHOOSE_RUN_MODE": "Choose how you want to run the algorithm.",
+      "CLICK_ORIGIN_NODE": "Click the origin node to start the algorithm.",
+      "EXECUTION_RESTARTED": "Execution restarted.",
+      "DRAW_GRAPH_FIRST_EXPORT": "Draw the graph before exporting.",
+      "EXPORT_IMAGE_ERROR": "Could not generate the graph image to export.",
+      "RUNNING": "Running...",
+      "NO_ROUTE_NEEDS_CONNECTED": "Could not calculate a route: the graph must be connected.",
+      "BFS_DONE": "BFS completed.",
+      "DFS_DONE": "DFS completed.",
+      "DIJKSTRA_DONE": "Dijkstra completed.",
+      "COLORING_DONE": "Coloring completed with {{count}} colors.",
+      "TSP_DONE": "TSP ({{method}}) completed — total cost: {{cost}}.",
+      "SEARCHING_MAX_DEGREE": "Looking for the node with the most neighbors...",
+      "MAX_DEGREE_NODE": "Node with the most neighbors: {{label}} ({{degree}}). Coloring...",
+      "COLORS_USED": "{{count}} color(s) used",
+      "ALREADY_VISITED_IGNORED": " (already visited, ignored)",
+      "NO_ROUTE_YET": "(route calculated all at once by the exact algorithm)",
+      "STARTED_AT": "{{label}} (start)",
+      "RETURNED_TO_ORIGIN": "(done, returned to origin)",
+      "DEGREE_LABEL": "{{label}} (degree {{degree}})",
+      "EDGE_COST_LABEL": "{{from}} -> {{to}} (cost {{cost}})"
+    },
+    "TSP_METHOD": {
+      "HEURISTIC": "nearest-neighbor heuristic",
+      "EXACT": "exact algorithm (Held-Karp)"
+    },
+    "VAR": {
+      "ATUAL": "current",
+      "FILA": "queue",
+      "PILHA": "stack",
+      "VISITADOS": "visited",
+      "DIST": "dist[]",
+      "CORES_VIZINHOS": "neighborColors",
+      "COR_ATRIBUIDA": "assignedColor",
+      "CANDIDATOS": "candidates",
+      "ATUAL_PROXIMO": "current -> next",
+      "CUSTO_ACUMULADO": "accumulatedCost",
+      "ROTA": "route"
+    },
+    "VAL": {
+      "NONE": "(none)",
+      "NONE_F": "(none)",
+      "NONE_YET": "(none yet)",
+      "EMPTY_M": "(empty)",
+      "EMPTY_F": "(empty)",
+      "DONE": "(done)"
+    },
+    "MEMVAR": {
+      "NODE_LABEL": "graph.nodes[{{i}}].label",
+      "EDGE": "graph.edges[{{i}}]"
+    },
+    "MEMCONTENT": {
+      "EDGE": "{{source}} -> {{target}} (weight {{weight}})"
+    },
+    "CODE_SNIPPET": {
+      "INITIAL": "",
+      "RANDOM_GRAPH": "graph.numNodes = 0;\ngraph.numEdges = 0;\ngraph.directed = {{directed}};\n\nfor (i = 0; i < {{nodeCount}}; i++) {\n    Node n;\n    n.label[0] = 'A' + i;\n    graph.nodes[graph.numNodes++] = n;\n}\n\n// maxWeight = {{maxWeight}}, connected = {{connected}}\ngenerateRandomEdges(&graph, {{maxWeight}}, {{connected}});",
+      "ADD_NODE": "Node newNode;\nstrcpy(newNode.label, \"{{name}}\");\ngraph.nodes[graph.numNodes++] = newNode;",
+      "REMOVE_NODE": "// removes the node and, in cascade, the edges connected to it\nremoveNode(&graph, \"{{name}}\");",
+      "ADD_EDGE": "Edge newEdge;\nnewEdge.source = \"{{source}}\";\nnewEdge.target = \"{{target}}\";\nnewEdge.weight = {{weight}};\ngraph.edges[graph.numEdges++] = newEdge;"
+    },
+    "HELP": {
+      "PAINEL": {
+        "title": "Description",
+        "sections": [
+          {
+            "subtitle": "GRAPH DESCRIPTION",
+            "text": "To create the graph, you can generate one randomly by clicking \"Initialize Graph\" (Arrow 1 in the Figure). That same button turns into \"Restart execution\" (Arrow 2) once the graph exists, and clears everything so you can start over. You can also build the graph by hand: type a name and click \"Insert Node\" (Arrow 3) to create a node, type the name of an existing node and click \"Delete Node\" (Arrow 4) to remove it, and use the \"Node A\", \"Node B\" and \"Weight\" fields with the \"Connect Nodes\" button (Arrow 5) to link two nodes — the same action as clicking and dragging directly on the graph, but accessible from the keyboard.",
+            "images": [
+              {
+                "src": "images/PrintGrafo/ajuda-grafos-painel-1.png",
+                "alt": "Create, restart, insert, delete and connect node buttons"
+              }
+            ]
+          },
+          {
+            "subtitle": "HOW TO USE THE GRAPH SIMULATOR?",
+            "text": "With the graph ready, choose an algorithm from the list (Arrow 1): Breadth-First Search, Depth-First Search, Dijkstra, Graph Coloring or Traveling Salesman. Then choose how to run it: \"Run all at once\" (Arrow 2) animates the algorithm automatically from start to finish, and \"Run step by step\" (Arrow 3) lets you move manually through each stage, watching the code and memory change along with it. At any time, the \"✕ Stop algorithm\" button (Arrow 4) stops the current run and goes back to this choice, without needing to switch algorithms in the menu to run it again.",
+            "images": [
+              {
+                "src": "images/PrintGrafo/ajuda-grafos-painel-2.png",
+                "alt": "Algorithm selection and run mode choice"
+              }
+            ]
+          }
+        ]
+      },
+      "CODIGO": {
+        "title": "Code",
+        "sections": [
+          {
+            "text": "To help with learning, every piece of code is shown in the CODE area (image below). The example illustrates the code executed when the \"Initialize Graph\" button is clicked. While an algorithm is running, this same area shows the code for the chosen algorithm instead, with the line matching the current step highlighted.",
+            "images": [
+              {
+                "src": "images/PrintGrafo/ajuda-grafos-codigo.png",
+                "alt": "Code shown after clicking Initialize Graph"
+              }
+            ]
+          },
+          {
+            "subtitle": "DATA STRUCTURE USED",
+            "text": "Before reading the code, it helps to know the structure (struct) behind it, used to represent the graph, the nodes and the edges:",
+            "codeBlock": "typedef struct {\n    char label[10];       // node name, e.g.: \"A\"\n} Node;\n\ntypedef struct {\n    char source[10];\n    char target[10];\n    int weight;\n} Edge;\n\ntypedef struct {\n    Node nodes[10];\n    int numNodes;\n    Edge edges[45];\n    int numEdges;\n    int directed;       // 1 = directed, 0 = undirected\n} Graph;\n\nGraph graph;"
+          }
+        ]
+      },
+      "MEMORIA": {
+        "title": "Graph Description",
+        "sections": [
+          {
+            "text": "Memory illustrates the 'name', the address and the content of each item allocated as the program runs. Arrow 1 indicates the name of the node, edge or algorithm variable. Arrow 2 indicates the fictional address where that item is stored. Arrow 3 indicates the content it holds. While an algorithm is running, this table also shows its local variables (such as \"current\", \"queue\" or \"distances\"), mixed in with the graph's nodes and edges.",
+            "images": [
+              {
+                "src": "images/PrintGrafo/ajuda-grafos-memoria.png",
+                "alt": "Memory table with nodes, edges and algorithm variables"
+              }
+            ]
+          }
+        ]
+      },
+      "EXECUCAO": {
+        "title": "Execution / Simulation",
+        "sections": [
+          {
+            "text": "This section shows the graph graphically. As an algorithm runs, the operations performed are displayed graphically (visited nodes, traversed edges, assigned colors, etc.). Being limited to a relatively small screen and, being a simulator, it is not allowed to create a graph with too many nodes (up to 10). The save icon, at the top of the page, exports the graph — exactly as it is on screen, with colors and highlights — as a PDF file.",
+            "images": [
+              {
+                "src": "images/PrintGrafo/ajuda-grafos-execucao.png",
+                "alt": "Graph being displayed during algorithm execution"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "MACRO": {
+      "BFS": [
+        {
+          "title": "Step 1",
+          "description": "Put the origin node in the queue and mark it as visited.",
+          "codeLines": [
+            0,
+            1
+          ]
+        },
+        {
+          "title": "Step 2",
+          "description": "Check whether the queue still has nodes to process.",
+          "codeLines": [
+            3
+          ]
+        },
+        {
+          "title": "Step 3 (repeats)",
+          "description": "Remove the next node from the queue and visit its not-yet-visited neighbors, marking them and adding them to the queue. Repeat until the queue is empty.",
+          "codeLines": [
+            4,
+            5,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "title": "Step 4",
+          "description": "The queue is empty — BFS has finished.",
+          "codeLines": [
+            13
+          ]
+        }
+      ],
+      "DFS": [
+        {
+          "title": "Step 1",
+          "description": "Push the origin node onto the stack.",
+          "codeLines": [
+            0
+          ]
+        },
+        {
+          "title": "Step 2",
+          "description": "Check whether the stack still has nodes.",
+          "codeLines": [
+            2
+          ]
+        },
+        {
+          "title": "Step 3 (repeats)",
+          "description": "Pop the node at the top; if it hasn't been visited yet, mark it as visited and push its not-yet-visited neighbors. Repeat until the stack is empty.",
+          "codeLines": [
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "title": "Step 4",
+          "description": "The stack is empty — DFS has finished.",
+          "codeLines": [
+            14
+          ]
+        }
+      ],
+      "DIJKSTRA": [
+        {
+          "title": "Step 1",
+          "description": "Initialize the distance of every node as infinity, except the origin (0).",
+          "codeLines": [
+            0,
+            1
+          ]
+        },
+        {
+          "title": "Step 2",
+          "description": "Check whether there is still an unvisited node.",
+          "codeLines": [
+            3
+          ]
+        },
+        {
+          "title": "Step 3 (repeats)",
+          "description": "Pick the unvisited node with the smallest distance, mark it as visited, and relax (update) the distance of its neighbors. Repeat until all have been visited.",
+          "codeLines": [
+            4,
+            5,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Step 4",
+          "description": "All nodes have been visited — Dijkstra has finished.",
+          "codeLines": [
+            14
+          ]
+        }
+      ],
+      "COLORING": [
+        {
+          "title": "Step 1",
+          "description": "Sort the nodes from the highest to the lowest number of neighbors (degree).",
+          "codeLines": [
+            0
+          ]
+        },
+        {
+          "title": "Step 2",
+          "description": "Check whether there is still an uncolored node.",
+          "codeLines": [
+            2
+          ]
+        },
+        {
+          "title": "Step 3 (repeats)",
+          "description": "Take the next node in order, look at the colors of its already-colored neighbors, and assign the smallest color not yet used by them.",
+          "codeLines": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Step 4",
+          "description": "All nodes have been colored — coloring has finished.",
+          "codeLines": [
+            6
+          ]
+        }
+      ],
+      "TSP": [
+        {
+          "title": "Step 1",
+          "description": "Mark the origin as visited and start the route there.",
+          "codeLines": [
+            0
+          ]
+        },
+        {
+          "title": "Step 2",
+          "description": "Check whether there is still an unvisited node.",
+          "codeLines": [
+            2
+          ]
+        },
+        {
+          "title": "Step 3 (repeats)",
+          "description": "Pick the unvisited node closest to the current node, move to it, and add the cost of the traveled edge.",
+          "codeLines": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "title": "Step 4",
+          "description": "All visited — return to the origin and add the final cost. (This step-by-step version uses the nearest-neighbor heuristic; \"Run all\" mode uses the exact algorithm.)",
+          "codeLines": [
+            10,
+            11
+          ]
+        }
+      ]
+    },
+    "CODE_LINES": {
+      "BFS": [
+        "enqueue(&queue, origin);",
+        "visited[origin] = 1;",
+        "",
+        "while (!queue_empty(&queue)) {",
+        "    current = dequeue(&queue);",
+        "    order[totalOrder++] = current;",
+        "",
+        "    for (i = 0; i < degree[current]; i++) {",
+        "        if (!visited[adj[current][i]]) {",
+        "            visited[adj[current][i]] = 1;",
+        "            enqueue(&queue, adj[current][i]);",
+        "        }",
+        "    }",
+        "}"
+      ],
+      "DFS": [
+        "push(&stack, origin);",
+        "",
+        "while (!stack_empty(&stack)) {",
+        "    current = pop(&stack);",
+        "    if (!visited[current]) {",
+        "        visited[current] = 1;",
+        "        order[totalOrder++] = current;",
+        "",
+        "        for (i = degree[current] - 1; i >= 0; i--) {",
+        "            if (!visited[adj[current][i]]) {",
+        "                push(&stack, adj[current][i]);",
+        "            }",
+        "        }",
+        "    }",
+        "}"
+      ],
+      "DIJKSTRA": [
+        "for (i = 0; i < n; i++) dist[i] = INF;",
+        "dist[origin] = 0;",
+        "",
+        "while (hasUnvisited()) {",
+        "    current = nodeWithSmallestDist();",
+        "    visited[current] = 1;",
+        "",
+        "    for (i = 0; i < degree[current]; i++) {",
+        "        neighbor = adj[current][i];",
+        "        newDist = dist[current] + weight[current][i];",
+        "        if (newDist < dist[neighbor]) {",
+        "            dist[neighbor] = newDist;",
+        "        }",
+        "    }",
+        "}"
+      ],
+      "COLORING": [
+        "sortByDegreeDesc(nodes);",
+        "",
+        "for (i = 0; i < numNodes; i++) {",
+        "    current = nodes[i];",
+        "    used = colorsOfColoredNeighbors(current);",
+        "    nodeColor[current] = smallestFreeColor(used);",
+        "}"
+      ],
+      "TSP": [
+        "visited[origin] = 1; route[0] = origin;",
+        "",
+        "while (hasUnvisited()) {",
+        "    current = lastInRoute();",
+        "    next = nearestUnvisited(current);",
+        "    route[totalRoute++] = next;",
+        "    visited[next] = 1;",
+        "    totalCost += dist[current][next];",
+        "}",
+        "",
+        "totalCost += dist[lastInRoute()][origin];",
+        "route[totalRoute++] = origin;"
+      ]
+    },
+    "STEP_OF_PLAIN": "{{current}} of {{total}}:",
+    "EXPORT_TITLE": "Export options",
+    "EXPORT_PDF": "Export"
+  }
+}

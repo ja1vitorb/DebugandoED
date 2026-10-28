@@ -1,0 +1,60 @@
+<div class="ranking-container">
+  <div class="ranking-header">
+    <h1>🏆 {{ 'RANKING.TITLE' | translate }}</h1>
+    <p class="subtitle">{{ 'RANKING.SUBTITLE' | translate }}</p>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    <p>{{ 'RANKING.LOADING' | translate }}</p>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    <p>{{ error }}</p>
+    <button (click)="loadRanking()" class="retry-button">
+      {{ 'RANKING.RETRY' | translate }}
+    </button>
+  </div>
+
+  <div *ngIf="!loading && !error" class="ranking-list">
+    <div class="podium">
+      <!-- Top 3 em destaque -->
+      <div *ngFor="let user of ranking.slice(0, 3); let i = index" 
+           class="podium-item"
+           [class]="getMedalClass(i + 1)">
+        <div class="medal">{{ getMedalIcon(i + 1) }}</div>
+        <img [src]="getAvatarUrl(user)" [alt]="user.name" class="avatar-large">
+        <h3>{{ user.name }}</h3>
+        <p class="points">{{ user.totalPoints }} pts</p>
+        <span class="position">#{{ i + 1 }}</span>
+      </div>
+    </div>
+
+    <!-- Resto do ranking -->
+    <div class="ranking-table" *ngIf="ranking.length > 3">
+      <table>
+        <thead>
+          <tr>
+            <th>{{ 'RANKING.POSITION' | translate }}</th>
+            <th>{{ 'RANKING.STUDENT' | translate }}</th>
+            <th>{{ 'RANKING.POINTS' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of ranking.slice(3); let i = index">
+            <td class="position-cell">#{{ i + 4 }}</td>
+            <td class="student-cell">
+              <img [src]="getAvatarUrl(user)" [alt]="user.name" class="avatar-small">
+              <span>{{ user.name }}</span>
+            </td>
+            <td class="points-cell">{{ user.totalPoints }} pts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="ranking.length === 0" class="empty-state">
+      <p>{{ 'RANKING.NO_DATA' | translate }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+<h1 id="titulo">{{ tituloPag | translate }}</h1>
+
+<div class="container2">
+    <div class="painel">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.PANEL.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" *ngIf="!matrizInicializada" (click)="modalSemEstrutura()" id="explicaModal">
+            <img [src]="getImagePath(icon)" *ngIf="matrizInicializada" (click)="abrirModal()" id="explicaModal">
+        </div>
+        <div class="card">
+            <div class="btn">
+                <div class="btnS" *ngIf="!matrizInicializada" (click)="abrirModalC()">
+                    <a>
+                        <img [src]="getImagePath(inicia)">
+                        <p>{{ 'MATRIX.BUTTON.CREATE' | translate }}</p>
+                    </a>
+                </div>
+                <div *ngIf="matrizInicializada" class="btnReset">
+                    <a (click)="reiniciarPagina()" role="button">
+                        <img [src]="getImagePath(reset)">
+                        <p>{{ 'MATRIX.BUTTON.RESET' | translate }}</p>
+                    </a>
+                </div>
+
+                <div *ngIf="matrizInicializada" class="btnInicia">
+                    <a id="btnInit" (click)="inicializarMatrizClick()" role="button">
+                        <img [src]="getImagePath(inicia)">
+                        <p>{{ 'MATRIX.BUTTON.INIT' | translate }}</p>
+                    </a>
+                </div>
+
+                <div *ngIf="matrizInicializada" class="btnMostraTodos" (click)="mostrarTodos()">
+                    <a>
+                        <img [src]="getImagePath(mostra)">
+                        <p>{{ 'MATRIX.BUTTON.SHOW_ALL' | translate }}</p>
+                    </a>
+                </div>
+
+                <div *ngIf="matrizInicializada" class="mostraEspecifico">
+                    <div class="mostraInputs">
+                        <input type="number" id="insereMostraLinha" placeholder="lin" min="0" 
+                               (keypress)="onKeyPressMostrar($event)" />
+                        <input type="number" id="insereMostraColuna" placeholder="col" min="0" 
+                               (keypress)="onKeyPressMostrar($event)" />
+                    </div>
+                    <div class="mostra">
+                        <a (click)="mostrarEspecifico()" role="button">
+                            <img [src]="getImagePath(mostra)">
+                            <p>{{ 'MATRIX.BUTTON.SHOW_SPECIFIC' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div *ngIf="matrizInicializada" class="apagaVet">
+                    <div class="apagaInputs">
+                        <input type="number" id="apagaLinha" placeholder="lin" min="0" 
+                               (keypress)="onKeyPressApagar($event)" />
+                        <input type="number" id="apagaColuna" placeholder="col" min="0" 
+                               (keypress)="onKeyPressApagar($event)" />
+                    </div>
+                    <div class="apaga">
+                        <a (click)="apagarPosicao()" role="button">
+                            <img [src]="getImagePath(apaga)">
+                            <p>{{ 'MATRIX.BUTTON.DELETE_ELEMENT' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div *ngIf="matrizInicializada" class="insereElemento">
+                    <input type="number" id="insereElemento" 
+                           (keypress)="onKeyPressInserir($event)" />
+                    <div class="insere">
+                        <a (click)="inserirElemento()" role="button">
+                            <img [src]="getImagePath(insere)">
+                            <p>{{ 'MATRIX.BUTTON.ADD_ELEMENT' | translate }}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="codigo">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.CODE.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" id="explicaModal" (click)="abrirModalCodigo()">
+        </div>
+      
+        <div class="card">
+            <pre id="textCod">{{ codigoAtual }}</pre>
+        </div>
+    </div>
+
+    <div class="memoria">
+        <div class="topCard">
+            <h1>{{ 'BLOCKS.MEMORY.TITLE' | translate }}</h1>
+            <img [src]="getImagePath(icon)" id="explicaModal" (click)="abrirModalMemoria()">
+        </div>
+        <div class="card">
+            <!-- Cabeçalho da tabela -->
+            <div class="topCard" *ngIf="matrizInicializada">
+                <div class="nome">
+                    <div class="dados">
+                        <p>{{ 'MATRIX.MEMORY.VARIABLE' | translate }}</p>
+                    </div>
+                </div>
+                <div class="mem">
+                    <div class="dados">
+                        <p>{{ 'MATRIX.MEMORY.POSITION' | translate }}</p>
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <div class="dados">
+                        <p>{{ 'MATRIX.MEMORY.CONTENT' | translate }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variável cl (contador linear) -->
+            <div class="memoriaDiv cl-row" *ngIf="matrizInicializada">
+                <div class="nome">
+                    <div class="dados">
+                        <p>cl</p>
+                    </div>
+                </div>
+                <div class="mem">
+                    <div class="dados">
+                        <p>{{ matrizMemoriaBase }}</p>
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <div class="dados">
+                        <p>{{ currentClIndex >= 0 ? currentClIndex : 0 }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Células da matriz -->
+            <ng-container *ngIf="matrizInicializada">
+                <ng-container *ngFor="let row of matrizCaixas; let i = index">
+                    <ng-container *ngFor="let cell of row; let j = index">
+                        <div class="memoriaDiv">
+                            <div class="nome">
+                                <div class="dados">
+                                    <p>matriz[{{ i }}][{{ j }}]</p>
+                                </div>
+                            </div>
+                            <div class="mem">
+                                <div class="dados">
+                                    <p>{{ matrizMemorias[i][j] || '0x000000' }}</p>
+                                </div>
+                            </div>
+                            <div class="conteudo">
+                                <div class="dados" 
+                                     [ngClass]="{
+                                       'lixo-memoria': !insertionLabels[i] || insertionLabels[i][j] === null,
+                                       'inserido-memoria': insertionLabels[i] && insertionLabels[i][j] !== null
+                                     }">
+                                    <p>{{ cell }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>

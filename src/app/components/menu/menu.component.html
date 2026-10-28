@@ -1,0 +1,33 @@
+<nav class="menu">
+  <div class="menu-left">
+    <a class="logo" routerLink="">{{ 'APP.TITLE' | translate }}</a>
+  </div>
+
+  <ul class="menu-center">
+    <li *ngFor="let item of menuItems">
+      <a [routerLink]="item.route">  
+        <img [src]="getImagePath(item.icon)" [alt]="item.labelKey | translate" />
+        {{ item.labelKey | translate }}
+      </a>
+    </li>
+  </ul>
+
+  <div class="menu-right">
+  <button 
+    class="save-btn" 
+    (click)="saveCurrentStructure()" 
+    [disabled]="!canSave || !currentUser"
+    [title]="canSave ? 'Salvar estrutura atual' : 'Nenhuma estrutura para salvar'"
+  >
+    <img src="/images/save.svg" alt="{{ 'MENU.SAVE' | translate }}" class="icon" />
+  </button>
+  <ng-container *ngIf="currentUser; else notLogged">
+    <span class="user-name">{{ currentUser.name }}</span>
+    <button (click)="logout()">{{ 'MENU.LOGOUT' | translate }}</button>
+  </ng-container>
+  <ng-template #notLogged>
+    <a routerLink="/login"><img src="/images/profile.svg" alt="{{ 'MENU.PROFILE' | translate }}" class="icon" /></a>
+  </ng-template>
+  <button class="lang-btn" (click)="toggleLanguage()">{{ currentLangLabel }}</button>
+  </div>
+</nav>

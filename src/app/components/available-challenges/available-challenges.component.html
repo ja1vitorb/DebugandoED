@@ -1,0 +1,14 @@
+<div class="available-challenges">
+  <h2>DESAFIOS DISPONÍVEIS:</h2>
+
+  <div class="grid">
+    <div class="card" *ngFor="let s of structures" [class.locked]="!s.unlocked" [class.completed]="s.completed">
+      <div class="thumb">
+        <img [src]="getImagePath(s)" [alt]="s.label">
+      </div>
+      <button class="btn" [disabled]="!s.unlocked" (click)="openChallenges(s.key)">
+        VER DESAFIOS
+      </button>
+    </div>
+  </div>
+</div>

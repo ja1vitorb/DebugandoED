@@ -1,0 +1,1316 @@
+{
+  "LOGIN": {
+    "TITLE": "Entrar",
+    "EMAIL": "Email",
+    "PASSWORD": "Senha",
+    "SUBMIT": "Entrar",
+    "CANCEL": "Cancelar",
+    "NEW_HERE": "Novo aqui?",
+    "SIGNUP": "Cadastre-se"
+  },
+  "MENU": {
+    "SAVE": "Salvar",
+    "PROFILE": "Perfil",
+    "LOGOUT": "Sair",
+    "STRUCTURES": "Estruturas",
+    "VECTOR": "Vetor",
+    "MATRIX": "Matriz",
+    "POINTER": "Ponteiro",
+    "STACK": "Pilha",
+    "QUEUE": "Filas",
+    "LIST": "Listas",
+    "GRAPH": "Grafos"
+  },
+  "HOME": {
+    "TITLE": "Estruturas Disponíveis",
+    "CARDS": {
+      "VECTOR": {
+        "LABEL": "Vetor",
+        "DESCRIPTION": "Simulador de vetor"
+      },
+      "MATRIX": {
+        "LABEL": "Matriz",
+        "DESCRIPTION": "Simulador de matriz"
+      },
+      "POINTER": {
+        "LABEL": "Ponteiro",
+        "DESCRIPTION": "Simulador de ponteiro"
+      },
+      "STACK": {
+        "LABEL": "Pilha",
+        "DESCRIPTION": "Simulador de pilha"
+      },
+      "QUEUE": {
+        "LABEL": "Filas",
+        "DESCRIPTION": "Simulador de filas"
+      },
+      "LIST": {
+        "LABEL": "Listas",
+        "DESCRIPTION": "Simulador de listas"
+      }
+    }
+  },
+  "APP": {
+    "TITLE": "DebugandoED"
+  },
+  "MODAL": {
+    "CHOICE_TITLE": "Escolha a opção a ser descrita",
+    "CODE_HELP_TITLE": "Código",
+    "MEMORY_HELP_TITLE": "Memória",
+    "EXECUTION_HELP_TITLE": "Execução/Simulação",
+    "RESTART": "Reiniciar",
+    "INITIALIZE": "Inicializar",
+    "SHOW_ALL": "Mostrar todos",
+    "SHOW_ALL_TITLE": "Mostrar todos",
+    "SHOW_SPECIFIC": "Mostrar especifico",
+    "DELETE": "Excluir",
+    "INSERT": "Inserir",
+    "CLOSE": "Fechar",
+    "CANCEL": "Cancelar",
+    "CODE_HEADER": "Código",
+    "TITLE": "",
+    "OK": "OK",
+    "STRUCTURE": {
+      "MATRIX": {
+        "REINICIA": "Reiniciar matriz",
+        "INSERIR": "Inserir elemento",
+        "MOSTRA_ESPECIFICO": "Mostrar elemento específico",
+        "EXCLUIR": "Excluir elemento",
+        "INICIALIZA": "Inicializar matriz",
+        "MOSTRA_TODOS": "Mostrar todos os elementos"
+      },
+      "VECTOR": {
+        "REINICIA": "Reiniciar vetor",
+        "INSERIR": "Inserir elemento",
+        "MOSTRA_ESPECIFICO": "Mostrar elemento específico",
+        "EXCLUIR": "Excluir elemento",
+        "INICIALIZA": "Inicializar vetor",
+        "MOSTRA_TODOS": "Mostrar todos os elementos"
+      }
+    },
+    "SEM_ESTRUTURA": {
+      "MATRIZ": {
+        "TITULO": "Descrição de Matriz",
+        "DESCRICAO": "Matriz é uma estrutura de dados multidimensional. É bem semelhante ao vetor, mas com duas ou mais dimensões. Os itens de uma matriz devem ser todos do mesmo tipo de dado. Pode-se pensar a matriz como uma tabela com linhas e colunas.",
+        "TITULO2": "COMO UTILIZAR O SIMULADOR DE MATRIZ ?",
+        "COMO_UTILIZAR": "Como utilizar o simulador de matriz?",
+        "PASSOS": "Para simular a matriz multidimensional, é necessário selecionar a quantidade de colunas (Seta 1) e selecionar a quantidade de linhas (Seta 2). Em seguida clique no botão Criar (Seta 3). Aparecerão as opções para manipulação de Matriz."
+      },
+      "VETOR": {
+        "TITULO": "Descrição de Vetores",
+        "DESCRICAO": "Vetor é uma estrutura de dados unidimensional que armazena elementos do mesmo tipo. É uma sequência contígua de elementos na memória, permitindo acesso rápido através de índices.",
+        "TITULO2": "COMO UTILIZAR O SIMULADOR DE VETOR ?",
+        "COMO_UTILIZAR": "Como utilizar o simulador de vetor?",
+        "PASSOS": "Para criar o vetor, é necessário digitar o tamanho (Seta 1 da Figura). Logo em seguida, clique no botão indicado pela Seta 2. Com isso, aparecerá as opções de manipulação de vetores."
+      }
+    }
+  },
+  "MODAL_OK": "OK",
+  "NO_CONTENT": "Nenhum elemento disponível para exibir",
+  "VECTOR": {
+    "TITLE": "Vetor",
+    "RESTART_OPTION": {
+      "TITLE": "OPÇÃO DE REINICIAR",
+      "TEXT": "Caso queira alterar o tamanho do vetor ou começar um novo vetor, clique no botão REINICIAR (indicado pela Seta). Retornará para a opção de escolher o tamanho do vetor, conforme ilustra a imagem (A)."
+    },
+    "INIT_OPTION": {
+      "TITLE": "OPÇÃO DE INICIALIZAR",
+      "TEXT": "Caso queira alterar o tamanho do vetor ou começar um novo vetor, clique no botão REINICIAR (indicado pela Seta). Retornará para a opção de escolher o tamanho do vetor, conforme ilustra a imagem (A)."
+    },
+    "SHOW_ALL": {
+      "TITLE": "MOSTRAR TODOS",
+      "TEXT": "Nesta implementação é mostrado todo o conteúdo válido inserido no vetor. Para que ocorra essa visualização clique no botao indicado pela seta em vermelho que irá aparecer um modal em sua tela como mostra a imagem A. Observação: o lixo presente na memória não é mostrado nessa função."
+    },
+    "SHOW_SPECIFIC": {
+      "TITLE": "MOSTRAR",
+      "TEXT": "O botão MOSTRAR, mostra o conteúdo específico de uma única posição escolhida. Para isso, escolha o índice do vetor que deseja ser mostrado como mostra a seta em vermelho, sem seguida clique no botão mostrar que irá aparecer um modal em sua tela como mostra a imagem A."
+    },
+    "DELETE_OPTION": {
+      "TITLE": "OPÇÃO REMOVER",
+      "TEXT1": "Para remover o conteúdo de uma determinada posição, selecione o índice (Seta 1). Em seguida clique no botão REMOVER.",
+      "TEXT2": "Note que no vetor demostrado (Seta 2), o conteúdo foi deslocado e o valor do índice 0 (escolhido para ser removido) foi substituído."
+    },
+    "INSERT_OPTION": {
+      "TITLE": "INSERIR EM POSIÇÃO DISPONÍVEL",
+      "TEXT": "Para adicionar conteúdo (botão INSERIR), digite o valor no campo, clique no botão INSERIR (Seta 1). Em seguida será inserido o valor no vetor (Seta 2). OBSERVAÇÃO: o valor será inserido na posição marcada pelo ‘count’. Caso o vetor esteja preenchido totalmente, o ‘count’ estará fora do vetor e não será possível inserir nenhum valor."
+    },
+    "DESCRIPTION_TITLE": "Descrição de vetores",
+    "CODES_TITLE": "Códigos",
+    "EXECUTION_TITLE": "EXECUÇÃO / SIMULAÇÃO",
+    "DESCRIPTION_SECTION": {
+      "TITLE": "DESCRIÇÃO",
+      "HEADER": "DESCRIÇÃO DE VETORES",
+      "HOW_TO_TITLE": "COMO UTILIZAR O SIMULADOR DE VETOR ?",
+      "HOW_TO_TEXT": "Para criar o vetor, é necessário digitar o tamanho (Seta 1 da Figura). Logo em seguida, clique no botão indicado pela Seta 2. Com isso, aparecerá as opções de manipulação de vetores."
+    },
+    "INPUT": {
+      "TITLE": "Iniciar Vetor",
+      "PLACEHOLDER": "Digite o tamanho do vetor",
+      "CONFIRM": "Confirmar"
+    },
+    "SHOWING_CONTENT": "Mostrando o conteúdo do vetor",
+    "TABLE": {
+      "POSITION": "Posição",
+      "CONTENT": "Conteúdo:",
+      "CODE": "Código:"
+    },
+    "MODAL": {
+      "SHOW_CONTENT": "Conteúdo:",
+      "SHOW_CODE": "Código:",
+      "SHOWING_CONTENT": "Mostrando o conteúdo do vetor",
+      "SHOWING_ALL": {
+        "TITLE": "Mostrando todas as posições:"
+      }
+    },
+    "SHOWING_ALL": {
+      "TITLE": "Mostrando todas as posições:"
+    },
+    "CODE_LABEL": "Código",
+    "NOT_INITIALIZED": "Vetor não inicializado. Crie um vetor para ver o código.",
+    "PANEL": {
+      "TITLE": "Painel principal"
+    },
+    "BUTTON": {
+      "CREATE": "Criar",
+      "RESET": "Reiniciar execução",
+      "INIT": "Inicializar Vetor",
+      "SHOW_ALL": "Mostrar todos",
+      "SHOW_SPECIFIC": "Mostrar especifico",
+      "DELETE_ELEMENT": "Excluir elemento",
+      "ADD_ELEMENT": "Adicionar elemento",
+      "OK": "OK"
+    },
+    "CODE_SECTION": {
+      "TITLE": "Código"
+    },
+    "CODE": {
+      "HEADER": "Código",
+      "TITLE": "Código"
+    },
+    "MEMORY": {
+      "TITLE": "Memória",
+      "VARIABLE": "Variavel",
+      "POSITION": "Posição",
+      "CONTENT": "Conteúdo",
+      "COUNT_LABEL": "count"
+    },
+    "ROW": {
+      "POSITION": "vetor"
+    },
+    "DESCRIPTION_TEXT": {
+      "MEMORY": "A memória ilustra o ‘nome’, o conteúdo e o endereço de cada item alocado na memória conforme o programa é executado. Observa-se que a Seta 1 está indicando o índice do vetor criado ou o nome da variável. A Seta 2 indica o endereço em que está armazenado aquela posição do vetor ou variável na memória. A Seta 3 indica o conteúdo armazenado pela respectiva variável.",
+      "CODES": "Para auxiliar no aprendizado, toda parte de código é apresentada no espaço CÓDIGO (Imagem abaixo). O exemplo ilustra o código executado quando foi clicado no botão INICIALIZAR.",
+      "EXECUTION": "Nesta sessão é mostrado de forma gráfica a Matriz. Com isso, serão exibidas graficamente as operações realizadas na matriz. Por estar limitada a uma tela relativamente pequena para o tamanho de uma matriz e, por ser um simulador, não é permitido definir uma matriz com dimensões muito grandes."
+    },
+    "ALERTS": {
+      "CREATE_FIRST": "Crie um vetor primeiro usando 'Inicializar Vetor'!",
+      "INVALID_SIZE": "Insira um tamanho válido",
+      "INVALID_INDEX": "Índice inválido!",
+      "REMOVE_ONLY_ACTIVE": "Você só pode remover posições ativas (azuis).",
+      "INVALID_VALUE": "Digite um valor válido para inserir.",
+      "VECTOR_FULL": "O vetor já está cheio!"
+    }
+  },
+  "IMAGES": {
+    "REINICIA": "Imagem: reiniciar execução",
+    "INIT": "Imagem: inicializar vetor",
+    "MOSTRA_TODOS": "Imagem: mostra todos",
+    "MOSTRA_ESPECIFICO": "Imagem: mostra específico",
+    "EXCLUIR": "Imagem: excluir elemento",
+    "INSERIR": "Imagem: inserir elemento",
+    "MEMORIA": "Imagem: explicação de memória",
+    "CODIGO": "Imagem: exemplo de código",
+    "EXEC": "Imagem: execução/simulação"
+  },
+  "MATRIX": {
+    "TITLE": "Matriz",
+    "DESCRIPTION_TITLE": "Descrição de matrizes",
+    "CODES_TITLE": "Códigos",
+    "EXECUTION_TITLE": "EXECUÇÃO / SIMULAÇÃO",
+    "DESCRIPTION_SECTION": {
+      "TITLE": "DESCRIÇÃO",
+      "HEADER": "DESCRIÇÃO DE MATRIZES",
+      "HOW_TO_TITLE": "COMO UTILIZAR O SIMULADOR DE MATRIZ ?",
+      "HOW_TO_TEXT": "Para criar a matriz, é necessário digitar os tamanhos (linhas e colunas). Em seguida, clique no botão indicado para criar e manipular a matriz."
+    },
+    "INPUT": {
+      "TITLE": "Iniciar Matriz",
+      "PLACEHOLDER": "Digite o tamanho da matriz",
+      "CONFIRM": "Confirmar"
+    },
+    "SHOWING_CONTENT": "Mostrando o conteúdo da matriz",
+    "TABLE": {
+      "POSITION": "Posição",
+      "CONTENT": "Conteúdo:",
+      "CODE": "Código:"
+    },
+    "ROW": {
+      "POSITION": "matriz"
+    },
+    "CODE_LABEL": "Código",
+    "NOT_INITIALIZED": "Matriz não inicializada. Crie uma matriz para ver o código.",
+    "PANEL": {
+      "TITLE": "Painel principal"
+    },
+    "BUTTON": {
+      "CREATE": "Criar",
+      "RESET": "Reiniciar execução",
+      "INIT": "Inicializar Matriz",
+      "SHOW_ALL": "Mostrar todos",
+      "SHOW_SPECIFIC": "Mostrar específico",
+      "DELETE_ELEMENT": "Excluir elemento",
+      "ADD_ELEMENT": "Adicionar elemento"
+    },
+    "CODE_SECTION": {
+      "TITLE": "Código"
+    },
+    "MEMORY": {
+      "TITLE": "Memória",
+      "VARIABLE": "Variavel",
+      "POSITION": "Posição",
+      "CONTENT": "Conteúdo"
+    }
+  },
+  "BLOCKS": {
+    "PANEL": {
+      "TITLE": "Painel Principal"
+    },
+    "CODE": {
+      "TITLE": "Código"
+    },
+    "MEMORY": {
+      "TITLE": "Memória"
+    }
+  },
+  "EXECUTION": {
+    "TITLE": "Execução/Simulação"
+  },
+  "FOOTER": {
+    "QUESTIONS": "Dúvidas ou comentários?",
+    "SEND_EMAIL": "Envie um email para"
+  },
+  "LANG": {
+    "TOGGLE": "Idioma"
+  },
+  "REGISTER": {
+    "TITLE": "Registrar",
+    "NAME": "Nome",
+    "EMAIL": "Email",
+    "CONFIRM_EMAIL": "Confirmação de email",
+    "PASSWORD": "Senha",
+    "CONFIRM": "Confirmar Senha",
+    "SUBMIT": "Registrar",
+    "BIRTHDATE": "Data de nascimento",
+    "EDUCATION": "Formação",
+    "INSTITUTION": "Instituição",
+    "STATE": "Estado",
+    "CITY": "Cidade",
+    "CHOOSE_AVATAR": "Escolha seu Avatar",
+    "ROLE": "Você é:",
+    "STUDENT": "Aluno",
+    "TEACHER": "Professor",
+    "CUSTOM_INSTITUTION": "Nome da Instituição"
+  },
+  "RANKING": {
+    "TITLE": "Ranking de Alunos",
+    "SUBTITLE": "Os melhores estudantes da plataforma",
+    "LOADING": "Carregando ranking...",
+    "RETRY": "Tentar novamente",
+    "POSITION": "Posição",
+    "STUDENT": "Aluno",
+    "POINTS": "Pontos",
+    "NO_DATA": "Nenhum dado disponível"
+  },
+  "DASHBOARD": {
+    "TITLE": "Dashboard do Professor",
+    "SUBTITLE": "Acompanhe o desempenho dos seus alunos",
+    "LOADING": "Carregando estatísticas...",
+    "RETRY": "Tentar novamente",
+    "TOTAL_STUDENTS": "Total de Alunos",
+    "CORRECT_SUBMISSIONS": "Submissões Corretas",
+    "INCORRECT_SUBMISSIONS": "Submissões Incorretas",
+    "SUCCESS_RATE": "Taxa de Acerto",
+    "STRUCTURE_DISTRIBUTION": "Distribuição por Estrutura de Dados",
+    "STRUCTURE_DESCRIPTION": "Veja em qual estrutura seus alunos estão estudando",
+    "STUDENTS": "alunos",
+    "NO_PROGRESS_DATA": "Nenhum dado de progresso disponível",
+    "INSIGHTS": "Análise",
+    "INSIGHT_TEXT": "dos alunos estão estudando",
+    "SUBMISSIONS_OVERVIEW": "Visão Geral das Submissões",
+    "CORRECT": "Corretas",
+    "INCORRECT": "Incorretas"
+  },
+  "POINTER": {
+    "TITLE_MAIN": "Ponteiro",
+    "TITLE": "PONTEIROS",
+    "MODAL": {
+      "VIEW_TITLE": "Mostrando todos os ponteiros",
+      "CREATE_TITLE": "Inicia Ponteiro",
+      "POINT_TITLE": "Criando Apontamento",
+      "POINTED": "Apontado",
+      "DATA_TYPE": "Tipo do dado:",
+      "TYPING": "Tipagem:",
+      "TYPE": "Tipo:",
+      "NAME": "Nome:",
+      "VARIABLE": "Variável",
+      "POINTER_TYPE": "Ponteiro",
+      "POINTER_MODAL_TITLE": "Selecione um Ponteiro",
+      "POINTER_MODAL_TITLE2": "Selecione o item a ser apontado",
+      "POINT_TO": "Aponta Para",
+      "SELECT_POINTER": "Selecione um Ponteiro",
+      "SELECT_TARGET": "Selecione o item a ser apontado",
+      "INIT_TITLE": "Inicia Ponteiro",
+      "POINTER_LABEL": "Ponteiro",
+      "VIEW_LABEL": "MOSTRAR",
+      "PLACEHOLDER_NAME": "Nome do ponteiro ou variável",
+      "ADD": "Adicionar",
+      "TYPE_VAR": "Variável",
+      "TYPE_POINT": "Ponteiro",
+      "INT": "Int(Inteiro)",
+      "FLOAT": "Float",
+      "CHAR": "Char(Character)",
+      "CONTENT": "Conteúdo",
+      "BUTTON": {
+        "INIT": "Iniciar",
+        "POINT": "Apontar",
+        "SHOW": "Mostrar Ponteiros",
+        "INSERT": "Inserir",
+        "CREATE": "Criar"
+      },
+      "TABLE": {
+        "POINTER": "Ponteiro",
+        "VARIABLE": "Variável",
+        "CONTENT": "Conteúdo"
+      }
+    },
+    "BUTTON": {
+      "INIT": "Inicializar",
+      "POINT": "Apontar",
+      "SHOW_POINTERS": "Mostrar",
+      "INSERT": "Inserir",
+      "CREATE": "Criar"
+    },
+    "EXPLANATION": {
+      "RESTART_TITLE": "OPÇÃO DE REINICIAR",
+      "RESTART_TEXT": "Caso queira apagar todos apontamentos e variáveis, clique no botão REINICIAR (Seta 1). Tudo o que foi feito será apagado e retornará para a tela inicial (Imagem A).",
+      "CREATE_TITLE": "CRIAR",
+      "CREATE_TEXT": "Para criar variáveis/ponteiros, selecione o campo 'Tipo do dado' (Seta 1). Escolha o tipo da variavel (Seta 2), digite o nome da variável/ponteiro que se deseja criar (Seta 3). Caso deseje criar mais variáveis clique no botão adicionar (Seta 4) e repita o mesmo processo. Se não desejar criar mais variáveis clique no botão FINALIZAR (Seta 5). A imagem (B) mostra a tabela com os dados das variáveis criadas após ter cliclado no botão adicionar representado pela Seta 4 em vermelho.",
+      "CREATE_OBS": "Observações:",
+      "CREATE_OBS_A": "a) Devido a restrições de tela, a quantidade máxima de variáveis e/ou ponteiros são 10.",
+      "CREATE_OBS_B": "b) O nome de cada variável ou ponteiro é de no máximo de 8 e no mínimo 1 caractere.",
+      "CREATE_OBS_C": "c) O conteúdo a ser inserido é de no máximo 4 dígitos para int e float e para caractere apenas 1.",
+      "POINT_TITLE": "APONTAR",
+      "POINT_TEXT": "Para criar um apontamento, clique no botão APONTAR (Seta 1). Escolha o ponteiro (Seta 2) e a variável (Seta 3) a ser apontada. Clique no botão CRIAR APONTAMENTO. Na parte de Execução/Simulação, poderá ser visualizado que o ponteiro receberá o endereço de memória da referida variável (Seta 4).",
+      "SHOW_TITLE": "MOSTRAR",
+      "SHOW_TEXT": "O botão MOSTRAR, apresenta o conteúdo específico de uma variável ou ponteiro selecionado. Para isso, escolha a variável ou ponteiro que deseja visualizar (Seta 1). Em seguida clique no botão MOSTRAR (Seta 2). Serão exibidas as informações em uma tela (Imagem A).",
+      "INSERT_TITLE": "INSERIR",
+      "INSERT_TEXT": "Para adicionar conteúdo à variável, escolha a variável (Seta 1), digite o valor no campo - neste exemplo o valor é 333 (Seta 2). Clique no botão INSERIR (Seta 3). Na parte de Execução/Simulação, poderá ser visualizado o valor inserido na variável (Seta 4).",
+      "CODE_TITLE": "Código",
+      "CODE_TEXT": "Para auxiliar no aprendizado, toda a parte de código é apresentada no espaço CÓDIGO (Imagem abaixo). O exemplo ilustra o código executado quando foi feito um apontamento, clicado no botão APONTAR.",
+      "MEMORY_TITLE": "MEMÓRIA",
+      "MEMORY_TEXT": "Este item ilustra: o tipo, o nome, o endereço de cada item alocado na memória conforme o programa é executado e o conteúdo. Observa-se que a Seta 1 indica o tipo do ponteiro ou variável. A Seta 2 indica o nome. A Seta 3 indica o endereço do ponteiro ou variável na memória. A Seta 4 indica o conteúdo armazenado na respectiva posição.",
+      "EXEC_TITLE": "Execução/Simulação",
+      "EXEC_TEXT": "Neste item é apresentada de forma gráfica a execução dos ponteiros. Serão exibidas visualmente as operações realizadas com os ponteiros. Por estar limitada a uma tela relativamente pequena e, por ser um simulador, máximo 10 variáveis e/ou ponteiros poderão ser criados na simulação."
+    }
+  },
+  "STACK": {
+    "TITLE": "PILHA",
+    "INIT_STACK": "Inicia Pilha",
+    "DESCRIPTION": {
+      "STACK_DESCRIPTION": "DESCRICÃO DE PILHA",
+      "STACK_TEXT": "As pilhas são estruturas de dados do tipo LIFO (Last-In First-Out), onde o último elemento a ser inserido, será o primeiro a ser retirado. Assim, uma pilha permite acesso a apenas um item de dados - o último inserido. Para processar o penúltimo item inserido, deve-se remover o último.",
+      "STACK_TUTORIAL": "COMO UTILIZAR O SIMULADOR DE PILHA ?",
+      "STACK_TUTORIAL_TEXT": "Para criar a pilha, é necessário digitar o tamanho (Seta 1). Logo em seguida, clique no botão indicado pela Seta 2. Com isso, aparecerá as opções de manipulação da pilha."
+    },
+    "EXPLANATION": {
+      "RESTART_TITLE": "OPÇÃO DE REINICIAR",
+      "RESTART_TEXT": "Caso queira alterar o tamanho da pilha ou começar uma nova pilha, clique no botão REINICIAR (indicado pela Seta). Retornará para a opção de escolher o tamanho da pilha, conforme ilustra a imagem (A).",
+      "SHOW_ALL_TITLE": "EXIBIR TODOS",
+      "SHOW_ALL_TEXT": "Neste item é exibido todo o conteúdo válido inserido na pilha. Para que ocorra essa visualização clique no botão EXIBIR TODOS (indicado pela Seta). Com isso, aparecerá uma nova janela (imagem A).Observação:o lixo de memória não será mostrado nessa função.",
+      "INSERT_TITLE": "INSERIR",
+      "INSERT_TEXT": "Para adicionar conteúdo na pilha, insira um valor no local indicado (Seta 1), e logo em seguida clique no botão INSERIR, inserindo o valor na pilha (Seta 2).",
+      "SHOW_SPECIFIC_TITLE": "MOSTRAR",
+      "SHOW_SPECIFIC_TEXT": "O botão MOSTRAR, apresenta o conteúdo específico da posição topo. Para isso, clique no botão MOSTRAR (Seta 1), que aparecerá uma janela como na Imagem A.",
+      "REMOVE_TITLE": "REMOVER POSIÇÃO TOPO",
+      "REMOVE_TEXT": "Para remover o conteúdo do topo, selecione o conteúdo topo (Seta 1) e logo em seguida clique no botão indicado pela Seta 2. Note que na Pilha a Seta 3 indica o conteúdo antes de ser removido e a Seta 4, indica o estado da Pilha após a remoção do conteúdo apontado anteriormente pelo topo.",
+      "PUSH_FUNC_TITLE": "PUSH",
+      "PUSH_FUNC_TEXT": "Na literatura, a função para empilhar os elementos na pilha é chamada de PUSH. Aqui está o código utilizado para realizar o PUSH.",
+      "POP_FUNC_TITLE": "POP",
+      "POP_FUNC_TEXT": "Na literatura, a função para desempilhar os elementos na pilha é chamada de POP. Aqui está o código utilizado para realizar o POP.",
+      "SHOW_TOPO": "Mostrando conteúdo do topo da pilha",
+      "CONTENT": "Conteúdo:",
+      "CODE_VAR": "Código:",
+      "CODE_VAR_TEXT": "printf(\"%d\", pilha[p -> topo]);",
+      "TOPO": "Topo",
+      "SELECT": "Selecione o valor",
+      "PILHA": "PILHA ( p )",
+      "PILHA_AUX": "PILHA AUXILIAR ( p1 )",
+      "P1_TOP": "p1.topo",
+      "TITULO_MODAL_SLA": "Mostrando todas as posições válidas",
+      "POSITION": "Posição",
+      "TAMANHO_PILHA": "tamanhoPilha",
+      "VARIABLE": "Variável",
+      "MEMORY": "Memória",
+      "CODE_TITLE": "CÓDIGO",
+      "CODE_TEXT": "Para auxiliar no aprendizado, toda parte de código é apresentada no espaço CÓDIGO (Imagem abaixo). O exemplo ilustra o código executado quando foi criado a pilha inicialmente.",
+      "MEMORY_TITLE": "MEMÓRIA",
+      "MEMORY_TEXT": "Este item ilustra: a posição, o endereço e o conteúdo de cada item alocado na memória. Observa-se (Seta 1) o índice da pilha criada. A Seta 2 indica o endereço em que está armazenada aquela posição da pilha na memória. A Seta 3 indica o conteúdo armazenado pela respectiva posição da pilha.",
+      "EXEC_TITLE": "Execução/Simulação",
+      "EXEC_TEXT": "Neste item é apresentada de forma visual a Pilha. Com isso, serão exibidas visualmente as operações realizadas na pilha. Por estar limitada a uma tela relativamente pequena para o tamanho de uma pilha e, por ser um simulador, não é permitido definir uma pilha de grande dimensão."
+    },
+    "TITLES": {
+      "TITLE_CODE": "CÓDIGO",
+      "TITLE_MEMORY": "MEMÓRIA",
+      "TITLE_EXECUTION": "EXECUÇÃO"
+    },
+    "BUTTON": {
+      "RESTART": "Reiniciar",
+      "SHOW_ALL": "Mostrar todos",
+      "DELETE": "Remover",
+      "INSERT": "Inserir",
+      "PUSH": "Push",
+      "POP": "Pop",
+      "SHOW_TOP": "Mostrar"
+    }
+  },
+  "QUEUE": {
+    "TITLE": "Fila Básica",
+    "TITLE_SWAP": "Fila com troca",
+    "GENERIC_TITLE": "Fila",
+    "GENERIC_TITLE2": "Fila Básica",
+    "DESCRIPTION": {
+      "TITLE": "DESCRIÇÃO DE FILA",
+      "TEXT": "Fila é uma estrutura de dados dinâmica que permite a remoção e inserção de novos elementos. Uma fila é uma estrutura sujeita à seguinte regra de operação: sempre que houver uma remoção, o elemento removido é o que está na estrutura há mais tempo. Em outras palavras, o primeiro objeto inserido na fila é também o primeiro a ser removido, também conhecido pela sigla FIFO (First-In-First-Out).",
+      "TUTORIAL_TITLE": "COMO UTILIZAR O SIMULADOR DE FILA ?",
+      "TUTORIAL_TEXT": "Para criar a fila, é necessário digitar o tamanho (Seta 1). Logo em seguida, clique no botão CRIAR (Seta 2). Com isso, aparecerá as opções para a manipulação da fila."
+    },
+    "MODAL_QUEUE": {
+      "OK": "OK",
+      "SIMULATION_BASIC": "Simulador de fila",
+      "SIMULATION_SWAP": "Simulador de fila com troca",
+      "SIMULATION_CIRCLE": "Simulador de fila circular"
+    },
+    "EXPLANATION": {
+      "RESTART_TITLE": "OPÇÃO DE REINICIAR",
+      "RESTART_TEXT": "Caso queira alterar o tamanho da fila ou começar uma nova fila, clique no botão REINICIAR (Seta em vermelho). Retornará para a opção de escolher o tamanho da fila (imagem A).",
+      "SHOW_ALL_TITLE": "EXIBIR TODOS",
+      "SHOW_ALL_TEXT": "Neste item é exibido todo o conteúdo válido inserido na fila. Para que ocorra essa visualização clique no botão EXIBIR TODOS (Seta vermelha). Com isso, aparecerá uma nova janela (imagem A) com as informações. Observação: o lixo de memória não é mostrado nessa função.",
+      "INSERT_TITLE": "INSERIR",
+      "INSERT_TEXT": "Para adicionar conteúdo na fila, insira um valor (Seta 1), em seguida clique no botão INSERIR, inserido o valor na fila (Seta 2).",
+      "SHOW_SPECIFIC_TITLE": "MOSTRAR",
+      "SHOW_SPECIFIC_TEXT": "O botão MOSTRAR, exibe o conteúdo específico da posição início. Para isso, apenas clique no botão MOSTRAR (Seta 1). Aparecerá uma nova janela com as informações (Imagem A).",
+      "DELETE_TITLE": "REMOVER POSIÇÃO INÍCIO",
+      "DELETE_TEXT": "Para remover o conteúdo, clique no botão REMOVER (Seta 1).Note que na fila a Seta 2 indica a posição do início da fila. A Seta 3, posteriormente indica o estado da fila após a operação de remoção do conteúdo indicado pelo início.",
+      "INSERT_FUNC_TITLE": "INSERT",
+      "INSERT_FUNC_TEXT": "Aqui está o código utilizado para realizar o inserção na fila.",
+      "REMOVE_FUNC_TITLE": "REMOVE",
+      "REMOVE_FUNC_TEXT": "Aqui está o código utilizado para realizar o remoção na fila.",
+      "CODE_TITLE": "CÓDIGO",
+      "CODE_TEXT": "Para auxiliar no aprendizado, toda parte de código é apresentada no espaço CÓDIGO (Imagem abaixo). O exemplo ilustra o código executado quando foi criado a fila inicialmente.",
+      "CODE_SNIPPET": "printf(\"%d\", f->fila[f->inicio]);",
+      "MEMORY_TITLE": "MAPA DE MEMÓRIA",
+      "MEMORY_TEXT": "Este item ilustra: a posição, o endereço e o conteúdo de cada item alocado na memória. Observa-se (Seta 1) o índice da fila criada. A Seta 2 indica o endereço em que está armazenada aquela posição da fila na memória. A Seta 3 indica o conteúdo armazenado pela respectiva posição da fila.",
+      "EXEC_TITLE": "EXECUÇÃO / SIMULAÇÃO",
+      "EXEC_TEXT": "Neste item é apresentada de forma visual a Fila. Com isso, serão exibidas visualmente as operações realizadas na fila. Por estar limitada a uma tela relativamente pequena para o tamanho de uma fila e, por ser um simulador, não é permitido definir uma fila de grande dimensão."
+    },
+    "BTN": {
+      "RESTART": "Reiniciar",
+      "SHOW_ALL": "Mostrar todos",
+      "DELETE": "Remover",
+      "INSERT": "Inserir",
+      "SHOW_SPECIFIC": "Mostrar"
+    },
+    "MODAL_SHOW_INIT": {
+      "TITLE": "Mostrando conteúdo do início da fila",
+      "CONTENT": "Conteúdo:",
+      "CODE_VAR": "Código:",
+      "CODE_VAR_TEXT": "printf(\"%d\", f->fila[f->inicio]);"
+    },
+    "MODAL_SHOW_QUEUE": {
+      "TITLE": "Mostrando todas as posições válidas",
+      "POSITION": "Posição",
+      "TAMANHO_FILA": "tamanhoFila",
+      "VARIABLE": "Variável",
+      "MEMORY": "Memória",
+      "CODE_TITLE": "CÓDIGO",
+      "CODE_TEXT": "Para auxiliar no aprendizado, toda parte de código é apresentada no espaço CÓDIGO (Imagem abaixo). O exemplo ilustra o código executado quando foi criado a fila inicialmente."
+    },
+    "TOP_CARD": {
+      "INIT": "Inicio"
+    },
+    "MEMORY": {
+      "VARIABLE": "Variável",
+      "MEMORY": "Memória",
+      "F_INIT": "f->inicio",
+      "F_END": "f->fim",
+      "F_QUEUE": "f->fila",
+      "INIT": "Início",
+      "END": "Fim"
+    }
+  },
+  "QUEUE_SWAP": {
+    "TITLE": "Fila com troca",
+    "GENERIC_TITLE": "Fila",
+    "MODAL_SHOW_INIT": {
+      "SHOW_SELECTED_CONTENT": "Mostrando conteúdo da posição selecionada",
+      "SHOW_ALL_CONTENT": "Mostrando todas as posições válidas",
+      "CODE": "Código:",
+      "SHOW_CODE": "printf ( \"%d\", f -> fila",
+      "SHOW_CONTENT": "Conteúdo:",
+      "POSITION": "Posição",
+      "SHOW_CONTENT2": "Conteúdo",
+      "CODE2": "Código:",
+      "EXECUTION_TITLE": "FILA ( f )",
+      "END": "Fim",
+      "INIT": "Início"
+    }
+  },
+  "QUEUE_COMPONENT": {
+    "BASIC_QUEUE": "Fila Básica",
+    "SWAP_QUEUE": "Fila com troca",
+    "CIRCLE_QUEUE": "Fila Circular"
+  },
+  "CIRCLE_QUEUE": {
+    "TITLE": "Fila Circular",
+    "MODAL_INIT": "Mostrando conteúdo do início da fila",
+    "CONTENT": "Conteúdo",
+    "CODE": "Código",
+    "CODE_TEXT": "printf ( \" % d \", f -> fila",
+    "MODAL_GENERIC_TITLE": "Fila",
+    "MODAL_GENERIC_START_QUEUE": "Inicia Fila",
+    "SHOW_ALL_VALID_POSITIONS": "Mostrando todas as posições válidas",
+    "POSITION": "Posição",
+    "QUEUE_CONTENT": "Conteúdo",
+    "VARIABLE": "Variável",
+    "MEMORY": "Memória",
+    "F_INIT": "f->inicio",
+    "F_END": "f->fim",
+    "QUEUE": "fila",
+    "QUEUE_EXECUTION": "FILA CIRCULAR ( f )",
+    "INIT": "Inicio",
+    "END": "Fim"
+  },
+  "LINKED_LIST": {
+    "TITLE": "Lista Encadeada",
+    "DOUBLY_TITLE": "Lista Duplamente Encadeada",
+    "DESCRIPTION_TITLE": "Simulador de lista",
+    "DESCRIPTION_DOUBLE_TITLE": "Simulador de lista duplamente encadeada",
+    "ABSOLUT_TITLE": "LISTA ENCADEADA ( INSERÇÃO INÍCIO )",
+    "TITLE_FUNCTIONS": "Escolha a função que deseja ser descrita:",
+    "LABEL_INIT": "Insere no início",
+    "LABEL_END": "Insere no fim",
+    "LABEL_ORDENATE": "Insere ordenado",
+    "LABEL_DESCRIPTION_INIT": "Simulador de lista com inserção no inicio",
+    "LABEL_DESCRIPTION_END": "Simulador de lista com inserção no fim",
+    "LABEL_DESCRIPTION_ORDENATE": "Simulador de lista com inserção ordenada",
+    "EXPLANATION": {
+      "RESTART_TITLE": "OPÇÃO DE REINICIAR",
+      "RESTART_TEXT": "Caso queira começar uma nova lista, clique no botão REINICIAR (indicado pela Seta). Retornará para a tela inicial da lista novamente (Imagem A).",
+      "SHOW_ALL_TITLE": "EXIBIR TODOS",
+      "SHOW_ALL_TEXT": "Este item apresenta todo o conteúdo válido que foi inserido na lista. Para que ocorra essa visualização clique no botão EXIBIR TODOS (Seta). Aparecerá uma nova janela, como ilustra a imagem A.",
+      "INSERT_TITLE": "INSERIR",
+      "INSERT_TEXT": "Para adicionar conteúdo na lista, insira um valor (Seta 1) e, em seguida, clique no botão INSERIR. Será criado um novo nó na lista com o conteúdo digitado (Seta 2). Todos os novos nós serão inseridos no início da lista para esta simulação.",
+      "SHOW_SPECIFIC_TITLE": "MOSTRAR",
+      "SHOW_SPECIFIC_TEXT": "O botão MOSTRAR, exibe a posição que um valor (conteúdo) ocupa na lista. Para isso, selecione o valor como indicado pela Seta 1, clique no botão (Seta 2). Aparecer uma nova janela com as informações (Imagem A).",
+      "DELETE_TITLE": "REMOVER DO INICIO",
+      "DELETE_TEXT": "Para remover o conteúdo do início, apenas clique no botão REMOVER (Seta 1). Note que na lista a Seta 2 indica o conteúdo que o início está apontando antes da remoção. E a seta 3 mostra o resultado após a remoção.",
+      "INSERT_FUNC_TITLE": "INSERE_INICIO",
+      "INSERT_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de inserir no final da lista:' é atualizado para apontar para o novo nó. Isso garante que o novo elemento seja sempre o primeiro da lista.",
+      "REMOVE_FUNC_TITLE": "REMOVE_INICIO",
+      "REMOVE_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de remover no final da lista:"
+    },
+    "ALERTS": {
+      "NOT_CREATED": "A lista ainda não foi criada. Insira um valor inicial no campo 'Criar' para inicializar o ponteiro Início (head) e liberar as seções de código e execução."
+    },
+    "TECH": {
+      "CODE_TITLE": "CÓDIGO",
+      "CODE_TEXT": "Para auxiliar no aprendizado, toda parte de código é apresentada no espaço CÓDIGO (Imagem abaixo). O exemplo ilustra o código executado quando foi inserido um valor na lista.",
+      "MEMORY_TITLE": "MEMÓRIA",
+      "MEMORY_TEXT": "A memória ilustra a posição, o endereço de cada item alocado na memória e o conteúdo. A Seta 1 indica o conteúdo da variável início. A Seta 2 indica o conteúdo da lista e a Seta 3 indica o endereço da próxima posição na lista.",
+      "EXEC_TITLE": "EXECUÇÃO / SIMULAÇÃO",
+      "EXEC_TEXT": "Nesta sessão é mostrado de forma gráfica a lista. Com isso, serão exibidas graficamente as operações realizadas na lista. Por estar limitada a uma tela relativamente pequena para o tamanho de uma lista e, por ser um simulador, não é permitido criar uma lista com dimensões muito grande."
+    },
+    "BTN": {
+      "REINICIAR": "Reiniciar",
+      "MOSTRARTODOS": "Mostrar todos",
+      "MOSTRAR_ESPECIFICO": "Mostrar",
+      "EXCLUIR": "Remover",
+      "INSERIR": "Inserir",
+      "INSERE_INICIO": "INSERE_INICIO",
+      "REMOVE_INICIO": "REMOVE_INICIO"
+    },
+    "MODAL": {
+      "MODAL_TITLE": "Lista",
+      "MODAL_H2": "Mostrando a posição do conteúdo",
+      "TITLE_LISTA": "Código",
+      "TITLE_LISTA2": "Posição",
+      "MODAL_TITLE2": "MOSTRANDO TODAS AS INFORMAÇÕES VÁLIDAS",
+      "MODAL_H2_2": "Informação",
+      "P_DATA": "p->dados",
+      "CONTENT": "Conteúdo",
+      "CODE": "Código",
+      "CREATE": "Criar",
+      "NONE_LIST": "Lista vazia",
+      "INIT": "Inicio",
+      "MEMORY": "Memória",
+      "VALUE": "Valor"
+    },
+    "DESCRIPTION": {
+      "TITLE": "DESCRIÇÃO DE LISTA",
+      "TEXT": "Uma lista encadeada é uma representação de uma sequência de objetos, todos do mesmo tipo, na memória RAM (Random Access Memory) do computador. Cada elemento da sequência é armazenado em uma célula da lista: o primeiro elemento na primeira célula, o segundo na segunda, e assim por diante.",
+      "TUTORIAL_TITLE": "COMO UTILIZAR O SIMULADOR DE LISTA ?",
+      "TUTORIAL_TEXT": "Para criar a lista, é necessário escolher e digitar o valor a ser inserido na primeira posição (Seta 1). Logo em seguida, clique no botão indicado pela Seta 2. Com isso, aparecerão as opções de manipulação da lista.",
+      "OK": "OK"
+    }
+  },
+  "LINKED_LIST_END": {
+    "TITLE": "LISTA ENCADEADA ( INSERÇÃO FIM )",
+    "EXPLANATION": {
+      "RESTART_TITLE": "OPÇÃO DE REINICIAR",
+      "RESTART_TEXT": "Caso queira alterar ou começar uma nova lista, clique no botão REINICIAR (indicado pela Seta). Retornará para a opção de escolher a lista novamente, conforme ilustra a imagem (A).",
+      "SHOW_ALL_TITLE": "EXIBIR TODOS",
+      "SHOW_ALL_TEXT": "Neste item é mostrado todo o conteúdo válido inserido na lista. Para que ocorra essa visualização clique no botão EXIBIR TODOS (indicado pela Seta). Com isso, aparecerá uma janela como ilustra a imagem A.",
+      "INSERT_TITLE": "INSERIR",
+      "INSERT_TEXT": "Para adicionar conteúdo ao final na lista, insira um valor (Seta 1) e, em seguida, clique no botão INSERIR. Será criado um novo nó na lista com o conteúdo digitado (Seta 2). Todos os novos nós serão inseridos no final da lista para esta simulação.",
+      "SHOW_SPECIFIC_TITLE": "MOSTRAR",
+      "SHOW_SPECIFIC_TEXT": "O botão MOSTRAR, mostra a posição que um valor ocupa na lista. Para isso, selecione o valor como indicado pela seta 1, clique no botão como mostra a seta 2, que irá aparecer um modal em sua tela como mostra a Imagem A.",
+      "DELETE_TITLE": "REMOVER DO FIM",
+      "DELETE_TEXT": "Para remover o conteúdo, apenas clique no botão REMOVER (Seta 1). Note que na lista a Seta 2 indica o conteúdo que o fim está apontando antes da remoção. E a Seta 3 mostra o resultado depois da remoção.",
+      "INSERT_FUNC_TITLE": "INSERE_FINAL",
+      "INSERT_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de inserir no final da lista:",
+      "REMOVE_FUNC_TITLE": "REMOVE_FINAL",
+      "REMOVE_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de remover no final da lista:"
+    },
+    "BTN": {
+      "INSERE_FIM": "INSERE_FIM",
+      "REMOVE_FIM": "REMOVE_FIM"
+    },
+    "MODAL": {
+      "MODAL_TITLE": "Lista",
+      "MODAL_H2": "Mostrando a posição do conteúdo",
+      "TITLE_LISTA": "Código",
+      "TITLE_LISTA2": "Posição",
+      "MODAL_TITLE2": "MOSTRANDO TODAS AS INFORMAÇÕES VÁLIDAS",
+      "MODAL_H2_2": "Informação",
+      "P_DATA": "p->dados",
+      "CONTENT": "Conteúdo",
+      "CODE": "Código",
+      "CREATE": "Criar",
+      "NONE_LIST": "Lista vazia",
+      "INIT": "Inicio",
+      "MEMORY": "Memória",
+      "VALUE": "Valor",
+      "END": "Fim"
+    }
+  },
+  "LINKED_LIST_ORDENATE": {
+    "TITLE": "LISTA ENCADEADA ( INSERÇÃO ORDENADA )",
+    "EXPLANATION": {
+      "RESTART_TITLE": "OPÇÃO DE REINICIAR",
+      "RESTART_TEXT": "Caso queira alterar ou começar uma nova lista, clique no botão REINICIAR (indicado pela Seta). Retornará para a opção de escolher a lista novamente, conforme ilustra a imagem (A).",
+      "SHOW_ALL_TITLE": "EXIBIR TODOS",
+      "SHOW_ALL_TEXT": "Neste item é mostrado todo o conteúdo válido inserido na lista. Para que ocorra essa visualização clique no botão EXIBIR TODOS (indicado pela Seta). Com isso, aparecerá uma janela como ilustra a imagem A.",
+      "INSERT_TITLE": "INSERIR",
+      "INSERT_TEXT": "Para adicionar conteúdo na lista, insira um valor (Seta 1), e logo em seguida clique no botão INSERIR. Com isso, será inserido o valor na lista (Seta 2). Obs: todos os valores são inseridos de maneira ordenada.",
+      "SHOW_SPECIFIC_TITLE": "MOSTRAR",
+      "SHOW_SPECIFIC_TEXT": "O botão MOSTRAR, mostra a posição que um valor ocupa na lista. Para isso, selecione o valor como indicado pela seta 1, clique no botão como mostra a seta 2, que irá aparecer um modal em sua tela como mostra a Imagem A.",
+      "DELETE_TITLE": "REMOVER",
+      "DELETE_TEXT": "Para remover o conteúdo, escolha o valor conforme ilustra Seta 1, e logo em seguida clique no botão remover como demostra a seta 2. Note que na lista a seta 3 indica o conteúdo antes da remoção. E a seta 4 mostra o resultado posteriormente a remoção",
+      "INSERT_FUNC_TITLE": "INSERE ORDENADO",
+      "INSERT_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de inserir na lista:",
+      "REMOVE_FUNC_TITLE": "REMOVE ORDENADO",
+      "REMOVE_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de remover da lista:"
+    },
+    "BTN": {
+      "INSERE_FIM": "INSERE_ORDENADO",
+      "REMOVE_FIM": "REMOVE_ORDENADO"
+    }
+  },
+  "DOUBLY_LINKED_LIST": {
+    "TITLE": "LISTA DUPLAMENTE ENCADEADA (Inserção no fim)",
+    "EXPLANATION": {
+      "RESTART_TITLE": "OPÇÃO DE REINICIAR",
+      "RESTART_TEXT": "Caso queira alterar ou começar uma nova lista, clique no botão REINICIAR (indicado pela Seta). Retornará para a opção de escolher a lista novamente, conforme ilustra a imagem (A).",
+      "SHOW_ALL_TITLE": "EXIBIR TODOS",
+      "SHOW_ALL_TEXT": "Neste item é mostrado todo o conteúdo válido inserido na lista. Para que ocorra essa visualização clique no botão EXIBIR TODOS (indicado pela Seta). Com isso, aparecerá uma janela como ilustra a imagem A.",
+      "INSERT_TITLE": "INSERIR",
+      "INSERT_TEXT": "Para adicionar conteúdo na lista, insira um valor (Seta 1), e logo em seguida clique no botão INSERIR. Com isso, será inserido o valor na lista (Seta 2). Obs: todos os valores são inseridos de maneira ordenada.",
+      "SHOW_SPECIFIC_TITLE": "MOSTRAR",
+      "SHOW_SPECIFIC_TEXT": "O botão MOSTRAR, mostra a posição que um valor ocupa na lista. Para isso, selecione o valor como indicado pela seta 1, clique no botão como mostra a seta 2, que irá aparecer um modal em sua tela como mostra a Imagem A.",
+      "DELETE_TITLE": "REMOVER",
+      "DELETE_TEXT": "Para remover o conteúdo, escolha o valor conforme ilustra Seta 1, e logo em seguida clique no botão remover como demostra a seta 2. Note que na lista a seta 3 indica o conteúdo antes da remoção. E a seta 4 mostra o resultado posteriormente a remoção",
+      "INSERT_FUNC_TITLE": "INSERE ORDENADO",
+      "INSERT_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de inserir na lista:",
+      "REMOVE_FUNC_TITLE": "REMOVE ORDENADO",
+      "REMOVE_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de remover da lista:"
+    },
+    "BTN": {
+      "INSERE_FIM": "INSERE_ORDENADO",
+      "REMOVE_FIM": "REMOVE_ORDENADO"
+    },
+    "MODAL": {
+      "MODAL_TITLE": "Lista",
+      "MODAL_H2": "Mostrando a posição do conteúdo",
+      "TITLE_LISTA": "Código",
+      "TITLE_LISTA2": "Posição",
+      "MODAL_TITLE2": "MOSTRANDO TODAS AS INFORMAÇÕES VÁLIDAS",
+      "MODAL_H2_2": "Informação",
+      "P_DATA": "p->dados",
+      "CONTENT": "Conteúdo",
+      "CODE": "Código",
+      "CREATE": "Criar",
+      "NONE_LIST": "Lista vazia",
+      "INIT": "Inicio",
+      "MEMORY": "Memória",
+      "VALUE": "Valor",
+      "END": "Fim"
+    }
+  },
+  "DOUBLY_LINKED_LIST_START": {
+    "TITLE": "LISTA DUPLAMENTE ENCADEADA (Inserção no inicio)",
+    "EXPLANATION": {
+      "RESTART_TITLE": "OPÇÃO DE REINICIAR",
+      "RESTART_TEXT": "Caso queira alterar ou começar uma nova lista, clique no botão REINICIAR (indicado pela Seta). Retornará para a opção de escolher a lista novamente, conforme ilustra a imagem (A).",
+      "SHOW_ALL_TITLE": "EXIBIR TODOS",
+      "SHOW_ALL_TEXT": "Neste item é mostrado todo o conteúdo válido inserido na lista. Para que ocorra essa visualização clique no botão EXIBIR TODOS (indicado pela Seta). Com isso, aparecerá uma janela como ilustra a imagem A.",
+      "INSERT_TITLE": "INSERIR",
+      "INSERT_TEXT": "Para adicionar conteúdo na lista, insira um valor (Seta 1), e logo em seguida clique no botão INSERIR. Com isso, será inserido o valor na lista (Seta 2). Obs: todos os valores são inseridos de maneira ordenada.",
+      "SHOW_SPECIFIC_TITLE": "MOSTRAR",
+      "SHOW_SPECIFIC_TEXT": "O botão MOSTRAR, mostra a posição que um valor ocupa na lista. Para isso, selecione o valor como indicado pela seta 1, clique no botão como mostra a seta 2, que irá aparecer um modal em sua tela como mostra a Imagem A.",
+      "DELETE_TITLE": "REMOVER",
+      "DELETE_TEXT": "Para remover o conteúdo, escolha o valor conforme ilustra Seta 1, e logo em seguida clique no botão remover como demostra a seta 2. Note que na lista a seta 3 indica o conteúdo antes da remoção. E a seta 4 mostra o resultado posteriormente a remoção",
+      "INSERT_FUNC_TITLE": "INSERE ORDENADO",
+      "INSERT_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de inserir na lista:",
+      "REMOVE_FUNC_TITLE": "REMOVE ORDENADO",
+      "REMOVE_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de remover da lista:"
+    },
+    "BTN": {
+      "INSERE_FIM": "INSERE_ORDENADO",
+      "REMOVE_FIM": "REMOVE_ORDENADO"
+    },
+    "MODAL": {
+      "MODAL_TITLE": "Lista",
+      "MODAL_H2": "Mostrando a posição do conteúdo",
+      "TITLE_LISTA": "Código",
+      "TITLE_LISTA2": "Posição",
+      "MODAL_TITLE2": "MOSTRANDO TODAS AS INFORMAÇÕES VÁLIDAS",
+      "MODAL_H2_2": "Informação",
+      "P_DATA": "p->dados",
+      "CONTENT": "Conteúdo",
+      "CODE": "Código",
+      "CREATE": "Criar",
+      "NONE_LIST": "Lista vazia",
+      "INIT": "Inicio",
+      "MEMORY": "Memória",
+      "VALUE": "Valor",
+      "END": "Fim"
+    }
+  },
+  "DOUBLY_LINKED_LIST_ORDENATE": {
+    "TITLE": "LISTA DUPLAMENTE ENCADEADA (Inserção Ordenada)",
+    "EXPLANATION": {
+      "RESTART_TITLE": "OPÇÃO DE REINICIAR",
+      "RESTART_TEXT": "Caso queira alterar ou começar uma nova lista, clique no botão REINICIAR (indicado pela Seta). Retornará para a opção de escolher a lista novamente, conforme ilustra a imagem (A).",
+      "SHOW_ALL_TITLE": "EXIBIR TODOS",
+      "SHOW_ALL_TEXT": "Neste item é mostrado todo o conteúdo válido inserido na lista. Para que ocorra essa visualização clique no botão EXIBIR TODOS (indicado pela Seta). Com isso, aparecerá uma janela como ilustra a imagem A.",
+      "INSERT_TITLE": "INSERIR",
+      "INSERT_TEXT": "Para adicionar conteúdo na lista, insira um valor (Seta 1), e logo em seguida clique no botão INSERIR. Com isso, será inserido o valor na lista (Seta 2). Obs: todos os valores são inseridos de maneira ordenada.",
+      "SHOW_SPECIFIC_TITLE": "MOSTRAR",
+      "SHOW_SPECIFIC_TEXT": "O botão MOSTRAR, mostra a posição que um valor ocupa na lista. Para isso, selecione o valor como indicado pela seta 1, clique no botão como mostra a seta 2, que irá aparecer um modal em sua tela como mostra a Imagem A.",
+      "DELETE_TITLE": "REMOVER",
+      "DELETE_TEXT": "Para remover o conteúdo, escolha o valor conforme ilustra Seta 1, e logo em seguida clique no botão remover como demostra a seta 2. Note que na lista a seta 3 indica o conteúdo antes da remoção. E a seta 4 mostra o resultado posteriormente a remoção",
+      "INSERT_FUNC_TITLE": "INSERE ORDENADO",
+      "INSERT_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de inserir na lista:",
+      "REMOVE_FUNC_TITLE": "REMOVE ORDENADO",
+      "REMOVE_FUNC_TEXT": "No simulador na parte de código encontra-se descrito a função de remover da lista:"
+    },
+    "BTN": {
+      "INSERE_FIM": "INSERE_ORDENADO",
+      "REMOVE_FIM": "REMOVE_ORDENADO"
+    },
+    "MODAL": {
+      "MODAL_TITLE": "Lista",
+      "MODAL_H2": "Mostrando a posição do conteúdo",
+      "TITLE_LISTA": "Código",
+      "TITLE_LISTA2": "Posição",
+      "MODAL_TITLE2": "MOSTRANDO TODAS AS INFORMAÇÕES VÁLIDAS",
+      "MODAL_H2_2": "Informação",
+      "P_DATA": "p->dados",
+      "CONTENT": "Conteúdo",
+      "CODE": "Código",
+      "CREATE": "Criar",
+      "NONE_LIST": "Lista vazia",
+      "INIT": "Inicio",
+      "MEMORY": "Memória",
+      "VALUE": "Valor",
+      "END": "Fim",
+      "CHOOSE": "Choose the value"
+    }
+  },
+  "GRAPH": {
+    "TITLE": "Grafos",
+    "PANEL": {
+      "TITLE": "Painel Principal"
+    },
+    "BUTTON": {
+      "INIT": "Inicializar Grafo",
+      "RESET": "Reiniciar execução",
+      "INSERT_NODE": "Inserir Nó",
+      "DELETE_NODE": "Excluir Nó",
+      "CONNECT_NODES": "Conectar Nós",
+      "RUN_FULL": "▶ Rodar tudo de uma vez",
+      "RUN_STEP": "⏭ Rodar passo a passo",
+      "CANCEL_ALGO": "✕ Encerrar algoritmo",
+      "CONFIRM": "Confirmar",
+      "CANCEL": "Cancelar",
+      "OK": "Ok",
+      "BACK": "Voltar"
+    },
+    "CANCEL_ALGO_TITLE": "Encerrar algoritmo e escolher o modo novamente",
+    "PLACEHOLDER": {
+      "NODE_NAME": "Nome do nó (ex: G)",
+      "NODE_NAME_SHORT": "Nome do nó (ex: A)",
+      "NODE_TO_DELETE": "Nome do nó a excluir",
+      "NODE_A": "Nó A",
+      "NODE_B": "Nó B",
+      "WEIGHT": "Peso"
+    },
+    "SELECT": {
+      "CHOOSE_ALGORITHM": "Selecione um algoritmo"
+    },
+    "ALGO": {
+      "BFS": "Busca em Largura (BFS)",
+      "DFS": "Busca em Profundidade (DFS)",
+      "DIJKSTRA": "Dijkstra",
+      "COLORING": "Coloração de Grafos (Welsh-Powell)",
+      "TSP": "Caixeiro Viajante (TSP)"
+    },
+    "HEURISTIC_WARNING": "⚠ heurística aproximada, não o ótimo exato",
+    "STEP_LABEL": "Passo {{current}} de {{total}}",
+    "ITERATION_LABEL": "Iteração {{current}} de {{total}}",
+    "COLOR_GROUPS": "Grupos de cor:",
+    "FINAL_HISTORY": "Histórico final:",
+    "ALGO_HISTORY": "Histórico do algoritmo:",
+    "DISTANCE_LABEL": "— distância: {{value}}",
+    "CODE": {
+      "TITLE": "Código"
+    },
+    "MEMORY": {
+      "TITLE": "Memória",
+      "VARIABLE": "Variável",
+      "ADDRESS": "Endereço",
+      "CONTENT": "Conteúdo",
+      "EMPTY": "Nenhum item criado ainda."
+    },
+    "EXECUTION_TITLE": "EXECUÇÃO / SIMULAÇÃO",
+    "MODAL": {
+      "RANDOM_TITLE": "Gerar Grafo Aleatório",
+      "NODE_COUNT_LABEL": "Número de nós (máx: 10):",
+      "MAX_WEIGHT_LABEL": "Peso máximo:",
+      "DIRECTED": "Direcionado",
+      "CONNECTED": "Conexo",
+      "CREATE_NODE_TITLE": "Criar Nó",
+      "EDGE_WEIGHT_TITLE": "Peso da Aresta"
+    },
+    "MSG": {
+      "MAX_NODES": "Máximo de 10 nós permitido.",
+      "NODE_EXISTS": "Já existe um nó \"{{name}}\".",
+      "NODE_INSERTED": "Nó \"{{name}}\" inserido.",
+      "NODE_NOT_FOUND": "Nó \"{{name}}\" não encontrado.",
+      "NODE_REMOVED": "Nó \"{{name}}\" removido (junto com as arestas ligadas a ele).",
+      "CONNECT_NEED_TWO_NAMES": "Informe o nome dos dois nós para conectar.",
+      "CONNECT_SAME_NODE": "Escolha dois nós diferentes.",
+      "DRAW_NODE_FIRST": "Desenhe pelo menos um nó antes de rodar um algoritmo.",
+      "CHOOSE_RUN_MODE": "Escolha como deseja executar o algoritmo.",
+      "CLICK_ORIGIN_NODE": "Clique no nó de origem para iniciar o algoritmo.",
+      "EXECUTION_RESTARTED": "Execução reiniciada.",
+      "DRAW_GRAPH_FIRST_EXPORT": "Desenhe o grafo antes de exportar.",
+      "EXPORT_IMAGE_ERROR": "Não foi possível gerar a imagem do grafo para exportar.",
+      "RUNNING": "Executando...",
+      "NO_ROUTE_NEEDS_CONNECTED": "Não foi possível calcular uma rota: o grafo precisa ser conexo.",
+      "BFS_DONE": "BFS concluído.",
+      "DFS_DONE": "DFS concluído.",
+      "DIJKSTRA_DONE": "Dijkstra concluído.",
+      "COLORING_DONE": "Coloração concluída com {{count}} cores.",
+      "TSP_DONE": "TSP ({{method}}) concluído — custo total: {{cost}}.",
+      "SEARCHING_MAX_DEGREE": "Procurando o nó com mais vizinhos...",
+      "MAX_DEGREE_NODE": "Nó com mais vizinhos: {{label}} ({{degree}}). Colorindo...",
+      "COLORS_USED": "{{count}} cor(es) usada(s)",
+      "ALREADY_VISITED_IGNORED": " (já visitado, ignorado)",
+      "NO_ROUTE_YET": "(rota calculada de uma vez pelo algoritmo exato)",
+      "STARTED_AT": "{{label}} (início)",
+      "RETURNED_TO_ORIGIN": "(concluído, voltou à origem)",
+      "DEGREE_LABEL": "{{label}} (grau {{degree}})",
+      "EDGE_COST_LABEL": "{{from}} -> {{to}} (custo {{cost}})"
+    },
+    "TSP_METHOD": {
+      "HEURISTIC": "heurística do vizinho mais próximo",
+      "EXACT": "algoritmo exato (Held-Karp)"
+    },
+    "VAR": {
+      "ATUAL": "atual",
+      "FILA": "fila",
+      "PILHA": "pilha",
+      "VISITADOS": "visitados",
+      "DIST": "dist[]",
+      "CORES_VIZINHOS": "coresVizinhos",
+      "COR_ATRIBUIDA": "corAtribuida",
+      "CANDIDATOS": "candidatos",
+      "ATUAL_PROXIMO": "atual -> próximo",
+      "CUSTO_ACUMULADO": "custoAcumulado",
+      "ROTA": "rota"
+    },
+    "VAL": {
+      "NONE": "(nenhum)",
+      "NONE_F": "(nenhuma)",
+      "NONE_YET": "(nenhum ainda)",
+      "EMPTY_M": "(vazio)",
+      "EMPTY_F": "(vazia)",
+      "DONE": "(concluído)"
+    },
+    "MEMVAR": {
+      "NODE_LABEL": "grafo.nos[{{i}}].rotulo",
+      "EDGE": "grafo.arestas[{{i}}]"
+    },
+    "MEMCONTENT": {
+      "EDGE": "{{source}} -> {{target}} (peso {{weight}})"
+    },
+    "CODE_SNIPPET": {
+      "INITIAL": "",
+      "RANDOM_GRAPH": "grafo.numNos = 0;\ngrafo.numArestas = 0;\ngrafo.direcionado = {{directed}};\n\nfor (i = 0; i < {{nodeCount}}; i++) {\n    No n;\n    n.rotulo[0] = 'A' + i;\n    grafo.nos[grafo.numNos++] = n;\n}\n\n// pesoMax = {{maxWeight}}, conexo = {{connected}}\ngerarArestasAleatorias(&grafo, {{maxWeight}}, {{connected}});",
+      "ADD_NODE": "No novoNo;\nstrcpy(novoNo.rotulo, \"{{name}}\");\ngrafo.nos[grafo.numNos++] = novoNo;",
+      "REMOVE_NODE": "// remove o nó e, em cascata, as arestas ligadas a ele\nremoverNo(&grafo, \"{{name}}\");",
+      "ADD_EDGE": "Aresta novaAresta;\nnovaAresta.origem = \"{{source}}\";\nnovaAresta.destino = \"{{target}}\";\nnovaAresta.peso = {{weight}};\ngrafo.arestas[grafo.numArestas++] = novaAresta;"
+    },
+    "HELP": {
+      "PAINEL": {
+        "title": "Descrição",
+        "sections": [
+          {
+            "subtitle": "DESCRIÇÃO DE GRAFOS",
+            "text": "Para criar o grafo, você pode gerar um aleatoriamente clicando em \"Inicializar Grafo\" (Seta 1 da Figura). Esse mesmo botão vira \"Reiniciar execução\" (Seta 2) assim que o grafo existe, e limpa tudo pra você começar de novo. Também é possível montar o grafo à mão: digite um nome e clique em \"Inserir Nó\" (Seta 3) para criar um nó, digite o nome de um nó existente e clique em \"Excluir Nó\" (Seta 4) para removê-lo, e use os campos \"Nó A\", \"Nó B\" e \"Peso\" com o botão \"Conectar Nós\" (Seta 5) para ligar dois nós — a mesma ação de clicar e arrastar diretamente no grafo, mas acessível pelo teclado.",
+            "images": [
+              {
+                "src": "images/PrintGrafo/ajuda-grafos-painel-1.png",
+                "alt": "Botões de criar, reiniciar, inserir, excluir e conectar nós"
+              }
+            ]
+          },
+          {
+            "subtitle": "COMO UTILIZAR O SIMULADOR DE GRAFOS?",
+            "text": "Com o grafo pronto, escolha um algoritmo na lista (Seta 1): Busca em Largura, Busca em Profundidade, Dijkstra, Coloração de Grafos ou Caixeiro Viajante. Em seguida, escolha como executar: \"Rodar tudo de uma vez\" (Seta 2) anima o algoritmo do início ao fim automaticamente, e \"Rodar passo a passo\" (Seta 3) deixa você avançar manualmente por cada etapa, vendo o código e a memória mudarem junto. A qualquer momento, o botão \"✕ Encerrar algoritmo\" (Seta 4) para a execução atual e volta pra essa escolha, sem precisar trocar de algoritmo no menu pra rodar de novo.",
+            "images": [
+              {
+                "src": "images/PrintGrafo/ajuda-grafos-painel-2.png",
+                "alt": "Seleção de algoritmo e escolha do modo de execução"
+              }
+            ]
+          }
+        ]
+      },
+      "CODIGO": {
+        "title": "Códigos",
+        "sections": [
+          {
+            "text": "Para auxiliar no aprendizado, toda parte de código é apresentada no espaço CÓDIGO (imagem abaixo). O exemplo ilustra o código executado quando clicado no botão \"Inicializar Grafo\". Durante a execução de um algoritmo, essa mesma área passa a mostrar o código do algoritmo escolhido, com a linha correspondente ao passo atual destacada.",
+            "images": [
+              {
+                "src": "images/PrintGrafo/ajuda-grafos-codigo.png",
+                "alt": "Código exibido ao clicar em Inicializar Grafo"
+              }
+            ]
+          },
+          {
+            "subtitle": "ESTRUTURA DE DADOS UTILIZADA",
+            "text": "Antes de ler o código, vale conhecer a estrutura (struct) usada por trás dele pra representar o grafo, os nós e as arestas:",
+            "codeBlock": "typedef struct {\n    char rotulo[10];       // nome do nó, ex: \"A\"\n} No;\n\ntypedef struct {\n    char origem[10];\n    char destino[10];\n    int peso;\n} Aresta;\n\ntypedef struct {\n    No nos[10];\n    int numNos;\n    Aresta arestas[45];\n    int numArestas;\n    int direcionado;       // 1 = direcionado, 0 = não direcionado\n} Grafo;\n\nGrafo grafo;"
+          }
+        ]
+      },
+      "MEMORIA": {
+        "title": "Descrição de Grafos",
+        "sections": [
+          {
+            "text": "A memória ilustra o \"nome\", o endereço e o conteúdo de cada item alocado conforme o programa é executado. A Seta 1 indica o nome do nó, da aresta ou da variável do algoritmo. A Seta 2 indica o endereço fictício em que aquele item está armazenado. A Seta 3 indica o conteúdo guardado por ele. Durante a execução de um algoritmo, essa tabela também passa a mostrar as variáveis locais dele (como \"atual\", \"fila\" ou \"distâncias\"), misturadas aos nós e arestas do grafo.",
+            "images": [
+              {
+                "src": "images/PrintGrafo/ajuda-grafos-memoria.png",
+                "alt": "Tabela de memória com nós, arestas e variáveis do algoritmo"
+              }
+            ]
+          }
+        ]
+      },
+      "EXECUCAO": {
+        "title": "Execução / Simulação",
+        "sections": [
+          {
+            "text": "Nesta seção é mostrado de forma gráfica o grafo. Conforme um algoritmo é executado, são exibidas graficamente as operações realizadas (nós visitados, arestas percorridas, cores atribuídas etc.). Por estar limitada a uma tela relativamente pequena e, por ser um simulador, não é permitido criar um grafo com um número muito grande de nós (até 10). O ícone de salvar, no topo da página, exporta o grafo — exatamente como está na tela, com cores e destaques — em um arquivo PDF.",
+            "images": [
+              {
+                "src": "images/PrintGrafo/ajuda-grafos-execucao.png",
+                "alt": "Grafo sendo exibido durante a execução de um algoritmo"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "MACRO": {
+      "BFS": [
+        {
+          "title": "Passo 1",
+          "description": "Coloca o nó de origem na fila e marca ele como visitado.",
+          "codeLines": [
+            0,
+            1
+          ]
+        },
+        {
+          "title": "Passo 2",
+          "description": "Verifica se a fila ainda tem nós para processar.",
+          "codeLines": [
+            3
+          ]
+        },
+        {
+          "title": "Passo 3 (repete)",
+          "description": "Retira o próximo nó da fila e visita seus vizinhos ainda não visitados, marcando-os e colocando-os na fila. Repete até a fila ficar vazia.",
+          "codeLines": [
+            4,
+            5,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "title": "Passo 4",
+          "description": "A fila está vazia — o BFS terminou.",
+          "codeLines": [
+            13
+          ]
+        }
+      ],
+      "DFS": [
+        {
+          "title": "Passo 1",
+          "description": "Empilha o nó de origem.",
+          "codeLines": [
+            0
+          ]
+        },
+        {
+          "title": "Passo 2",
+          "description": "Verifica se a pilha ainda tem nós.",
+          "codeLines": [
+            2
+          ]
+        },
+        {
+          "title": "Passo 3 (repete)",
+          "description": "Desempilha o nó do topo; se ainda não foi visitado, marca como visitado e empilha os vizinhos ainda não visitados. Repete até a pilha ficar vazia.",
+          "codeLines": [
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "title": "Passo 4",
+          "description": "A pilha está vazia — o DFS terminou.",
+          "codeLines": [
+            14
+          ]
+        }
+      ],
+      "DIJKSTRA": [
+        {
+          "title": "Passo 1",
+          "description": "Inicializa a distância de todos os nós como infinito, exceto a origem (0).",
+          "codeLines": [
+            0,
+            1
+          ]
+        },
+        {
+          "title": "Passo 2",
+          "description": "Verifica se ainda existe algum nó não visitado.",
+          "codeLines": [
+            3
+          ]
+        },
+        {
+          "title": "Passo 3 (repete)",
+          "description": "Escolhe o nó não visitado com a menor distância, marca como visitado, e relaxa (atualiza) a distância dos seus vizinhos. Repete até visitar todos.",
+          "codeLines": [
+            4,
+            5,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Passo 4",
+          "description": "Todos os nós foram visitados — o Dijkstra terminou.",
+          "codeLines": [
+            14
+          ]
+        }
+      ],
+      "COLORING": [
+        {
+          "title": "Passo 1",
+          "description": "Ordena os nós do maior para o menor número de vizinhos (grau).",
+          "codeLines": [
+            0
+          ]
+        },
+        {
+          "title": "Passo 2",
+          "description": "Verifica se ainda há nó sem cor.",
+          "codeLines": [
+            2
+          ]
+        },
+        {
+          "title": "Passo 3 (repete)",
+          "description": "Pega o próximo nó da ordem, olha as cores dos vizinhos já coloridos, e atribui a menor cor ainda não usada por eles.",
+          "codeLines": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Passo 4",
+          "description": "Todos os nós foram coloridos — a coloração terminou.",
+          "codeLines": [
+            6
+          ]
+        }
+      ],
+      "TSP": [
+        {
+          "title": "Passo 1",
+          "description": "Marca a origem como visitada e inicia a rota nela.",
+          "codeLines": [
+            0
+          ]
+        },
+        {
+          "title": "Passo 2",
+          "description": "Verifica se ainda há nó não visitado.",
+          "codeLines": [
+            2
+          ]
+        },
+        {
+          "title": "Passo 3 (repete)",
+          "description": "Escolhe o nó não visitado mais próximo do nó atual, move para ele e soma o custo da aresta percorrida.",
+          "codeLines": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "title": "Passo 4",
+          "description": "Todos visitados — volta para a origem e soma o custo final. (Esta versão passo a passo usa a heurística do vizinho mais próximo; o modo \"Rodar tudo\" usa o algoritmo exato.)",
+          "codeLines": [
+            10,
+            11
+          ]
+        }
+      ]
+    },
+    "CODE_LINES": {
+      "BFS": [
+        "enqueue(&fila, origem);",
+        "visitado[origem] = 1;",
+        "",
+        "while (!fila_vazia(&fila)) {",
+        "    atual = dequeue(&fila);",
+        "    ordem[totalOrdem++] = atual;",
+        "",
+        "    for (i = 0; i < grau[atual]; i++) {",
+        "        if (!visitado[adj[atual][i]]) {",
+        "            visitado[adj[atual][i]] = 1;",
+        "            enqueue(&fila, adj[atual][i]);",
+        "        }",
+        "    }",
+        "}"
+      ],
+      "DFS": [
+        "push(&pilha, origem);",
+        "",
+        "while (!pilha_vazia(&pilha)) {",
+        "    atual = pop(&pilha);",
+        "    if (!visitado[atual]) {",
+        "        visitado[atual] = 1;",
+        "        ordem[totalOrdem++] = atual;",
+        "",
+        "        for (i = grau[atual] - 1; i >= 0; i--) {",
+        "            if (!visitado[adj[atual][i]]) {",
+        "                push(&pilha, adj[atual][i]);",
+        "            }",
+        "        }",
+        "    }",
+        "}"
+      ],
+      "DIJKSTRA": [
+        "for (i = 0; i < n; i++) dist[i] = INF;",
+        "dist[origem] = 0;",
+        "",
+        "while (existeNaoVisitado()) {",
+        "    atual = nodeComMenorDist();",
+        "    visitado[atual] = 1;",
+        "",
+        "    for (i = 0; i < grau[atual]; i++) {",
+        "        viz = adj[atual][i];",
+        "        novaDist = dist[atual] + peso[atual][i];",
+        "        if (novaDist < dist[viz]) {",
+        "            dist[viz] = novaDist;",
+        "        }",
+        "    }",
+        "}"
+      ],
+      "COLORING": [
+        "ordenarPorGrauDesc(nos);",
+        "",
+        "for (i = 0; i < numNos; i++) {",
+        "    atual = nos[i];",
+        "    usadas = coresDosVizinhosJaColoridos(atual);",
+        "    corNo[atual] = menorCorLivre(usadas);",
+        "}"
+      ],
+      "TSP": [
+        "visitado[origem] = 1; rota[0] = origem;",
+        "",
+        "while (existeNaoVisitado()) {",
+        "    atual = ultimoDaRota();",
+        "    proximo = naoVisitadoMaisProximo(atual);",
+        "    rota[totalRota++] = proximo;",
+        "    visitado[proximo] = 1;",
+        "    custoTotal += dist[atual][proximo];",
+        "}",
+        "",
+        "custoTotal += dist[ultimoDaRota()][origem];",
+        "rota[totalRota++] = origem;"
+      ]
+    },
+    "STEP_OF_PLAIN": "{{current}} de {{total}}:",
+    "EXPORT_TITLE": "Opções de exportação",
+    "EXPORT_PDF": "Exportar"
+  }
+}

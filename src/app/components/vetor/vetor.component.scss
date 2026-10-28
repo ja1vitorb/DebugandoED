@@ -1,0 +1,741 @@
+.vetor-root {
+  #titulo {
+      text-align: center;
+      font-size: 64px;
+      color: #333333;
+  }
+
+  #nome {
+      color: #333333;
+  }
+
+  #btnInit {
+      text-decoration: none;
+      color: white;
+  }
+
+  #btnFecharEspecifico {
+      font-size: 32px;
+      margin: 16px 2px;
+      background-color: blue;
+  }
+
+  /* modal as widget-friendly (not full viewport) */
+  #modalMostraTodas {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+
+      .modalContent {
+          background-color: #333333;
+          color: #ffffff;
+          width: 95%;
+          max-width: 900px;
+          margin: 1rem auto;
+          padding: 10px;
+          text-align: center;
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+
+          h2 {
+              font-size: 1.8rem;
+              margin-bottom: 1rem;
+          }
+
+          .modalContainer {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+
+            .content-container {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                width: 100%;
+                overflow: auto;
+                max-height: 65vh;
+
+                .vetor-table {
+                    width: 90%;
+                    background-color: #ffffff;
+                    color: #333;
+                    overflow: hidden;
+
+                    th,
+                    td {
+                        padding: 4px 6px;
+                        border-bottom: 1px solid #ccc;
+                        text-align: center;
+                    }
+
+                    th {
+                        background-color: #333333;
+                        color: #fff;
+                    }
+
+                    tr:nth-child(even) {
+                        background-color: #f2f2f2;
+                    }
+                }
+
+                .code-snippet {
+                    width: 40%;
+                    background-color: white;
+                    color: black;
+                    font-family: 'ubuntu';
+                    text-align: left;
+                    padding: 0px;
+                    margin: 2px;
+                    border-radius: 1px;
+                    overflow: auto;
+
+                    .snippet-header {
+                        font-size: 1.7rem;
+                        background-color: #333333;
+                        text-align: center;
+                        color: white;
+                        margin-bottom: 8px;
+                        font-weight: bold;
+                    }
+
+                    pre {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .btn-ok {
+                margin: 20px 20px;
+                padding: 10px 25px;
+                background-color: blue;
+                color: #ffffff;
+                font-size: 1rem;
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+                width: 40%;
+                transition: background-color 0.3s;
+            }
+        }
+    }
+}
+
+
+* {
+
+    .modal {
+        display: none;
+        margin: 0 auto;
+        padding: 0;
+        width: 100vw;
+        z-index: 9999;
+        background-color: rgba(0, 0, 0, 0.4);
+        font-size: 1.5rem;
+        padding: 0 auto;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        overflow-x: hidden;
+
+        .modalContent {
+            min-height: 60vh;
+            height: auto;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #333333;
+            margin: 5rem auto;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            border: 2px solid #333333;
+            width: 90%;
+            max-width: 800px;
+            min-height: 200px;
+            height: auto;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .btns {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            margin: 6px 5px;
+        }
+
+        .modalContainer {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0;
+            padding: 0 auto;
+            color: #333333;
+            width: 99%;
+            height: auto;
+            font-size: 1.5rem;
+            min-height: 100%;
+            background-color: white;
+            border-radius: 10px;
+
+            .explicaTudo {
+                overflow-y: auto;
+            }
+
+            .explicaTudo img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 10px auto;
+                max-height: 55vh;
+                object-fit: contain;
+            }
+
+            #SemVetor {
+                display: none;
+            }
+
+            .explicacao-texto {
+                display: flex;
+                justify-content: center;
+                gap: 5px;
+                width: 100%;
+                flex-wrap: wrap;
+
+                p {
+                    font-size: 16px;
+                }
+
+                div {
+                    cursor: pointer;
+                    height: 35px;
+                    font-size: 12px;
+                    text-align: center;
+                    width: 160px;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 5px;
+                    color: white;
+                    max-height: 300px;
+                }
+
+                .btnModal2 {
+                    background-color: red;
+                }
+
+                .inicializar {
+                    background-color: #0000FF;
+                }
+
+                .excluir {
+                    background-color: red;
+                }
+
+                .inserir {
+                    background-color: #45a049;
+                }
+
+            }
+
+            .explicaTudo {
+                padding: 8px;
+
+                .explicaReinicia {
+                    font-size: 16px;
+                }
+
+                #inicializa,
+                #MostrarTodos,
+                #MostrarEspecifico,
+                #reinicia,
+                #Excluir,
+                #Inserir {
+                    display: none;
+                }
+            }
+
+
+
+            .btnModal {
+                padding: 10px 20px;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            #btnCria {
+                background-color: blue;
+            }
+
+            #btnCancela {
+                background-color: red;
+            }
+
+            .input {
+                padding: 10px;
+                font-size: 16px;
+                margin-top: 10px;
+                width: 50%;
+                border: 1px solid blue;
+                border-radius: 10px;
+            }
+
+            #tituloModal {
+                font-size: 2rem;
+            }
+        }
+
+    }
+
+}
+
+.container2 {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    gap: 4rem;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+}
+
+.painelPrincipal,
+.codigo,
+.memoria {
+    margin: 1rem 0 0 0;
+    width: 500px;
+    background-color: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px; 
+    height: auto;
+    padding: 1rem 0rem;
+    height: 500px;
+    max-width: 400px;
+
+    .topCard {
+        display: flex;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        justify-content: space-around;
+        gap: 2rem;
+        background-color: #333333;
+    }
+
+    .card {
+        overflow-y: auto;
+        background-color: white;
+        width: 95%;
+        max-width: 95%;
+        max-height: 99%;
+        height: 99%;
+        border-radius: 10px;
+        padding: 1rem;
+
+        #textCod {
+            color: #333333;
+            font-weight: bold;
+        }
+
+        .btn {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 1rem;
+
+            div {
+                height: 45px;
+                font-size: 14px;
+                text-align: center;
+                width: 200px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+
+                input {
+                    height: 50px;
+                }
+ 
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    gap: 10px;
+                }
+            }
+
+            .btnReset {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                background-color: red;
+                height: 45px;
+            }
+
+            .btnS {
+                display: flex;
+                width: 100%;
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #45a049;
+                }
+
+                a {
+                    align-items: center;
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+
+            .btnMostraTodos,
+            .btnInicia {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                background-color: blue;
+                height: 45px;
+            }
+
+            .mostraEspecifico {
+                display: flex;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                height: 45px;
+
+                #insereMostra {
+                    border: blue solid 1px;
+                    border-radius: 5px;
+                }
+
+                .mostra {
+                    display: flex;
+                    background-color: blue;
+                    width: 100%;
+                    margin: 0 0 0 10px;
+                    justify-content: center;
+                    margin: 0 0 0 5px;
+
+                }
+            }
+
+            .apagaVet {
+                height: 45px;
+                display: flex;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+
+                #apagaMostra {
+                    border: red solid 1px;
+                    border-radius: 5px;
+                }
+
+                .apaga {
+                    display: flex;
+                    background-color: red;
+                    width: 100%;
+                    margin: 0 0 0 10px;
+                    justify-content: center;
+                    margin: 0 0 0 5px;
+                }
+            }
+
+            .insereElemento {
+                height: 45px;
+                display: flex;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+
+                #insereElemento {
+                    border: green solid 1px;
+                    border-radius: 5px;
+                }
+
+                .insere {
+                    display: flex;
+                    background-color: green;
+                    width: 100%;
+                    margin: 0 0 0 10px;
+                    justify-content: center;
+                    margin: 0 0 0 5px;
+                }
+            }
+        }
+    }
+
+    .memoriaDiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 10px;
+
+        .topCard {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+            width: 100%;
+            font-weight: bold;
+
+            p {
+                background-color: #333333;
+                width: 100%;
+            }
+        }
+
+        .tipo,
+        .nome,
+        .mem,
+        .conteudo {
+            background-color: #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .dados {
+            background-color: white;
+            width: 100%;
+            text-align: center;
+            border: #333333 solid 1px;
+
+            p {
+                color: #333333;
+            }
+        }
+    }
+
+}
+
+.exec {
+    display: flex;
+    flex-direction: column;
+    background-color: #333333;
+    text-align: center;
+    color: white;
+    width: 70vw;
+    margin: 0 auto;
+    margin: 0rem 0 auto 0 0 auto;
+    align-items: center;
+    border-radius: 10px;
+    padding: 1rem;
+    max-height: 1000px;
+
+
+    .parteDeCima {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .corpo {
+        overflow-y: auto;
+        background-color: white;
+        width: 99%;
+        height: 97%;
+        border-radius: 10px;
+        margin: 0 auto;
+        color: #333333;
+        display: flex;
+        padding: 1rem;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        font-size: 1.5rem;
+        font-weight: 800;
+        gap: 0;
+    }
+
+    .caixa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+        position: relative;
+        margin-top: 25px;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+
+        .elemento-inserido {
+            color: #0000FF;
+        }
+
+        .elemento-lixo {
+            color: #FF0000;
+        }
+
+        .count-label {
+            color: blue;
+            position: absolute;
+            top: -25px;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    }
+
+    .count-label.extra {
+        color: #0000FF;
+        margin-left: 15px;
+        margin-top: -100px;
+        font-size: 1rem;
+    }
+
+
+
+
+    .corpo {
+        position: relative;
+        min-height: 120px;
+    }
+
+    .numero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        background-color: white;
+        border: 1px solid #333333;
+        font-size: 1.5rem;
+        padding: 10px;
+        font-weight: bold;
+        color: red;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .indice {
+        font-size: 1.5rem;
+        color: black;
+        margin: 0.2rem 0 1.5rem 0;
+        text-align: center;
+        width: 100%;
+    }
+
+
+}
+
+#explicaModal {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    overflow-y: auto; // Permite rolagem
+    padding: 20px 0; // Espaço vertical
+
+    .modalContent {
+        background-color: #333333;
+        margin: 2% auto;
+        padding: 20px;
+        border: 2px solid #333333;
+        width: 60%;
+        max-height: 90vh; // Altura máxima
+        overflow-y: auto; // Scroll interno
+        border-radius: 10px;
+        position: relative;
+
+        @media (max-width: 1200px) {
+            width: 70%;
+        }
+
+        @media (max-width: 992px) {
+            width: 80%;
+        }
+
+        @media (max-width: 768px) {
+            width: 95%;
+            max-height: 95vh;
+            padding: 15px;
+        }
+    }
+
+    .modalContainer {
+        display: flex;
+        flex-direction: column;
+        color: #333333;
+        width: 100%;
+        font-size: 1rem;
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px;
+
+        .explicacao-texto {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 10px auto;
+                max-height: 70vh;
+                object-fit: contain;
+            }
+        }
+
+        .explicaTudo {
+            .explicaReinicia {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .btns {
+        display: flex;
+        gap: 1rem;
+        margin-top: 15px;
+        justify-content: center;
+
+        @media (max-width: 768px) {
+            flex-wrap: wrap;
+        }
+
+        .btnModal {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+}

@@ -1,0 +1,55 @@
+<div class="exec">
+  <div class="parteCima">
+    <span></span>
+    <h1>{{ 'MATRIX.EXECUTION_TITLE' | translate }}</h1>
+    <img [src]="getImagePath(icon)" alt="ícone" (click)="abrirModal()">
+  </div>
+
+  <div class="corpo">
+    <div>
+      <!-- cabeçalho com índices das colunas (fora das caixas) -->
+      <div class="indices-top" *ngIf="matrizCaixas.length && matrizCaixas[0].length">
+        <div class="corner"></div>
+        <div class="col-index" *ngFor="let _ of matrizCaixas[0]; let j = index">{{ j }}</div>
+      </div>
+
+      <!-- corpo da matriz: cada linha tem um índice à esquerda (fora das caixas) -->
+      <div class="matriz">
+        <div class="linha" *ngFor="let row of matrizCaixas; let i = index">
+          <div class="row-index">{{ i }}</div>
+          <div class="linha-caixas">
+            <div
+              class="caixa"
+              *ngFor="let cell of row; let j = index"
+              [ngClass]="{
+                'elemento-lixo': isLixo(i, j) && !isElementoExcluido(i, j) && !isElementoInicializado(i, j),
+                'elemento-inserido': !isLixo(i, j) && elementosModificados[i][j] && !isElementoExcluido(i, j),
+                'elemento-inicializado': isElementoInicializado(i, j) && !isElementoExcluido(i, j),
+                'elemento-excluido': isElementoExcluido(i, j),
+                'modificada': elementosModificados[i][j],
+                'cl-atual': isCurrentCl(i, j),
+                'excluindo': elementoExcluido && elementoExcluido.i === i && elementoExcluido.j === j,
+                'movido': isElementoMovido(i, j)
+              }"
+            >
+              <!-- Aplica classe texto-excluindo OU texto-movido -->
+              <div 
+                class="numero"
+                [ngClass]="{
+                  'texto-excluindo': elementoExcluido && elementoExcluido.i === i && elementoExcluido.j === j,
+                  'texto-movido': isElementoMovido(i, j)
+                }"
+              >
+                {{ matrizCaixas[i][j] }}
+              </div>
+              
+              <!-- mostra 'lc' apenas na célula atual apontada por currentClIndex -->
+              <div *ngIf="isCurrentCl(i, j)" class="count-label-lc">lc</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

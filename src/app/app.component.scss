@@ -1,0 +1,46 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+.conteudoPrincipal{
+    flex: 1; /* Permite que o conteúdo cresça sem ocupar tudo */
+    padding: 20px;
+}
+
+router-outlet {
+    flex: 1; 
+}
+
+app-footer {
+    background: #111; 
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    bottom: 0;
+    left: 0;
+}
+
+.aviso {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: red;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    z-index: 1000;
+  }

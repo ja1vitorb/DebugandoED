@@ -1,0 +1,248 @@
+<div class="modal" id="Modal" style="display: none;">
+    <div class="modalContent">
+        <h2 id="tituloModal">{{ 'MODAL.CHOICE_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="semVetor">
+                <h2 id="tituloModal">{{ 'MODAL.CHOICE_TITLE' | translate }}</h2>
+            </div>
+            <div class="explicacao-texto">
+                <div class="btnModal2" id="reiniciaModal" (click)="btnModal('reinicia')">
+                    <p>{{ 'MODAL.RESTART' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="btnModal('inicializar')">
+                    <p>{{ 'MODAL.INITIALIZE' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="btnModal('MostrarTodos')">
+                    <p>{{ 'MODAL.SHOW_ALL' | translate }}</p>
+                </div>
+                <div class="inicializar" (click)="btnModal('MostrarEspecifico')">
+                    <p>{{ 'MODAL.SHOW_SPECIFIC' | translate }}</p>
+                </div>
+                <div class="excluir" (click)="btnModal('Excluir')">
+                    <p>{{ 'MODAL.DELETE' | translate }}</p>
+                </div>
+                <div class="inserir" (click)="btnModal('Inserir')">
+                    <p>{{ 'MODAL.INSERT' | translate }}</p>
+                </div>
+            </div>
+            <div class="explicaTudo">
+                <div class="explicaReinicia" id="reinicia">
+                    <h3>{{ 'MODAL.RESTART' | translate }}</h3>
+                    <p id="reiniciaP"></p>
+                    <img alt="Descrição" id="imgReinicia">
+                </div>
+                <div class="explicaReinicia" id="inicializar">
+                    <h3>{{ 'MODAL.INITIALIZE' | translate }}</h3>
+                    <p id="inicializaP"></p>
+                    <img alt="Descrição" id="imgInicializa">
+                </div>
+                <div class="explicaReinicia" id="MostrarTodos">
+                    <h3>{{ 'MODAL.SHOW_ALL' | translate }}</h3>
+                    <p id="mostraTodosP"></p>
+                    <img alt="Descrição" id="imgMostraTodos">
+                </div>
+                <div class="explicaReinicia" id="MostrarEspecifico">
+                    <h3>{{ 'MODAL.SHOW_SPECIFIC' | translate }}</h3>
+                    <p id="mostraEspecificoP"></p>
+                    <img alt="Descrição" id="imgMostraEspecifico">
+                </div>
+                <div class="explicaReinicia" id="Excluir">
+                    <h3>{{ 'MODAL.DELETE' | translate }}</h3>
+                    <p id="excluiP"></p>
+                    <img alt="Descrição" id="imgExclui">
+                </div>
+                <div class="explicaReinicia" id="Inserir">
+                    <h3>{{ 'MODAL.INSERT' | translate }}</h3>
+                    <p id="insereP"></p>
+                    <img alt="Descrição" id="imgInserir">
+                </div>
+            </div>
+            <div class="btns">
+                <button class="btnModal" id="btnCriaModal" (click)="fecharModal()">{{ 'MODAL.CLOSE' | translate
+                    }}</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal" id="SemVetor" style="display: none;">
+    <div class="modalContent">
+        <h2 id="semEstruturaTitulo">{{ tituloPag || ('MODAL.TITLE') | translate}}</h2>
+        <div class="modalContainer">
+            <div class="explicacao-texto">
+                <h3 id="tituloSemEstrutura"></h3>
+                <p id="semEstruturaDesc"></p>
+                <h3 id="tituloEstrutura2"></h3>
+                <p id="comoUtiliza"></p>
+            </div>
+            <div class="explicaReinicia" id="Inserir">
+                <h3>{{ 'MODAL.INSERT' | translate }}</h3>
+                <!-- texto de passos exibido quando não há estrutura (matriz ou vetor) -->
+                <p id="criaMatriz"></p>
+                <!-- imagem específica de criação da matriz; só aparece em página de matriz -->
+                <img *ngIf="tituloPag === 'matriz'" alt="Como criar matriz" id="imgCriaMatriz">
+            </div>
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="fecharModal()">{{ 'MODAL.CLOSE' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="modal">
+    <div class="modalContent">
+        <h2 id="tituloM"></h2>
+        <div class="modalContainer">
+            <h2 id="tituloM2"></h2>
+            <div class="inputsModal">
+                <input type="number" id="tamanhoVetor" class="input" placeholder="Linhas" min="1">
+                <input type="number" id="colunasMatriz" class="input" placeholder="Colunas" min="1">
+            </div>
+            <div class="btns">
+                <button class="btnModal" id="btnCria" (click)="alterarVisibilidade()">{{ 'VECTOR.INPUT.CONFIRM' |
+                    translate }}</button>
+                <button class="btnModal" id="btnCancela" (click)="fecharModal()">{{ 'MODAL.CANCEL' | translate
+                    }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Mostrar Específico -->
+<div class="modal" id="modalMostraEspecifico">
+    <div class="modalContent">
+        <h2 id="tituloModalEspecifico">
+            {{ tituloPag ? (tituloPag | translate) + ' - ' : '' }}{{ 'MODAL.SHOW_SPECIFIC' | translate }}
+            [{{ indiceEspecifico }}]
+        </h2>
+        <div class="modalContainer">
+            <table>
+                <tr>
+                    <th>{{ 'MATRIX.TABLE.CONTENT' | translate }}</th>
+                    <th>{{ 'MATRIX.TABLE.CODE' | translate }}</th>
+                </tr>
+                <tr>
+                    <td>{{ elementoEspecifico }}</td>
+                    <td><code>printf(" %d ", matriz[{{ indiceEspecifico }}]);</code></td>
+                </tr>
+            </table>
+            <button class="btnModal" id="btnFecharEspecifico" (click)="fecharModalEspecifico()">{{ 'MODAL.OK' |
+                translate }}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Mostrar Todos -->
+<div class="modal" id="modalMostraTodos" style="display: none;">
+    <div class="modalContent">
+        <h2>{{ 'MODAL.SHOW_ALL_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="content-container">
+                <ng-container *ngIf="mostrarTodosData">
+                    <!-- matriz case -->
+                    <table *ngIf="mostrarTodosData.tipo === 'matriz' && hasNonEmptyContent">
+                        <thead>
+                            <tr>
+                                <th>{{ 'MATRIX.TABLE.POSITION' | translate }}</th>
+                                <th>{{ 'MATRIX.TABLE.CONTENT' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let row of conteudoMatriz; let i = index">
+                                <ng-container *ngFor="let cell of row; let j = index">
+                                    <tr *ngIf="cell !== '' && cell !== null && cell !== undefined">
+                                        <td>{{ 'MATRIX.ROW.POSITION' | translate }} [ {{ i }} ][ {{ j }} ]</td>
+                                        <td>{{ cell }}</td>
+                                    </tr>
+                                </ng-container>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                    <!-- vetor case -->
+                    <table *ngIf="mostrarTodosData.tipo === 'vetor' && hasNonEmptyContent">
+                        <thead>
+                            <tr>
+                                <th>{{ 'VECTOR.TABLE.POSITION' | translate }}</th>
+                                <th>{{ 'VECTOR.TABLE.CONTENT' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let val of conteudoVetor; let idx = index">
+                                <tr *ngIf="val !== '' && val !== null && val !== undefined">
+                                    <td>{{ 'VECTOR.ROW.POSITION' | translate }} [ {{ idx }} ]</td>
+                                    <td>{{ val }}</td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                    <p *ngIf="mostrarTodosData && !hasNonEmptyContent">{{ 'MODAL.NO_CONTENT' | translate }}</p>
+                </ng-container>
+                <div class="code-snippet" *ngIf="mostrarTodosData">
+                    <div class="snippet-header">{{ 'MODAL.CODE_HEADER' | translate }}</div>
+                    <pre>{{ gerarCodigoMostrarTodos() }}</pre>
+                </div>
+            </div> <!-- close content-container -->
+            <button class="btnModal" id="btnFecharTodos" (click)="fecharModalTodos()">{{ 'MODAL.OK' | translate
+                }}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Explanation modal for code -->
+<div class="modal" id="modalCodigo" style="display: none;">
+    <div class="modalContent">
+        <h2>{{ 'MODAL.CODE_HELP_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <h2 style="color: #333; width: 100%; text-align: center; margin-bottom: 10px;">
+                {{ 'VECTOR.CODE.TITLE' | translate }}
+            </h2>
+            <div class="explicacao-texto">
+                <p>{{ codeHelpText }}</p>
+                <img src="/images/imgExplicacao/codigo.png" alt="{{ 'IMAGES.CODIGO' | translate }}">
+            </div>
+            <div class="btns">
+                <button class="btnModal" id="btnFecharCodigo" (click)="fecharModalCodigo()">{{ 'MODAL.CLOSE' | translate
+                    }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Explanation modal for memory -->
+<div class="modal" id="modalMemoria" style="display: none;">
+    <div class="modalContent">
+        <h2>{{ 'MODAL.MEMORY_HELP_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicacao-texto">
+                <h2 style="color: #333; width: 100%; text-align: center; margin-bottom: 10px;">
+                    {{ 'VECTOR.MEMORY.TITLE' | translate }}
+                </h2>
+                <p style="white-space: pre-wrap;">{{ memoryHelpText }}</p>
+                <img src="/images/imgExplicacao/memoriaExplicacao.png" alt="{{ 'IMAGES.MEMORIA' | translate }}">
+            </div>
+            <div class="btns">
+                <button class="btnModal" id="btnFecharMemoria" (click)="fecharModalMemoria()">{{ 'MODAL.CLOSE' |
+                    translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Explanation modal for execution -->
+<div class="modal" id="modalExecucao" style="display: none;">
+    <div class="modalContent">
+        <h2>{{ 'MODAL.EXECUTION_HELP_TITLE' | translate }}</h2>
+        <div class="modalContainer">
+            <div class="explicacao-texto">
+                <h2 style="color: #333; width: 100%; text-align: center; margin-bottom: 10px;">
+                    {{ 'EXECUTION.TITLE' | translate }}
+                </h2>
+                <p>{{ executionHelpText }}</p>
+                <img src="/images/imgExplicacao/exec.png" alt="{{ 'IMAGES.EXEC' | translate }}">
+            </div>
+            <div class="btns">
+                <button class="btnModal" id="btnFecharExecucao" (click)="fecharModalExecucao()">{{ 'MODAL.CLOSE' |
+                    translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>

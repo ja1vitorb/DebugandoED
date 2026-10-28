@@ -1,0 +1,133 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Ubuntu Sans";
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+.mission-view {
+    .structure-host {
+        flex: 2; 
+        max-width: 100%;
+        overflow: auto;
+    }
+
+    .container2,
+    .painelPrincipal,
+    .codigo,
+    .memoria,
+    .exec {
+        // width: auto !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .exec {
+        width: 100% !important;
+    }
+
+
+    .modal {
+        position: absolute !important;
+        width: auto !important;
+        max-width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 auto !important;
+        background-color: rgba(0,0,0,0.4) !important;
+        padding: 0 !important;
+    }
+
+    .card {
+        max-height: calc(100vh - 200px) !important;
+        overflow: auto !important;
+    }
+}
+
+    .mission-view {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem 2rem;
+
+        .mission-description {
+            width: 100%;
+            margin: 0 auto 0 0; 
+        }
+
+        .mission-structure {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .structure-wrapper {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+
+        .mission-view .panel {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #fff;
+            overflow: hidden;
+            // max-width: 1200px;
+            margin: 0 0 1rem 0;
+            text-align: center;
+        }
+
+        .mission-view .panel-header {
+            font-weight: 700;
+            padding: 10px 12px;
+            color: #333;
+            background: #fafafa;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .mission-view .panel-body {
+            padding: 18px 30px 28px;
+            color: #333;
+        }
+
+        .mission-view .panel-body h3 {
+            margin: 8px 0 12px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .mission-view .panel-body p { margin: 6px 0; line-height: 1.6; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

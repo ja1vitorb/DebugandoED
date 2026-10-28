@@ -1,0 +1,267 @@
+.container-lista {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.lista-container {
+  padding: 60px;
+  background: white;
+}
+
+.flex-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px 40px; // 60px de espaço vertical (para a curva), 40px horizontal
+  max-width: 900px; // Controle aqui para testar a quebra
+  position: relative;
+}
+
+.node-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.node-group {
+  display: flex;
+  align-items: center;
+}
+
+.node-box {
+  display: flex;
+  border: 2px solid black;
+  height: 54px;
+  min-width: 120px;
+  background: white;
+  z-index: 2;
+
+  .valor {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blue;
+    font-weight: bold;
+    font-size: 1.4rem;
+    border-right: 2px solid black;
+  }
+
+  .pointer {
+    flex: 1;
+    position: relative;
+    // Ponto onde a seta "nasce"
+    &::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: black;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+// A Seta Horizontal
+.arrow-horizontal {
+  width: 40px;
+  height: 2px;
+  background: black;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -4px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid black;
+  }
+}
+
+// LÓGICA DA QUEBRA AUTOMÁTICA
+// Criamos uma linha atrás dos nós que conecta o fim de uma linha ao início da outra
+.flex-nodes::before {
+  content: "";
+  position: absolute;
+  top: 27px; // Metade da altura do primeiro nó
+  left: 20px;
+  right: 20px;
+  bottom: 27px;
+  border: 2px solid black;
+  border-top: none; // Deixa o topo livre
+  z-index: 1;
+  pointer-events: none;
+  /* Esse contorno cria o caminho que os nós seguem quando quebram */
+}
+
+// Terminal de Terra
+.ground-terminal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+
+  .vertical-line {
+    width: 2px;
+    height: 30px;
+    background: black;
+  }
+
+  .ground-bars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    span { background: black; height: 2px; }
+    span:nth-child(1) { width: 20px; }
+    span:nth-child(2) { width: 12px; }
+    span:nth-child(3) { width: 6px; }
+  }
+}
+
+.lista-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 50px;
+}
+
+.flex-wrap-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 80px; // Espaço horizontal (80px) e vertical (40px)
+  max-width: 800px; // Ajuste conforme necessário para testar a quebra
+}
+
+.node-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.node-structure {
+  display: flex;
+  border: 2px solid black;
+  height: 50px;
+  background: white;
+
+  .val {
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blue;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-right: 2px solid black;
+  }
+  .ptr { width: 30px; }
+}
+
+.connector {
+  position: absolute;
+  right: -75px; // Posiciona entre os blocos
+  width: 70px;
+  height: 2px;
+
+  .arrow-h {
+    width: 100%;
+    overflow: visible;
+  }
+}
+
+/* LÓGICA DA QUEBRA (Zigue-zague) */
+/* Quando o nó é o último da linha, o CSS abaixo cria a linha que desce */
+/* Nota: Como o flex-wrap é dinâmico, para uma simulação perfeita 
+   como a do seu print (estilo "Snake"), o ideal é fixar o número 
+   de colunas ou usar um cálculo de posição. */
+
+.node-item::after {
+  content: "";
+  position: absolute;
+  /* Esta linha cria a conexão vertical que você viu no print */
+  /* Se você quiser que ela apareça APENAS na quebra, 
+     precisamos de um pequeno script ou media query */
+}
+
+.ground {
+  font-size: 2rem;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.label-inicio {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap; // Permite a quebra automática
+  gap: 40px 60px; // Espaçamento vertical e horizontal entre nós
+  align-items: center;
+}
+
+.node-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.node-box {
+  display: flex;
+  border: 2px solid #000;
+  background: #fff;
+  min-width: 100px;
+  height: 60px;
+
+  .valor {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: blue;
+    border-right: 2px solid #000;
+  }
+
+  .ponteiro {
+    flex: 1;
+    background: #fff;
+  }
+}
+
+.seta-svg {
+  width: 50px;
+  height: 20px;
+  position: absolute;
+  right: -55px; // Posiciona a seta fora do box à direita
+}
+
+/* Símbolo de Final da Lista (Terra) */
+.ground-symbol {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  &::before {
+    content: '';
+    width: 2px;
+    height: 30px;
+    background: #000;
+  }
+
+  .line-1 { width: 20px; height: 2px; background: #000; margin-top: 2px; }
+  .line-2 { width: 12px; height: 2px; background: #000; margin-top: 3px; }
+  .line-3 { width: 6px; height: 2px; background: #000; margin-top: 3px; }
+}
