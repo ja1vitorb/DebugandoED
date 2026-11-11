@@ -330,7 +330,9 @@
       <h2 class="modalTitulo">{{ 'GRAPH.MODAL.CREATE_NODE_TITLE' | translate }}</h2>
       <div class="modalContainer">
         <input #nodeLabelInput type="text" class="input" [placeholder]="'GRAPH.PLACEHOLDER.NODE_NAME_SHORT' | translate"
-               (keyup.enter)="confirmCreateNode(nodeLabelInput.value)">
+               (keyup.enter)="confirmCreateNode(nodeLabelInput.value)"
+               (input)="nodeModalError.set('')">
+        <span *ngIf="nodeModalError()" class="erro">{{ nodeModalError() }}</span>
         <div class="btns">
           <button class="btnModal" id="btnCria" (click)="confirmCreateNode(nodeLabelInput.value)">{{ 'GRAPH.BUTTON.CONFIRM' | translate }}</button>
           <button class="btnModal" id="btnCancela" (click)="cancelCreateNode()">{{ 'GRAPH.BUTTON.CANCEL' | translate }}</button>
