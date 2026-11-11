@@ -9,12 +9,22 @@ export class GraphService {
     edges: []
   });
 
-  addNode(label: string) {
+  // Já existe um nó com esse nome? (ignora maiúsculas/minúsculas e espaços nas pontas,
+  // então "a" e "A " contam como repetidos de "A".)
+  hasNodeLabel(label: string): boolean {
+    const alvo = label.trim().toLowerCase();
+    return this.graph().nodes.some(n => n.label.trim().toLowerCase() === alvo);
+  }
+
+  // Retorna false (e não cria nada) se o nome já estiver em uso.
+  addNode(label: string): boolean {
+    if (this.hasNodeLabel(label)) return false;
     const id = crypto.randomUUID();
     this.graph.update(g => ({
       ...g,
       nodes: [...g.nodes, { id, label }]
     }));
+    return true;
   }
 
   addEdge(source: string, target: string, weight: number) {

@@ -141,6 +141,7 @@ export class GrafosComponent implements AfterViewInit, OnDestroy {
 
   // Modais customizados (substituem o prompt() nativo)
   nodeModalOpen = signal(false);
+  nodeModalError = signal('');
   edgeModalOpen = signal(false);
   randomModalOpen = signal(false);
   helpModalOpen = signal(false);
@@ -400,7 +401,7 @@ export class GrafosComponent implements AfterViewInit, OnDestroy {
 
     const nome = label.trim();
     const data = this.graphService.graph();
-    if (data.nodes.some(n => n.label === nome)) {
+    if (this.graphService.hasNodeLabel(nome)) {
       this.nodeActionMessage.set(this.t('MSG.NODE_EXISTS', { name: nome }));
       return;
     }
@@ -548,6 +549,7 @@ export class GrafosComponent implements AfterViewInit, OnDestroy {
 
     this.cy.on('tap', (event) => {
       if (event.target === this.cy && this.mode === 'idle') {
+        this.nodeModalError.set('');
         this.nodeModalOpen.set(true);
       }
     });
@@ -577,15 +579,31 @@ export class GrafosComponent implements AfterViewInit, OnDestroy {
   // ---------- Modais customizados ----------
 
   confirmCreateNode(label: string) {
-    this.nodeModalOpen.set(false);
-    if (!label || !label.trim()) return;
+    if (!label || !label.trim()) {
+      this.nodeModalOpen.set(false);
+      return;
+    }
 
-    this.graphService.addNode(label.trim());
+    const nome = label.trim();
+    // Mesmas regras do campo "Inserir nó" do painel: sem nome repetido e no máximo 10 nós.
+    // O modal fica aberto mostrando o erro, pra pessoa corrigir o nome.
+    if (this.graphService.hasNodeLabel(nome)) {
+      this.nodeModalError.set(this.t('MSG.NODE_EXISTS', { name: nome }));
+      return;
+    }
+    if (this.graphService.graph().nodes.length >= 10) {
+      this.nodeModalError.set(this.t('MSG.MAX_NODES'));
+      return;
+    }
+
+    this.nodeModalOpen.set(false);
+    this.graphService.addNode(nome);
     this.resetTraceState();
     this.codigoAtual.set(this.t('CODE_SNIPPET.ADD_NODE', { name: label.trim() }));
   }
 
   cancelCreateNode() {
+    this.nodeModalError.set('');
     this.nodeModalOpen.set(false);
   }
 
